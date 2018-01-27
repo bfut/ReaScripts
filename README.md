@@ -9,12 +9,12 @@ https://github.com/bfut/ReaScripts/raw/master/index.xml
 ```
 
 
-## Convert MIDI notes to items (offline sequencer)
+## Convert MIDI notes to items
 * bfut_MIDI notes to items (explode note rows to subtracks).lua  
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua  
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua  
 
-Converts MIDI notes to media items in one go. Turns the MIDI editor into a powerful sequencer.  
+Converts MIDI notes to media items in one go.
 
 How to use:  
   1) Select MIDI item(s), all on the same track.  
