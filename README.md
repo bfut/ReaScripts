@@ -14,7 +14,7 @@ https://github.com/bfut/ReaScripts/raw/master/index.xml
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua  
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua  
 
-Converts MIDI notes to media items in one go.
+Converts MIDI notes to media items in one go. See script code for config options.  
 
 How to use:  
   1) Select MIDI item(s), all on the same track.  
