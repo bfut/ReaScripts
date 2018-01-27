@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1" name="bfut_ReaScripts" commit="94ec804d13e2b9073d8ad3d4b3ea68e221a24456">
+  <category name="Items Editing">
+    <reapack name="bfut_Copy items to project markers, remove overlaps.lua" type="script" desc="bfut_Copy items to project markers, remove overlaps">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI note row controls items pitch.lua" type="script" desc="bfut_MIDI note row controls items pitch">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20note%20row%20controls%20items%20pitch.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI note row controls items rate.lua" type="script" desc="bfut_MIDI note row controls items rate">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20note%20row%20controls%20items%20rate.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes split items, set items pitch.lua" type="script" desc="bfut_MIDI notes split items, set items pitch">
+      <metadata>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20split%20items,%20set%20items%20pitch.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to items (explode note rows to subtracks).lua" type="script" desc="bfut_MIDI notes to items (explode note rows to subtracks)">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch)">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate)">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Split looped item into separate items.lua" type="script" desc="bfut_Split looped item into separate items">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Trim to source media lengths (limit items lengths).lua" type="script" desc="bfut_Trim to source media lengths (limit items lengths)">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Trim%20to%20source%20media%20lengths%20(limit%20items%20lengths).lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Stretch Markers">
+    <reapack name="bfut_MIDI notes control items stretch markers.lua" type="script" desc="bfut_MIDI notes control items stretch markers">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Stretch%20Markers/bfut_MIDI%20notes%20control%20items%20stretch%20markers.lua</source>
+      </version>
+    </reapack>
+  </category>
+</index>
