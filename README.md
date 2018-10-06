@@ -13,7 +13,7 @@ https://github.com/bfut/ReaScripts/raw/master/index.xml
 * bfut_Copy item to clipboard.lua
 * bfut_Paste item from clipboard to selected items (replace).lua
 
-Copies and replaces selected items, preserving position, length, mute status, etc. in the replaced items. Requires extension, [SWS](http://www.sws-extension.org/).
+Copies and replaces selected items, preserving position, length, mute status, etc. in the replaced items. Requires [SWS](http://www.sws-extension.org/) extension.
 
 How to use:
   1) Select media item.
@@ -25,7 +25,7 @@ How to use:
 ## Replace item under mouse cursor
 * bfut_Replace item under mouse cursor with selected item.lua
 
-Replaces item under mouse cursor with selected item, preserving position, length, mute status, etc. in the replaced item. Requires extension, [SWS](http://www.sws-extension.org/).
+Replaces item under mouse cursor with selected item, preserving position, length, mute status, etc. in the replaced item. Requires [SWS](http://www.sws-extension.org/) extension.
 
 How to use:
   1) Select media item.
