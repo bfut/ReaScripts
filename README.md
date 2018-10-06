@@ -1,5 +1,5 @@
 # ReaScripts
-ReaScripts for REAPER, written by bfut. Only Reaper v5.70 (or higher) is required.
+ReaScripts for REAPER, written by bfut. Only Reaper v5.95 (or higher) is required, unless noted otherwise.
 
 #### Installation
 Copy and paste this URL in Extensions > [ReaPack](https://github.com/cfillion/reapack) > Import a repository:
@@ -9,12 +9,36 @@ https://github.com/bfut/ReaScripts/raw/master/index.xml
 ```
 
 
+## Copy and replace selected items
+* bfut_Copy item to clipboard.lua
+* bfut_Paste item from clipboard to selected items (replace).lua
+
+Copies and replaces selected items, preserving position, length, mute status, etc. in the replaced items. Requires extension, [SWS](http://www.sws-extension.org/).
+
+How to use:
+  1) Select media item.
+  2) Run script "bfut_Copy item to clipboard".
+  3) Select other media item(s).
+  4) Run script "bfut_Paste item from clipboard to selected items (replace)".
+
+
+## Replace item under mouse cursor
+* bfut_Replace item under mouse cursor with selected item.lua
+
+Replaces item under mouse cursor with selected item, preserving position, length, mute status, etc. in the replaced item. Requires extension, [SWS](http://www.sws-extension.org/).
+
+How to use:
+  1) Select media item.
+  2) Hover mouse over another item.
+  3) Run the script.
+
+
 ## Convert MIDI notes to items
 * bfut_MIDI notes to items (explode note rows to subtracks).lua  
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua  
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua  
 
-Converts MIDI notes to media items in one go. See script code for config options.  
+Converts MIDI notes to media items in one go.
 
 How to use:  
   1) Select MIDI item(s), all on the same track.  
@@ -26,7 +50,7 @@ How to use:
 * bfut_MIDI notes control items stretch markers.lua  
 * bfut_MIDI notes split items, set items pitch.lua  
 
-Use a MIDI editor as GUI to control item stretch markers, or item pitch. See script code for config options.  
+Use a MIDI editor as GUI to control item stretch markers, or item pitch.
 
 How to use:  
   1) Open MIDI editor.  
@@ -39,7 +63,7 @@ How to use:
 * bfut_MIDI note row controls items pitch.lua  
 * bfut_MIDI note row controls items rate.lua  
 
-Use a MIDI editor as GUI to control item pitch, or item rate. See script code for config options.  
+Use a MIDI editor as GUI to control item pitch, or item rate.
 
 How to use:  
   1) Open MIDI editor.  
