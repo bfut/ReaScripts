@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="94ec804d13e2b9073d8ad3d4b3ea68e221a24456">
+<index version="1" name="bfut_ReaScripts" commit="7ba682890db29889d7704bd8685bde4319246a11">
   <category name="Items Editing">
+    <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
+      <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/7ba682890db29889d7704bd8685bde4319246a11/Items%20Editing/bfut_Copy%20item%20to%20clipboard.lua</source>
+      </version>
+    </reapack>
     <reapack name="bfut_Copy items to project markers, remove overlaps.lua" type="script" desc="bfut_Copy items to project markers, remove overlaps">
       <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
         <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
@@ -37,6 +42,16 @@
     <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate)">
       <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
         <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Paste item from clipboard to selected items (replace).lua" type="script" desc="bfut_Paste item from clipboard to selected items (replace)">
+      <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/7ba682890db29889d7704bd8685bde4319246a11/Items%20Editing/bfut_Paste%20item%20from%20clipboard%20to%20selected%20items%20(replace).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Replace item under mouse cursor with selected item.lua" type="script" desc="bfut_Replace item under mouse cursor with selected item">
+      <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/7ba682890db29889d7704bd8685bde4319246a11/Items%20Editing/bfut_Replace%20item%20under%20mouse%20cursor%20with%20selected%20item.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Split looped item into separate items.lua" type="script" desc="bfut_Split looped item into separate items">
