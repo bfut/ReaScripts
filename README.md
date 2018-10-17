@@ -1,7 +1,8 @@
 # ReaScripts
-ReaScripts for REAPER, written by bfut. Only Reaper v5.95 (or higher) is required, unless noted otherwise.
+ReaScripts for REAPER Digital Audio Workstation, written by bfut. 
 
 #### Installation
+Only Reaper v5.95 (or higher) is required, unless noted otherwise.
 Copy and paste this URL in Extensions > [ReaPack](https://github.com/cfillion/reapack) > Import a repository:
 
 ```
