@@ -1,12 +1,12 @@
 --[[
   @author bfut
-  @version 1.0
+  @version 1.1
   DESCRIPTION: bfut_Replace item under mouse cursor with selected item
   HOW TO USE:
     1) Select media item.
     2) Hover mouse over another item.
     3) Run the script.
-  REQUIRES: Reaper v5.95 or later, SWS v2.9.7 or later
+  REQUIRES: Reaper v5.980 or later, SWS v2.10.0.1 or later
   LICENSE:
     Copyright (c) 2018 and later Benjamin Futasz <bendfu@gmail.com><https://github.com/bfut>
     
@@ -37,11 +37,13 @@ local config = {
   pool_midi = true 
 }
 local reaper = reaper
+local type = type
+local ipairs = ipairs
 local function bfut_GetSetItemChunkValue2(s,key,param,set)
-  if type(s) ~= "string" then reaper.ReaScriptError("bfut_GetSetItemChunkValue: string expected (arg 1)") return s,false end
-  if type(key) ~= "string" then reaper.ReaScriptError("bfut_GetSetItemChunkValue: string expected (arg 2)") return s,false end
-  if type(param) ~= "string" and type(param) ~= "number" then reaper.ReaScriptError("bfut_GetSetItemChunkValue: string expected (arg 3)") return false,s end
-  if type(set) ~= "boolean" then reaper.ReaScriptError("bfut_GetSetItemChunkValue: boolean expected (arg 4)") return s,false end
+  if type(s) ~= "string" then reaper.ReaScriptError("bfut_GetSetItemChunkValue2: string expected (arg 1)") return s,false end
+  if type(key) ~= "string" then reaper.ReaScriptError("bfut_GetSetItemChunkValue2: string expected (arg 2)") return s,false end
+  if type(param) ~= "string" and type(param) ~= "number" then reaper.ReaScriptError("bfut_GetSetItemChunkValue2: string expected (arg 3)") return s,false end
+  if type(set) ~= "boolean" then reaper.ReaScriptError("bfut_GetSetItemChunkValue2: boolean expected (arg 4)") return s,false end
   if set then
     if s:match('('..key..')') ~= nil then
       return s:gsub('%s'..key..'%s+.-[\r]-[%\n]',"\n"..key.." "..param.."\n",1),true
@@ -52,9 +54,17 @@ local function bfut_GetSetItemChunkValue2(s,key,param,set)
     if s:match('('..key..')') ~= nil then
       return s:match('%s'..key..'%s+(.-)[\r]-[%\n]'),true
     else
-      return nil,true
+      return nil,false
     end
   end
+end
+local function bfut_ResetAllChunkGuids(s,key)
+  if type(s) ~= "string" then reaper.ReaScriptError("bfut_ResetAllChunkGuids: string expected (arg 1)") return s,false end
+  if type(key) ~= "string" or type(key) == "number" then reaper.ReaScriptError("bfut_ResetAllChunkGuids: string expected (arg 2)") return s,false end
+  while s:match('%s('..key..')') ~= nil do
+    s = s:gsub('%s('..key..')%s+.-[\r]-[%\n]',"\ntemp%1 "..reaper.genGuid("").."\n",1)
+  end
+  return s:gsub('temp'..key,key),true
 end
 local RPPXML_LOCK = {
   ["1"] = 0,
@@ -68,15 +78,11 @@ if type(config["pool_midi"]) ~= "boolean" then
   reaper.ReaScriptError("config[pool_midi] must be Boolean.\n")
   return
 end
-local function_name ="BR_GetMouseCursorContext"
-if not reaper.APIExists(function_name) then
-  reaper.ReaScriptError("Requires extension, SWS v2.9.7 or later.\n")
-  return
-end
-function_name ="BR_GetMouseCursorContext_Item"
-if not reaper.APIExists(function_name) then
-  reaper.ReaScriptError("Requires extension, SWS v2.9.7 or later.\n")
-  return
+for _,function_name in ipairs({"BR_GetMouseCursorContext","BR_GetMouseCursorContext_Item"}) do
+  if not reaper.APIExists(function_name) then
+    reaper.ReaScriptError("Requires extension, SWS v2.10.0.1 or later.\n")
+    return
+  end
 end
 reaper.BR_GetMouseCursorContext()
 local item = reaper.BR_GetMouseCursorContext_Item()
@@ -92,36 +98,28 @@ if not _ or item_chunk == nil then
   reaper.ShowConsoleMsg("err: GetItemStateChunk(item) has failed.\n")
   return
 end
-local item_position = bfut_GetSetItemChunkValue2(item_chunk,"POSITION","",false)
-local item_length = bfut_GetSetItemChunkValue2(item_chunk,"LENGTH","",false)
-local item_mute = bfut_GetSetItemChunkValue2(item_chunk,"MUTE","",false)
-local item_sel = bfut_GetSetItemChunkValue2(item_chunk,"SEL","",false)
-local item_iid = bfut_GetSetItemChunkValue2(item_chunk,"IID","",false)
 local _,src_item_chunk = reaper.GetItemStateChunk(reaper.GetSelectedMediaItem(0,0), "", false)
-if not _ then
+if not _ or src_item_chunk == nil then
   reaper.ShowConsoleMsg("err: GetItemStateChunk(source item) has failed.\n")
   return
 end
-src_item_chunk = bfut_GetSetItemChunkValue2(src_item_chunk,"POSITION",item_position,true)
-src_item_chunk = bfut_GetSetItemChunkValue2(src_item_chunk,"LENGTH",item_length,true)
-src_item_chunk = bfut_GetSetItemChunkValue2(src_item_chunk,"MUTE",item_mute,true)
-src_item_chunk = bfut_GetSetItemChunkValue2(src_item_chunk,"SEL",item_sel,true)
-src_item_chunk = bfut_GetSetItemChunkValue2(src_item_chunk,"IID",item_iid,true)
+for _,key in ipairs({"POSITION","LENGTH","MUTE","SEL","IID"}) do
+  src_item_chunk = bfut_GetSetItemChunkValue2(
+    src_item_chunk,
+    key,
+    bfut_GetSetItemChunkValue2(item_chunk,key,"",false),
+    true
+  )
+end
 src_item_chunk = bfut_GetSetItemChunkValue2(
   src_item_chunk,"LOCK",
   RPPXML_LOCK[bfut_GetSetItemChunkValue2(src_item_chunk,"LOCK","",false) or "1"],
   true
 )
 src_item_chunk = bfut_GetSetItemChunkValue2(src_item_chunk,"IGUID",reaper.genGuid(""),true)
-while src_item_chunk:match('%s(GUID)') ~= nil do
-  src_item_chunk = src_item_chunk:gsub('%s(GUID)%s+.-[\r]-[%\n]',"\ntemp%1 "..reaper.genGuid("").."\n",1)
-end
-src_item_chunk = src_item_chunk:gsub('temp'.."GUID","GUID")
+src_item_chunk = bfut_ResetAllChunkGuids(src_item_chunk,"GUID")
 if not config["pool_midi"] then
-  while src_item_chunk:match('%s(POOLEDEVTS)') ~= nil do
-    src_item_chunk = src_item_chunk:gsub('%s(POOLEDEVTS)%s+.-[\r]-[%\n]',"\ntemp%1 "..reaper.genGuid("").."\n",1)
-  end
-  src_item_chunk = src_item_chunk:gsub('temp'.."POOLEDEVTS","POOLEDEVTS")
+  src_item_chunk = bfut_ResetAllChunkGuids(src_item_chunk,"POOLEDEVTS")
 end
 reaper.Undo_BeginBlock2(0)
 reaper.PreventUIRefresh(1)
