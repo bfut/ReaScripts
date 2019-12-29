@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="92c9b4ef4b04fee9b3fe9b486399a9d7717b2acf">
+<index version="1" name="bfut_ReaScripts" commit="26303cece0da0fee337131209ccab6140eeef30d">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
@@ -110,8 +110,8 @@
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
       </metadata>
-      <version name="1.0" author="bfut" time="2019-12-29T19:42:43Z">
-        <source main="main">https://github.com/bfut/ReaScripts/raw/92c9b4ef4b04fee9b3fe9b486399a9d7717b2acf/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20to%20current%20grid%20division).lua</source>
+      <version name="1.0" author="bfut" time="2019-12-29T23:11:17Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/26303cece0da0fee337131209ccab6140eeef30d/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20to%20current%20grid%20division).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Trim to source media lengths (limit items lengths).lua" type="script" desc="bfut_Trim to source media lengths (limit items lengths)">
