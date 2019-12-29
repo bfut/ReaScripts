@@ -22,7 +22,7 @@ Add a source media item at the beginning of your target track. Set a time select
 How to set up:
   1) Install both scripts, and SWS.
   2) Open REAPER > Actions > Show action list...
-  3) Assign keyboard shortcuts for each script (e.g. ALT+Q, and ALT+W).
+  3) Assign keyboard shortcuts to each script (e.g. ALT+Q, and ALT+W).
   4) Holding a key combination, continuously executes the script, respectively.
 
 How to use:
@@ -65,7 +65,7 @@ Replaces item under mouse cursor with selected item, preserving position, length
 How to set up:
   1) Install the script, and SWS.
   2) Open REAPER > Actions > Show action list...
-  3) Assign a keyboard shortcut for the script.
+  3) Assign a keyboard shortcut to the script.
 
 How to use:
   1) Select media item.
@@ -111,5 +111,5 @@ How to use:
   
   
 ## other scripts
-bfut_Split looped item into separate items.lua
+bfut_Split looped item into separate items.lua  
 bfut_Trim to source media lengths (limit items lengths).lua
