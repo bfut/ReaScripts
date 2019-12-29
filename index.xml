@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="706b5b41b0f5fa32f7f4ff2b0b8c8b1d9851bb7c">
+<index version="1" name="bfut_ReaScripts" commit="92c9b4ef4b04fee9b3fe9b486399a9d7717b2acf">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
@@ -55,6 +55,23 @@
         <source main="main">https://github.com/bfut/ReaScripts/raw/706b5b41b0f5fa32f7f4ff2b0b8c8b1d9851bb7c/Items%20Editing/bfut_Paste%20item%20from%20clipboard%20to%20selected%20items%20(replace).lua</source>
       </version>
     </reapack>
+    <reapack name="bfut_Remove item under mouse cursor (delete).lua" type="script" desc="bfut_Remove item under mouse cursor (delete)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Hover mouse over item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.00 or later, SWS v2.10.0.1 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2019-12-29T19:41:45Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/1886f389de482bfa5913ec75d7b8d1c9709deed4/Items%20Editing/bfut_Remove%20item%20under%20mouse%20cursor%20(delete).lua</source>
+      </version>
+    </reapack>
     <reapack name="bfut_Replace item under mouse cursor with selected item.lua" type="script" desc="bfut_Replace item under mouse cursor with selected item">
       <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
         <source main="main">https://github.com/bfut/ReaScripts/raw/7ba682890db29889d7704bd8685bde4319246a11/Items%20Editing/bfut_Replace%20item%20under%20mouse%20cursor%20with%20selected%20item.lua</source>
@@ -66,6 +83,35 @@
     <reapack name="bfut_Split looped item into separate items.lua" type="script" desc="bfut_Split looped item into separate items">
       <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
         <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Step sequencer (copy first item to current grid division).lua" type="script" desc="bfut_Step sequencer (copy first item to current grid division)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Step sequencer\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item to current grid division).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Remove item under mouse cursor (delete).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies first item on track under mouse cursor to current grid division under mouse cursor. Requires SWS extension.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Add a source media item at the beginning of your target track. Set a time selection, e.g. 4 grid divisions on a 1/4 grid setting. Hit play. As you add and remove media items, try varying the grid settings. REAPER's arrange view now behaves like a pattern-based step sequencer.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Install both scripts, and SWS.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Open REAPER > Actions > Show action list...\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Assign keyboard shortcuts for each script (e.g. ALT+Q, and ALT+W).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Holding a key combination, continuously executes the script, respectively.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one item on the target track.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Hover mouse over arrange view.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run script "bfut_Step sequencer (copy first item to current grid division)".\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.00 or later, SWS v2.10.0.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2019-12-29T19:42:43Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/92c9b4ef4b04fee9b3fe9b486399a9d7717b2acf/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20to%20current%20grid%20division).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Trim to source media lengths (limit items lengths).lua" type="script" desc="bfut_Trim to source media lengths (limit items lengths)">
