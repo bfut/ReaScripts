@@ -16,7 +16,7 @@ https://github.com/bfut/ReaScripts/raw/master/index.xml
 * bfut_Step sequencer (copy first item on track to grid bar under mouse).lua
 * bfut_Remove item under mouse cursor (delete).lua
 
-Copies first item on track under mouse cursor to current grid division under mouse cursor. Requires [SWS](http://www.sws-extension.org) extension.
+Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires [SWS](http://www.sws-extension.org) extension.
 
 Add a source media item at the beginning of your target track. Set a time selection, e.g. 4 grid bars on a 1/4 grid division setting. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid settings.
 
