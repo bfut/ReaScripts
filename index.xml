@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="8b4e50fb367998a9957698000db06679c6e1f3a7">
+<index version="1" name="bfut_ReaScripts" commit="45940cb86b82e7716918e195375985b4bc5e9102">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
@@ -110,8 +110,8 @@
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
       </metadata>
-      <version name="2.0" author="bfut" time="2019-12-31T14:52:43Z">
-        <source main="main">https://github.com/bfut/ReaScripts/raw/8b4e50fb367998a9957698000db06679c6e1f3a7/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20and%20fill%20grid%20bar%20under%20mouse).lua</source>
+      <version name="2.0" author="bfut" time="2019-12-31T16:08:19Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/0c388ab2df0a2038a8679b7f943ed78efb73b76a/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20and%20fill%20grid%20bar%20under%20mouse).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Step sequencer (copy first item on track to grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track to grid bar under mouse)">
@@ -139,8 +139,8 @@
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
       </metadata>
-      <version name="2.0" author="bfut" time="2019-12-31T14:52:15Z">
-        <source main="main">https://github.com/bfut/ReaScripts/raw/c2d9662504351172193fd892bf37d8845dab45d4/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20to%20grid%20bar%20under%20mouse).lua</source>
+      <version name="2.0" author="bfut" time="2019-12-31T16:08:37Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/45940cb86b82e7716918e195375985b4bc5e9102/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20to%20grid%20bar%20under%20mouse).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Trim to source media lengths (limit items lengths).lua" type="script" desc="bfut_Trim to source media lengths (limit items lengths)">
