@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="26303cece0da0fee337131209ccab6140eeef30d">
+<index version="1" name="bfut_ReaScripts" commit="8b4e50fb367998a9957698000db06679c6e1f3a7">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
@@ -85,33 +85,62 @@
         <source main="main">https://github.com/bfut/ReaScripts/raw/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
       </version>
     </reapack>
-    <reapack name="bfut_Step sequencer (copy first item to current grid division).lua" type="script" desc="bfut_Step sequencer (copy first item to current grid division)">
+    <reapack name="bfut_Step sequencer (copy first item on track and fill grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track and fill grid bar under mouse)">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Step sequencer\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item to current grid division).lua\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Step sequencer for items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track and fill grid bar under mouse)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track to grid bar under mouse).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Remove item under mouse cursor (delete).lua\sa180\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Copies first item on track under mouse cursor to current grid division under mouse cursor. Requires SWS extension.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Add a source media item at the beginning of your target track. Set a time selection, e.g. 4 grid divisions on a 1/4 grid setting. Hit play. As you add and remove media items, try varying the grid settings. REAPER's arrange view now behaves like a pattern-based step sequencer.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires SWS extension.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Add a source media item at the beginning of your target track. Set a time selection, e.g. 4 grid bars on a 1/4 grid division setting. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid settings.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP:\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Install both scripts, and SWS.\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Open REAPER > Actions > Show action list...\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Assign keyboard shortcuts for each script (e.g. ALT+Q, and ALT+W).\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Holding a key combination, continuously executes the script, respectively.\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Install the scripts, and SWS.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Open REAPER > Actions > Show action list\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Assign keyboard shortcuts to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively. Holding a key combination, continuously executes a script.\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one item on the target track.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one item on the track under mouse cursor.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Hover mouse over arrange view.\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run script "bfut_Step sequencer (copy first item to current grid division)".\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script.\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.00 or later, SWS v2.10.0.1 or later\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
       </metadata>
-      <version name="1.0" author="bfut" time="2019-12-29T23:11:17Z">
-        <source main="main">https://github.com/bfut/ReaScripts/raw/26303cece0da0fee337131209ccab6140eeef30d/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20to%20current%20grid%20division).lua</source>
+      <version name="2.0" author="bfut" time="2019-12-31T14:52:43Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/8b4e50fb367998a9957698000db06679c6e1f3a7/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20and%20fill%20grid%20bar%20under%20mouse).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Step sequencer (copy first item on track to grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track to grid bar under mouse)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Step sequencer for items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track and fill grid bar under mouse)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track to grid bar under mouse).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Remove item under mouse cursor (delete).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires SWS extension.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Add a source media item at the beginning of your target track. Set a time selection, e.g. 4 grid bars on a 1/4 grid division setting. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid settings.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Install the scripts, and SWS.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Open REAPER > Actions > Show action list\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Assign keyboard shortcuts to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively. Holding a key combination, continuously executes a script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one item on the track under mouse cursor.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Hover mouse over arrange view.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.00 or later, SWS v2.10.0.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="2.0" author="bfut" time="2019-12-31T14:52:15Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/c2d9662504351172193fd892bf37d8845dab45d4/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20to%20grid%20bar%20under%20mouse).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Trim to source media lengths (limit items lengths).lua" type="script" desc="bfut_Trim to source media lengths (limit items lengths)">
