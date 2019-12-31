@@ -11,24 +11,25 @@ https://github.com/bfut/ReaScripts/raw/master/index.xml
 ```
 
 
-## Step sequencer
-* bfut_Step sequencer (copy first item to current grid division).lua
+## Step sequencer for items
+* bfut_Step sequencer (copy first item on track and fill grid bar under mouse)
+* bfut_Step sequencer (copy first item on track to grid bar under mouse).lua
 * bfut_Remove item under mouse cursor (delete).lua
 
- Copies first item on track under mouse cursor to current grid division under mouse cursor. Requires [SWS](http://www.sws-extension.org) extension.
+Copies first item on track under mouse cursor to current grid division under mouse cursor. Requires [SWS](http://www.sws-extension.org) extension.
 
-Add a source media item at the beginning of your target track. Set a time selection, e.g. 4 grid divisions on a 1/4 grid setting. Hit play. As you add and remove media items, try varying the grid settings. REAPER's arrange view now behaves like a pattern-based step sequencer.
+Add a source media item at the beginning of your target track. Set a time selection, e.g. 4 grid bars on a 1/4 grid division setting. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid settings.
 
 How to set up:
-  1) Install both scripts, and SWS.
-  2) Open REAPER > Actions > Show action list...
-  3) Assign keyboard shortcuts to each script (e.g. ALT+Q, and ALT+W).
-  4) Holding a key combination, continuously executes the script, respectively.
+  1) Install the scripts, and SWS.
+  2) Open REAPER > Actions > Show action list
+  3) Assign keyboard shortcuts to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively.
+  Holding a key combination, continuously executes a script.
 
 How to use:
-  1) There must be at least one item on the target track.
+  1) There must be at least one item on the track under mouse cursor.
   2) Hover mouse over arrange view.
-  3) Run script "bfut_Step sequencer (copy first item to current grid division)".
+  3) Run the script.
 
 
 ## Convert MIDI notes to items
