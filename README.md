@@ -1,7 +1,8 @@
 # ReaScripts
 ReaScripts for REAPER Digital Audio Workstation, written by bfut. 
 
-Requirements: Reaper v6.00 or later, unless noted otherwise
+Requirements: Reaper v6.xx, unless noted otherwise
+
 
 ### Installation
 Copy and paste this URL in Extensions > [ReaPack](https://github.com/cfillion/reapack) > Import repositories:
@@ -16,21 +17,31 @@ https://github.com/bfut/ReaScripts/raw/master/index.xml
 * bfut_Step sequencer (copy first item on track to grid bar under mouse).lua
 * bfut_Remove item under mouse cursor (delete).lua
 
-Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires [SWS](http://www.sws-extension.org) extension.
+Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires [SWS] extension.
 
-Add a source media item at the beginning of your target track. Set a time selection, e.g. 4 grid bars on a 1/4 grid division setting. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid settings.
+Add a source media item at the beginning of your target track. Set a time selection, e.g. 16 grid bars. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid settings.
 
 How to set up:
-  1) Install the scripts, and SWS.
-  2) Open REAPER > Actions > Show action list
-  3) Assign keyboard shortcuts to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively.
+  1. Install the scripts, and SWS.
+  2. Toggle on "Options > Toggle trim behind items when editing".
+  3. Set mouse modifiers (Options > Preferences > Editing Behavior > Mouse Modifiers).
+  4. Open Actions > Show action list
+  5. Assign keyboard shortcut to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively.  
   Holding a key combination, continuously executes a script.
 
 How to use:
-  1) There must be at least one item on the track under mouse cursor.
-  2) Hover mouse over arrange view.
-  3) Run the script.
+  1. There must be at least one item on the track under mouse cursor.
+  2. Set a time selection, e.g. 16 grid bars.
+  3. Hover mouse over arrange view.
+  4. Run the script.
 
+![alt text][mouse]
+
+![alt text][trim]
+
+[mouse]: https://github.com/bfut/ReaScripts/raw/rc/assets/bfut_Step-sequencer-MOUSE-MODIFIER.png "Set mouse modifiers"
+
+[trim]: https://github.com/bfut/ReaScripts/raw/rc/assets/bfut_Step-sequencer-TRIM-BEHIND-ITEMS.png "Options > Toggle trim behind items when editing"
 
 ## Convert MIDI notes to items
 * bfut_MIDI notes to items (explode note rows to subtracks).lua
@@ -40,38 +51,49 @@ How to use:
 Converts MIDI notes to media items in one go.
 
 How to use:
-  1) Select MIDI item(s), all on the same track.
-  2) Select a track. (optional)
-  3) Run the script.
+  1. Select MIDI item(s), all on the same track.
+  1. Select a track. (optional)
+  1. Run the script.
 
 
 ## Copy and replace selected items
 * bfut_Copy item to clipboard.lua
 * bfut_Paste item from clipboard to selected items (replace).lua
 
-Copies and replaces selected items, preserving position, length, mute status, etc. in the replaced items. Requires [SWS](http://www.sws-extension.org) extension.
+Copies and replaces selected items, preserving position, length, mute status, etc. in the replaced items. Requires [SWS] extension.
 
 How to use:
-  1) Select media item.
-  2) Run script "bfut_Copy item to clipboard".
-  3) Select other media item(s).
-  4) Run script "bfut_Paste item from clipboard to selected items (replace)".
+  1. Select media item.
+  1. Run script "bfut_Copy item to clipboard".
+  1. Select other media item(s).
+  1. Run script "bfut_Paste item from clipboard to selected items (replace)".
 
 
 ## Replace item under mouse cursor
 * bfut_Replace item under mouse cursor with selected item.lua
 
-Replaces item under mouse cursor with selected item, preserving position, length, mute status, etc. in the replaced item. Requires [SWS](http://www.sws-extension.org/) extension.
+Replaces item under mouse cursor with selected item, preserving position, length, mute status, etc. in the replaced item. Requires [SWS] extension.
 
 How to set up:
-  1) Install the script, and SWS.
-  2) Open REAPER > Actions > Show action list...
-  3) Assign a keyboard shortcut to the script.
+  1. Install the script, and SWS.
+  1. Open REAPER > Actions > Show action list...
+  1. Assign a keyboard shortcut to the script.
 
 How to use:
-  1) Select media item.
-  2) Hover mouse over another item.
-  3) Run the script.
+  1. Select media item.
+  1. Hover mouse over another item.
+  1. Run the script.
+
+
+## Copy items to project markers
+* bfut_Copy items to project markers, remove overlaps.lua
+
+Copies any number of selected items to project markers.
+  
+How to use:
+  1. There must be at least one project marker.
+  1. Select media item(s).
+  1. Run the script.
 
 
 ## MIDI notes control ...
@@ -81,10 +103,10 @@ How to use:
 Use a MIDI editor as GUI to control item stretch markers, or item pitch.
 
 How to use:
-  1) Open MIDI editor.
-  2) Write MIDI notes at will (relevant properties: note start position, note pitch, note velocity).
-  3) Select media item(s).
-  4) Run the script.
+  1. Open MIDI editor.
+  1. Write MIDI notes at will (relevant properties: note start position, note pitch, note velocity).
+  1. Select media item(s).
+  1. Run the script.
 
 
 ## MIDI note row controls ...
@@ -94,23 +116,15 @@ How to use:
 Use a MIDI editor as GUI to control item pitch, or item rate.
 
 How to use:
-  1) Open MIDI editor.
-  2) Select media item(s).
-  3) Click any note row.
-  4) Run the script.
-
-
-## Copy items to project markers
-* bfut_Copy items to project markers, remove overlaps.lua
-
-Copies any number of selected items to project markers.
-  
-How to use:
-  1) Make sure there is at least one project marker.
-  2) Select media item(s).
-  3) Run the script.
+  1. Open MIDI editor.
+  1. Select media item(s).
+  1. Click any note row.
+  1. Run the script.
   
   
 ## other scripts
 bfut_Split looped item into separate items.lua  
 bfut_Trim to source media lengths (limit items lengths).lua
+
+
+[SWS]: http://www.sws-extension.org
