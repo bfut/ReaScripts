@@ -19,29 +19,27 @@ https://github.com/bfut/ReaScripts/raw/master/index.xml
 
 Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires [SWS] extension.
 
-Add a source media item at the beginning of your target track. Set a time selection, e.g. 16 grid bars. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid settings.
+Add a source media item at the beginning of your target track. Set a time selection, e.g. 16 grid bars. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid divison.
 
 How to set up:
   1. Install the scripts, and SWS.
-  2. Toggle on "Options > Toggle trim behind items when editing".
+  2. Toggle on "Options > Trim content behind media items when editing".
   3. Set mouse modifiers (Options > Preferences > Editing Behavior > Mouse Modifiers).
   4. Open Actions > Show action list
-  5. Assign keyboard shortcut to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively.  
+  5. Assign keyboard shortcuts to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively.  
   Holding a key combination, continuously executes a script.
 
 How to use:
   1. There must be at least one item on the track under mouse cursor.
-  2. Set a time selection, e.g. 16 grid bars.
-  3. Hover mouse over arrange view.
-  4. Run the script.
+  2. Hover mouse over arrange view.
+  3. Run the script.
 
+![alt text][trim]  
 ![alt text][mouse]
 
-![alt text][trim]
+[trim]: https://github.com/bfut/ReaScripts/raw/rc/assets/bfut_Step-sequencer-TRIM-BEHIND-ITEMS.png "Options > Toggle trim behind items when editing"
 
 [mouse]: https://github.com/bfut/ReaScripts/raw/rc/assets/bfut_Step-sequencer-MOUSE-MODIFIER.png "Set mouse modifiers"
-
-[trim]: https://github.com/bfut/ReaScripts/raw/rc/assets/bfut_Step-sequencer-TRIM-BEHIND-ITEMS.png "Options > Toggle trim behind items when editing"
 
 ## Convert MIDI notes to items
 * bfut_MIDI notes to items (explode note rows to subtracks).lua
