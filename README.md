@@ -101,35 +101,13 @@ How to use:
   1. Run the script.
 
 
-## MIDI notes control ...
-* bfut_MIDI notes control items stretch markers.lua
-* bfut_MIDI notes split items, set items pitch.lua
-
-Use a MIDI editor as GUI to control item stretch markers, or item pitch.
-
-How to use:
-  1. Open MIDI editor.
-  1. Write MIDI notes at will (relevant properties: note start position, note pitch, note velocity).
-  1. Select media item(s).
-  1. Run the script.
-
-
-## MIDI note row controls ...
-* bfut_MIDI note row controls items pitch.lua
-* bfut_MIDI note row controls items rate.lua
-
-Use a MIDI editor as GUI to control item pitch, or item rate.
-
-How to use:
-  1. Open MIDI editor.
-  1. Select media item(s).
-  1. Click any note row.
-  1. Run the script.
-  
-  
 ## other scripts
 bfut_Split looped item into separate items.lua  
-bfut_Trim to source media lengths (limit items lengths).lua
+bfut_Trim to source media lengths (limit items lengths).lua  
+bfut_MIDI note row controls items pitch.lua  
+bfut_MIDI note row controls items rate.lua  
+bfut_MIDI notes control items stretch markers.lua  
+bfut_MIDI notes split items, set items pitch.lua
 
 
 [SWS]: http://www.sws-extension.org
