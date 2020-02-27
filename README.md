@@ -46,10 +46,16 @@ How to use:
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua
 
-Converts MIDI notes to media items in one go.
+Converts MIDI notes to media items in one go. Note velocity as item volume.
+
+How to set up item/sample loader:
+  1. Select MIDI item(s) on one track.
+  2. Select another track with various media items.
+  3. Each used note row will point to one of the media items.
+  4. If there are not enough media items, you'll get empty items.
 
 How to use:
-  1. Select MIDI item(s), all on the same track.
+  1. Select MIDI item(s).
   1. Select a track. (optional)
   1. Run the script.
 
@@ -85,8 +91,9 @@ How to use:
 
 ## Copy items to project markers
 * bfut_Copy items to project markers, remove overlaps.lua
+* bfut_Copy items within time selection to project markers, remove overlaps.lua
 
-Copies any number of selected items to project markers.
+Copies any selected items to project markers.
   
 How to use:
   1. There must be at least one project marker.
