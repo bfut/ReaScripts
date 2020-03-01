@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="7a215368aea282ce0dcc94b6989112b78dd373eb">
+<index version="1" name="bfut_ReaScripts" commit="5d45a1705cc6e8ee437bc095bcb51fa548f3d222">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -33,7 +33,7 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Copies any number of selected items to project markers.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies any selected items to project markers.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one project marker.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select media item(s).\par}
@@ -52,6 +52,32 @@
 + inherit item grouping behavior from native copy+paste
 + improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/f3158e4807a7d21cdeb441b6b99fdbfbbe2dc6dd/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+      <version name="2.1" author="bfut" time="2020-03-01T18:47:33Z">
+        <changelog><![CDATA[+ improved performance]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/5d45a1705cc6e8ee437bc095bcb51fa548f3d222/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Copy items within time selection to project markers, remove overlaps.lua" type="script" desc="bfut_Copy items within time selection to project markers, remove overlaps">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies any selected items within time selection to project markers.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one project marker.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Set time selection that at least partially overlaps selected item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run the script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.04 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="2.1" author="bfut" time="2020-02-27T19:37:14Z">
+        <changelog><![CDATA[+ initial version]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/72bfd0a204857ad2ed7186e08ad44e1f053b0f2b/Items%20Editing/bfut_Copy%20items%20within%20time%20selection%20to%20project%20markers,%20remove%20overlaps.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI note row controls items pitch.lua" type="script" desc="bfut_MIDI note row controls items pitch">
