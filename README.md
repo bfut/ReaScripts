@@ -45,14 +45,17 @@ How to use:
 * bfut_MIDI notes to items (explode note rows to subtracks).lua
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua
+* bfut_MIDI notes to empty items (explode note rows to subtracks).lua
+* bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua
+* bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua
 
 Converts MIDI notes to media items in one go. Note velocity as item volume.
 
 How to set up item/sample loader:
   1. Select MIDI item(s) on one track.
-  2. Select another track with various media items.
-  3. Each used note row will point to one of the media items.
-  4. If there are not enough media items, you'll get empty items.
+  2. Select any one track with various media items.
+  3. Script maps each used note row to successive media items on selected track.
+  4. If there are not enough media items, script inserts empty items.
 
 How to use:
   1. Select MIDI item(s).
