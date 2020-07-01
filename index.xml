@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="328d641568bf15aee8364e90a331392dd4e98088">
+<index version="1" name="bfut_ReaScripts" commit="1c980e76fe68fe6d31ed67b2e96d5fa64a865053">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -78,6 +78,24 @@
       <version name="2.1" author="bfut" time="2020-02-27T19:37:14Z">
         <changelog><![CDATA[+ initial version]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/72bfd0a204857ad2ed7186e08ad44e1f053b0f2b/Items%20Editing/bfut_Copy%20items%20within%20time%20selection%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Extract loop section under mouse cursor to new item.lua" type="script" desc="bfut_Extract loop section under mouse cursor to new item">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Hover mouse over looped media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.12c or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2020-07-01T21:55:25Z">
+        <changelog><![CDATA[+ initial commit]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/0b3dc44e7b06992ecdefd59f1f4ae46b2c757eb5/Items%20Editing/bfut_Extract%20loop%20section%20under%20mouse%20cursor%20to%20new%20item.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI note row controls items pitch.lua" type="script" desc="bfut_MIDI note row controls items pitch">
@@ -400,7 +418,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item(s).\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v5.99 or later\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.12c or later\sa180\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -411,6 +429,10 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.1" author="bfut" time="2020-02-22T12:49:01Z">
         <changelog><![CDATA[+ ignore locked items]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/7c0aa9392415db6f8a12e8b1aa7990da61af697e/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
+      </version>
+      <version name="1.2" author="bfut" time="2020-07-01T21:55:54Z">
+        <changelog><![CDATA[+ obey take source start offset]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/1c980e76fe68fe6d31ed67b2e96d5fa64a865053/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Step sequencer (copy first item on track and fill grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track and fill grid bar under mouse)">
