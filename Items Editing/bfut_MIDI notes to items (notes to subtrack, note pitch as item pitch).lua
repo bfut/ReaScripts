@@ -1,12 +1,15 @@
 --[[
   @author bfut
-  @version 1.1
+  @version 1.2
   @description bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch)
   @about
     Convert MIDI notes to items
     * bfut_MIDI notes to items (explode note rows to subtracks).lua
     * bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua
     * bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua
+    * bfut_MIDI notes to empty items (explode note rows to subtracks).lua
+    * bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua
+    * bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua
 
     Converts MIDI notes to media items in one go. Note velocity as item volume.
 
@@ -20,11 +23,9 @@
       1) Select MIDI item(s).
       2) Select a track. (optional)
       3) Run the script.
-    REQUIRES: Reaper v6.04 or later
+    REQUIRES: Reaper v6.12 or later
   @changelog
-    + convert note velocity to item volume
-    + obey MIDI item start/end
-    + improved performance
+    + convert note multiples from looped items, obeying take playrate
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -71,39 +72,41 @@ function bfut_FetchSelectedMIDI_TakesOnTrack(count_sel_items)
   for i = 0, count_sel_items - 1 do
     local item = reaper.GetSelectedMediaItem(0, i)
     if item then
-      local item_take = reaper.GetActiveTake(item, 0)
-      if item_take and reaper.TakeIsMIDI(item_take) then
-        local hasnote = false
+      local take = reaper.GetActiveTake(item, 0)
+      if take and reaper.TakeIsMIDI(take) then
         local item_start = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
         local item_end = item_start + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
-        local _, count_notes, _, _ = reaper.MIDI_CountEvts(item_take)
-        for j = 0, count_notes - 1 do
-          local MIDI_note = {reaper.MIDI_GetNote(item_take, j)}
-          MIDI_note[4] = reaper.MIDI_GetProjTimeFromPPQPos(item_take, MIDI_note[4])
-          if MIDI_note[4] >= item_start and MIDI_note[4] < item_end then
-            hasnote = true
-            break
+        local take_length = reaper.TimeMap2_QNToTime(
+          0,
+          reaper.GetMediaSourceLength(reaper.GetMediaItemTake_Source(take)) /
+            reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
+        )
+        for j = 0, select(2, reaper.MIDI_CountEvts(take)) - 1 do
+          local MIDI_note = {reaper.MIDI_GetNote(take, j)}
+          MIDI_note[4] = reaper.MIDI_GetProjTimeFromPPQPos(take, MIDI_note[4])
+          while MIDI_note[4] < item_end do
+            if MIDI_note[4] >= item_start then
+              MIDI_takes[1] = take
+              MIDI_takes_track = reaper.GetMediaItem_Track(item)
+              idx_first_MIDI_item = i
+              goto BREAK
+            end
+            MIDI_note[4] = MIDI_note[4] + take_length
           end
-        end
-        if hasnote then
-          MIDI_takes[1] = item_take
-          MIDI_takes_track = reaper.GetMediaItem_Track(item)
-          idx_first_MIDI_item = i
-          break
         end
       end
     end
   end
+  ::BREAK::
   for i = idx_first_MIDI_item + 1, count_sel_items - 1 do
     local item = reaper.GetSelectedMediaItem(0, i)
     if item then
-      local item_take = reaper.GetActiveTake(item, 0)
-      if item_take then
+      local take = reaper.GetActiveTake(item, 0)
+      if take then
         if MIDI_takes_track == reaper.GetMediaItemTrack(item) then
-          if reaper.TakeIsMIDI(item_take) then
-            local _, count_notes, _, _ = reaper.MIDI_CountEvts(item_take)
-            if count_notes > 0 then
-              MIDI_takes[#MIDI_takes + 1] = item_take
+          if reaper.TakeIsMIDI(take) then
+            if select(2, reaper.MIDI_CountEvts(take)) > 0 then
+              MIDI_takes[#MIDI_takes + 1] = take
             end
           end
         else
@@ -114,26 +117,34 @@ function bfut_FetchSelectedMIDI_TakesOnTrack(count_sel_items)
   end
   return MIDI_takes, MIDI_takes_track
 end
-function bfut_FetchMIDI_notes(MIDI_take, default_velocity)
-  local MIDI_notes = {}
-  local MIDI_take_item = reaper.GetMediaItemTake_Item(MIDI_take)
-  local item_start = reaper.GetMediaItemInfo_Value(MIDI_take_item, "D_POSITION")
-  local item_end = item_start + reaper.GetMediaItemInfo_Value(MIDI_take_item, "D_LENGTH")
-  local _, count_notes, _, _ = reaper.MIDI_CountEvts(MIDI_take)
-  for i = 1, count_notes do
-    local j = #MIDI_notes + 1
-    MIDI_notes[j] = {reaper.MIDI_GetNote(MIDI_take, i - 1)}
-    MIDI_notes[j][4] = reaper.MIDI_GetProjTimeFromPPQPos(MIDI_take, MIDI_notes[j][4])
-    MIDI_notes[j][5] = reaper.MIDI_GetProjTimeFromPPQPos(MIDI_take, MIDI_notes[j][5])
-    if MIDI_notes[j][4] >= item_end or MIDI_notes[j][5] <= item_start then
-      MIDI_notes[j] = nil
-    else
-      MIDI_notes[j][4] = math.max(MIDI_notes[j][4], item_start)
-      MIDI_notes[j][5] = math.min(MIDI_notes[j][5], item_end)
-      MIDI_notes[j][8] = MIDI_notes[j][8] / default_velocity
+function bfut_FetchMIDI_notes(take, default_velocity)
+  local notes = {}
+  local item = reaper.GetMediaItemTake_Item(take)
+  local item_start = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
+  local item_end = item_start + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
+  local take_length = reaper.TimeMap2_QNToTime(
+    0,
+    reaper.GetMediaSourceLength(reaper.GetMediaItemTake_Source(take)) /
+      reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
+  )
+  for i = 0, select(2, reaper.MIDI_CountEvts(take)) - 1 do
+    local note = {reaper.MIDI_GetNote(take, i)}
+    note[8] = note[8] / default_velocity
+    note[4] = reaper.MIDI_GetProjTimeFromPPQPos(take, note[4])
+    note[5] = reaper.MIDI_GetProjTimeFromPPQPos(take, note[5])
+    while note[4] < item_end do
+      if note[5] > item_start then
+        notes[#notes + 1] = {
+          note[1], note[2], note[3],
+          math.max(note[4], item_start), math.min(note[5], item_end),
+          note[6], note[7], note[8]
+        }
+      end
+      note[4] = note[4] + take_length
+      note[5] = note[5] + take_length
     end
   end
-  return MIDI_notes
+  return notes
 end
 function bfut_InsertSubTracks(parent_track, option, note_rows, track_name)
   local subtracks = {}
@@ -360,12 +371,18 @@ end
 local TIME_SEL_START, TIME_SEL_END = reaper.GetSet_LoopTimeRange2(0, false, false, -1, -1, false)
 local ORIGINAL_CURSOR_POSITION = reaper.GetCursorPosition()
 local UNDO_DESC
-if CONFIG["option"] == 1 then
+if CONFIG["option"] == 1 and item_loader then
   UNDO_DESC = "bfut_MIDI notes to items (explode note rows to subtracks)"
-elseif CONFIG["option"] == 2 then
+elseif CONFIG["option"] == 2 and item_loader then
   UNDO_DESC = "bfut_MIDI notes to items (notes to subtrack, note pitch as item rate)"
-elseif CONFIG["option"] == 3 then
+elseif CONFIG["option"] == 3 and item_loader then
   UNDO_DESC = "bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch)"
+elseif CONFIG["option"] == 1 and not item_loader then
+  UNDO_DESC = "bfut_MIDI notes to empty items (explode note rows to subtracks)"
+elseif CONFIG["option"] == 2 and not item_loader then
+  UNDO_DESC = "bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate)"
+elseif CONFIG["option"] == 3 and not item_loader then
+  UNDO_DESC = "bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch)"
 else
   return
 end
