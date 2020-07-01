@@ -105,6 +105,7 @@ How to use:
 
 
 ## other scripts
+bfut_Extract loop section under mouse cursor to new item.lua  
 bfut_Split looped item into separate items.lua  
 bfut_Trim to source media lengths (limit items lengths).lua  
 bfut_MIDI note row controls items pitch.lua  
