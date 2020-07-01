@@ -1,14 +1,14 @@
 --[[
   @author bfut
-  @version 1.1
+  @version 1.2
   @description bfut_Split looped item into separate items
   @about
     HOW TO USE:
       1) Select media item(s).
       2) Run the script.
-    REQUIRES: Reaper v5.99 or later
+    REQUIRES: Reaper v6.12c or later
   @changelog
-    + ignore locked items
+    + obey take source start offset
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -34,14 +34,21 @@ local function bfut_SplitLoopedItemAtLoopPoints(item)
   reaper.SelectAllMediaItems(0, false)
   reaper.SetMediaItemSelected(item, true)
   repeat
-    local item_activetake = reaper.GetActiveTake(item, 0)
-    if item_activetake then
-      local item_activetake_mediasourcelength, lengthIsQN = reaper.GetMediaSourceLength(reaper.GetMediaItemTake_Source(item_activetake))
-      if lengthIsQN then
-        item_activetake_mediasourcelength = reaper.TimeMap_QNToTime(item_activetake_mediasourcelength)
+    local take = reaper.GetActiveTake(item, 0)
+    if take then
+      local take_sourcelength, lengthIsQN = reaper.GetMediaSourceLength(reaper.GetMediaItemTake_Source(take))
+      local take_startoffset = reaper.GetMediaItemTakeInfo_Value(take, "D_STARTOFFS")
+      if math.abs(take_sourcelength - take_startoffset) < 10^-13 then
+        take_startoffset = 0
       end
-      item_activetake_mediasourcelength = item_activetake_mediasourcelength / reaper.GetMediaItemTakeInfo_Value(item_activetake, "D_PLAYRATE")
-      item = reaper.SplitMediaItem(item, reaper.GetMediaItemInfo_Value(item, "D_POSITION") + item_activetake_mediasourcelength)
+      if lengthIsQN then
+        take_sourcelength = reaper.TimeMap_QNToTime(take_sourcelength)
+      end
+      item = reaper.SplitMediaItem(
+        item,
+        reaper.GetMediaItemInfo_Value(item, "D_POSITION")
+          + (take_sourcelength - take_startoffset) / reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
+      )
     end
   until not item
   return
