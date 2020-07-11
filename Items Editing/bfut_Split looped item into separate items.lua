@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.2
+  @version 1.3
   @description bfut_Split looped item into separate items
   @about
     HOW TO USE:
@@ -8,7 +8,8 @@
       2) Run the script.
     REQUIRES: Reaper v6.12c or later
   @changelog
-    + obey take source start offset
+    + support time signature markers
+    # Fix: no more infinite loop for empty items
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -26,11 +27,40 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
+--[[ CONFIG options:
+  always_pool_midi = false  -- pool resulting splits
+]]
+local CONFIG = {
+  always_pool_midi = false
+}
 local COUNT_SEL_ITEMS = reaper.CountSelectedMediaItems(0)
 if COUNT_SEL_ITEMS < 1 then
   return
 end
+local function bfut_QNToTimeIfQN(time, isQN)
+  if isQN then
+    return reaper.TimeMap2_QNToTime(0, time)
+  end
+  return time
+end
 local function bfut_SplitLoopedItemAtLoopPoints(item)
+  local new_track
+  if CONFIG["always_pool_midi"] then
+    local take = reaper.GetActiveTake(item, 0)
+    if take and reaper.TakeIsMIDI(take) then
+      local original_cursor_position = reaper.GetCursorPosition()
+      local view_start, view_end = reaper.GetSet_ArrangeView2(0, false, 0, 0, -1, -1)
+      reaper.InsertTrackAtIndex(0, true)
+      new_track = reaper.GetTrack(0, 0)
+      reaper.SetOnlyTrackSelected(new_track)
+      reaper.SelectAllMediaItems(0, false)
+      reaper.SetMediaItemSelected(item, true)
+      reaper.Main_OnCommandEx(40698, 0)
+      reaper.Main_OnCommandEx(41072, 0)
+      reaper.SetEditCurPos2(0, original_cursor_position, false, false)
+      reaper.GetSet_ArrangeView2(0, true, 0, 0, view_start, view_end)
+    end
+  end
   reaper.SelectAllMediaItems(0, false)
   reaper.SetMediaItemSelected(item, true)
   repeat
@@ -41,16 +71,19 @@ local function bfut_SplitLoopedItemAtLoopPoints(item)
       if math.abs(take_sourcelength - take_startoffset) < 10^-13 then
         take_startoffset = 0
       end
+      local take_playrate = reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
+      take_sourcelength = take_sourcelength / take_playrate
+      take_startoffset = take_startoffset / take_playrate
+      local next_split_pos = reaper.GetMediaItemInfo_Value(item, "D_POSITION") - take_startoffset
       if lengthIsQN then
-        take_sourcelength = reaper.TimeMap_QNToTime(take_sourcelength)
+        next_split_pos = reaper.TimeMap2_timeToQN(0, next_split_pos)
       end
-      item = reaper.SplitMediaItem(
-        item,
-        reaper.GetMediaItemInfo_Value(item, "D_POSITION")
-          + (take_sourcelength - take_startoffset) / reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
-      )
+      item = reaper.SplitMediaItem(item, bfut_QNToTimeIfQN(next_split_pos + take_sourcelength, lengthIsQN))
     end
-  until not item
+  until not item or not take
+  if new_track then
+    reaper.DeleteTrack(new_track)
+  end
   return
 end
 local IS_ITEM_LOCKED = {
