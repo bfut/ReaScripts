@@ -82,11 +82,6 @@ How to use:
 
 Replaces item under mouse cursor with selected item, preserving position, length, mute status, etc. in the replaced item.
 
-How to set up:
-  1. Install the script, and SWS.
-  1. Open REAPER > Actions > Show action list...
-  1. Assign a keyboard shortcut to the script.
-
 How to use:
   1. Select media item.
   1. Hover mouse over another item.
