@@ -10,6 +10,7 @@ Copy and paste this URL in Extensions > [ReaPack](https://github.com/cfillion/re
 ```
 https://github.com/bfut/ReaScripts/raw/master/index.xml
 ```
+Then install in Extensions > ReaPack > Browse packages.
 
 
 ## Step sequencer for items
@@ -79,7 +80,7 @@ How to use:
 ## Replace item under mouse cursor
 * bfut_Replace item under mouse cursor with selected item.lua
 
-Replaces item under mouse cursor with selected item, preserving position, length, mute status, etc. in the replaced item. Requires [SWS] extension.
+Replaces item under mouse cursor with selected item, preserving position, length, mute status, etc. in the replaced item.
 
 How to set up:
   1. Install the script, and SWS.
