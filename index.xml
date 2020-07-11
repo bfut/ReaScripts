@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="1c980e76fe68fe6d31ed67b2e96d5fa64a865053">
+<index version="1" name="bfut_ReaScripts" commit="6b2a01ad987cc1103383bcaf6e0098fbfe0b0d11">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -96,6 +96,10 @@
       <version name="1.0" author="bfut" time="2020-07-01T21:55:25Z">
         <changelog><![CDATA[+ initial commit]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/0b3dc44e7b06992ecdefd59f1f4ae46b2c757eb5/Items%20Editing/bfut_Extract%20loop%20section%20under%20mouse%20cursor%20to%20new%20item.lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2020-07-11T22:21:54Z">
+        <changelog><![CDATA[+ support time signature markers]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/6b2a01ad987cc1103383bcaf6e0098fbfe0b0d11/Items%20Editing/bfut_Extract%20loop%20section%20under%20mouse%20cursor%20to%20new%20item.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI note row controls items pitch.lua" type="script" desc="bfut_MIDI note row controls items pitch">
@@ -433,6 +437,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2020-07-01T21:55:54Z">
         <changelog><![CDATA[+ obey take source start offset]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/1c980e76fe68fe6d31ed67b2e96d5fa64a865053/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-07-11T22:21:20Z">
+        <changelog><![CDATA[+ support time signature markers
+# Fix: no more infinite loop for empty items]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/ffdd41dbba9425101592b9f14a6dc72daef23d75/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Step sequencer (copy first item on track and fill grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track and fill grid bar under mouse)">
