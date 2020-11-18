@@ -8,7 +8,7 @@ Requirements: Reaper v6.xx, unless noted otherwise
 Copy and paste this URL in Extensions > [ReaPack](https://github.com/cfillion/reapack) > Import repositories:
 
 ```
-https://github.com/bfut/ReaScripts/raw/master/index.xml
+https://github.com/bfut/ReaScripts/raw/main/index.xml
 ```
 Then install in Extensions > ReaPack > Browse packages.
 
