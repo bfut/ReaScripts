@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="6b2a01ad987cc1103383bcaf6e0098fbfe0b0d11">
+<index version="1" name="bfut_ReaScripts" commit="25610b39fc6f4d3c21498571f9c17280c53b9d73">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -539,6 +539,40 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.1" author="bfut" time="2020-02-22T12:49:20Z">
         <changelog><![CDATA[+ ignore locked items]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/a4e6be2cdc7a09f480d4e96c080f87bedf17a7db/Items%20Editing/bfut_Trim%20to%20source%20media%20lengths%20(limit%20items%20lengths).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Unselect grouped items.lua" type="script" desc="bfut_Unselect grouped items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.16 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2020-12-11T00:12:22Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/0ce6227f17bdc72caf5be76454507bfede7e2c97/Items%20Editing/bfut_Unselect%20grouped%20items.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Unselect ungrouped items.lua" type="script" desc="bfut_Unselect ungrouped items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.16 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2020-12-11T00:13:10Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/25610b39fc6f4d3c21498571f9c17280c53b9d73/Items%20Editing/bfut_Unselect%20ungrouped%20items.lua</source>
       </version>
     </reapack>
   </category>
