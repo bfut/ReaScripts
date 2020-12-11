@@ -104,6 +104,8 @@ How to use:
 bfut_Extract loop section under mouse cursor to new item.lua  
 bfut_Split looped item into separate items.lua  
 bfut_Trim to source media lengths (limit items lengths).lua  
+bfut_Unselect grouped items.lua  
+bfut_Unselect ungrouped items.lua  
 bfut_MIDI note row controls items pitch.lua  
 bfut_MIDI note row controls items rate.lua  
 bfut_MIDI notes control items stretch markers.lua  
