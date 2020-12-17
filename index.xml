@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="25610b39fc6f4d3c21498571f9c17280c53b9d73">
+<index version="1" name="bfut_ReaScripts" commit="2725c0c934d5b58c6031913a4755193128ff8e05">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -142,7 +142,7 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.12 or later\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -150,6 +150,10 @@
       <version name="1.2" author="bfut" time="2020-07-01T12:58:20Z">
         <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/8f167dccf19784c3d50084c25bc3b2860cc2f6da/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-17T12:42:18Z">
+        <changelog><![CDATA[+ support time signature markers]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/c8417ece7838afa56f50f531f9d97966a4d583cb/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch)">
@@ -174,7 +178,7 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.12 or later\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -182,6 +186,10 @@
       <version name="1.2" author="bfut" time="2020-07-01T12:58:35Z">
         <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/d9771b3f7f3eb6ca0da19c44551a5eda58c2103b/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-17T12:42:34Z">
+        <changelog><![CDATA[+ support time signature markers]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/d0c7732a6ce79a37aae7e262a499a679bc050ea6/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate)">
@@ -206,7 +214,7 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.12 or later\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -214,6 +222,10 @@
       <version name="1.2" author="bfut" time="2020-07-01T12:58:53Z">
         <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/328d641568bf15aee8364e90a331392dd4e98088/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-17T12:42:46Z">
+        <changelog><![CDATA[+ support time signature markers]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/52ab784e4886b32637a0e8357aa12e0ca1584225/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI notes to items (explode note rows to subtracks).lua" type="script" desc="bfut_MIDI notes to items (explode note rows to subtracks)">
@@ -238,7 +250,7 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.12 or later\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -255,6 +267,10 @@
       <version name="1.2" author="bfut" time="2020-07-01T12:56:45Z">
         <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/a7c03bcfa9ec283be4bbee5960e9cb3563d20beb/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-17T12:43:07Z">
+        <changelog><![CDATA[+ support time signature markers]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/d40f083fde66a9af1479172f24497b75bb32ecde/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch)">
@@ -279,7 +295,7 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.12 or later\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -296,6 +312,10 @@
       <version name="1.2" author="bfut" time="2020-07-01T12:57:34Z">
         <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/689233e38060b387d9dae6f1667286804523e483/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-17T12:43:20Z">
+        <changelog><![CDATA[+ support time signature markers]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/31c3ed9ace8096dce381fe641b3423f0a35ca8c4/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate)">
@@ -320,7 +340,7 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.12 or later\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -337,6 +357,10 @@
       <version name="1.2" author="bfut" time="2020-07-01T12:57:54Z">
         <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/f337425e8965d3642a66a633b6643af8fbd77434/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-17T12:43:51Z">
+        <changelog><![CDATA[+ support time signature markers]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/2725c0c934d5b58c6031913a4755193128ff8e05/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item from clipboard to selected items (replace).lua" type="script" desc="bfut_Paste item from clipboard to selected items (replace)">
