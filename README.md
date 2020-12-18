@@ -50,7 +50,7 @@ How to use:
 * bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua
 * bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua
 
-Converts MIDI notes to media items in one go. Note velocity as item volume.
+Converts MIDI notes to media items in one go.
 
 How to set up item/sample loader:
   1. Select MIDI item(s) on one track.
