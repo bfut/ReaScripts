@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.2
+  @version 1.3
   @description bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch)
   @about
     Convert MIDI notes to items
@@ -11,7 +11,7 @@
     * bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua
     * bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua
 
-    Converts MIDI notes to media items in one go. Note velocity as item volume.
+    Converts MIDI notes to media items in one go.
 
     HOW TO SET UP ITEM/SAMPLE LOADER:
       1) Select MIDI item(s) on one track.
@@ -23,9 +23,11 @@
       1) Select MIDI item(s).
       2) Select a track. (optional)
       3) Run the script.
-    REQUIRES: Reaper v6.12 or later
+    REQUIRES: Reaper v6.18 or later
   @changelog
-    + convert note multiples from looped items, obeying take playrate
+    + support time signature markers
+    # Fix: no more side-effects due to arrange view zoom-level
+    # 'note velocity to item volume' off by default
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -57,12 +59,16 @@
           60 C4 (factory default)
           72 C5
           127 G9
+
+      default_velocity = 1..127  // factor in note velocity
+                         -inf..0  // do not factor in note velocity
+                            with -1 as factory default
 ]]
 local CONFIG = {
   option = 3
   ,item_loader = true
   ,reference_pitch = 60
-  ,default_velocity = 96
+  ,default_velocity = -1
   ,option2_track_name = "Piano roll"
 }
 function bfut_FetchSelectedMIDI_TakesOnTrack(count_sel_items)
@@ -122,26 +128,41 @@ function bfut_FetchMIDI_notes(take, default_velocity)
   local item = reaper.GetMediaItemTake_Item(take)
   local item_start = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
   local item_end = item_start + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
-  local take_length = reaper.TimeMap2_QNToTime(
-    0,
-    reaper.GetMediaSourceLength(reaper.GetMediaItemTake_Source(take)) /
-      reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
-  )
+  item_start = reaper.TimeMap2_timeToQN(0, item_start)
+  item_end = reaper.TimeMap2_timeToQN(0, item_end)
+  local take_sourcelength = reaper.GetMediaSourceLength(reaper.GetMediaItemTake_Source(take))
+  local take_playrate = reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
+  take_sourcelength = take_sourcelength / take_playrate
   for i = 0, select(2, reaper.MIDI_CountEvts(take)) - 1 do
     local note = {reaper.MIDI_GetNote(take, i)}
-    note[8] = note[8] / default_velocity
-    note[4] = reaper.MIDI_GetProjTimeFromPPQPos(take, note[4])
-    note[5] = reaper.MIDI_GetProjTimeFromPPQPos(take, note[5])
-    while note[4] < item_end do
+    if default_velocity > 0 then
+      note[8] = note[8] / default_velocity
+    else
+      note[8] = 1
+    end
+    note[4] = reaper.MIDI_GetProjQNFromPPQPos(take, note[4])
+    note[5] = reaper.MIDI_GetProjQNFromPPQPos(take, note[5])
+    while note[4] < item_end and math.abs(note[4] - item_end) > 10^-13 do
       if note[5] > item_start then
-        notes[#notes + 1] = {
-          note[1], note[2], note[3],
-          math.max(note[4], item_start), math.min(note[5], item_end),
-          note[6], note[7], note[8]
-        }
+        local note_multiple_start_time = math.max(
+          reaper.TimeMap2_QNToTime(0, note[4]),
+          reaper.TimeMap2_QNToTime(0, item_start)
+        )
+        local note_multiple_end_time = math.min(
+          reaper.TimeMap2_QNToTime(0, note[5]),
+          reaper.TimeMap2_QNToTime(0, item_end)
+        )
+        if math.abs(note_multiple_end_time - note_multiple_start_time) > 0 then
+          notes[#notes + 1] = {
+            note[1], note[2], note[3],
+            note_multiple_start_time,
+            note_multiple_end_time,
+            note[6], note[7], note[8]
+          }
+        end
       end
-      note[4] = note[4] + take_length
-      note[5] = note[5] + take_length
+      note[4] = note[4] + take_sourcelength
+      note[5] = note[5] + take_sourcelength
     end
   end
   return notes
@@ -368,6 +389,7 @@ local retval, DEFFADELEN = reaper.get_config_var_string("deffadelen")
 if not retval then
   DEFFADELEN = 0.01
 end
+local VIEW_START, VIEW_END = reaper.GetSet_ArrangeView2(0, false, 0, 0, -1, -1)
 local TIME_SEL_START, TIME_SEL_END = reaper.GetSet_LoopTimeRange2(0, false, false, -1, -1, false)
 local ORIGINAL_CURSOR_POSITION = reaper.GetCursorPosition()
 local UNDO_DESC
@@ -389,10 +411,16 @@ end
 if CONFIG["reference_pitch"] > 127 then
   CONFIG["reference_pitch"] = 127
 else
-  math.max(math.modf(CONFIG["reference_pitch"]), 0)
+  CONFIG["reference_pitch"] = math.max(math.modf(CONFIG["reference_pitch"]), 0)
+end
+if CONFIG["default_velocity"] > 127 then
+  CONFIG["default_velocity"] = 127
+else
+  CONFIG["default_velocity"] = math.modf(CONFIG["default_velocity"])
 end
 reaper.Undo_BeginBlock2(0)
 reaper.PreventUIRefresh(1)
+reaper.GetSet_ArrangeView2(0, true, 0, 0, 0, reaper.GetProjectLength(0) + 30)
 if CONFIG["option"] == 1 then
   note_rows = bfut_Option1_FetchUsedNoteRowsNames(sel_MIDI_takes, MIDI_track)
   subtracks = bfut_InsertSubTracks(
@@ -486,6 +514,7 @@ elseif CONFIG["option"] == 3 then
 end
 reaper.GetSet_LoopTimeRange2(0, true, false, TIME_SEL_START, TIME_SEL_END, false)
 reaper.SetEditCurPos2(0, ORIGINAL_CURSOR_POSITION, false, false)
+reaper.GetSet_ArrangeView2(0, true, 0, 0, VIEW_START, VIEW_END)
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
 reaper.Undo_EndBlock2(0, UNDO_DESC, -1)
