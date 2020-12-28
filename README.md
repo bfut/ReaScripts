@@ -10,7 +10,7 @@ Copy and paste this URL in Extensions > [ReaPack](https://github.com/cfillion/re
 ```
 https://github.com/bfut/ReaScripts/raw/main/index.xml
 ```
-Then install in Extensions > ReaPack > Browse packages.
+Then install individual scripts in Extensions > ReaPack > Browse packages.
 
 
 ## Step sequencer for items
@@ -24,23 +24,13 @@ Add a source media item at the beginning of your target track. Set a time select
 
 How to set up:
   1. Install the scripts, and SWS.
-  2. Toggle on "Options > Trim content behind media items when editing".
-  3. Set mouse modifiers (Options > Preferences > Editing Behavior > Mouse Modifiers).
-  4. Open Actions > Show action list
-  5. Assign keyboard shortcuts to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively.  
-  Holding a key combination, continuously executes a script.
+  2. Toggle on "Options > Trim content behind media items when editing". (recommended)
+  3. Assign keyboard shortcuts to each script.
 
 How to use:
   1. There must be at least one item on the track under mouse cursor.
-  2. Hover mouse over arrange view.
+  2. Hover mouse over track in arrange view.
   3. Run the script.
-
-![alt text][trim]  
-![alt text][mouse]
-
-[trim]: https://github.com/bfut/ReaScripts/raw/rc/assets/bfut_Step-sequencer-TRIM-BEHIND-ITEMS.png "Options > Toggle trim behind items when editing"
-
-[mouse]: https://github.com/bfut/ReaScripts/raw/rc/assets/bfut_Step-sequencer-MOUSE-MODIFIER.png "Set mouse modifiers"
 
 ## Convert MIDI notes to items
 * bfut_MIDI notes to items (explode note rows to subtracks).lua
