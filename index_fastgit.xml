@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1" name="bfut_ReaScripts" commit="676fdc8164344c67805cfb3680855d6e79965bf5">
+  <category name="Items Editing">
+    <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item to clipboard".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run script "bfut_Paste item from clipboard to selected items (replace)". REQUIRES: Reaper v6.04 or later, SWS v2.10.0.1 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/7ba682890db29889d7704bd8685bde4319246a11/Items%20Editing/bfut_Copy%20item%20to%20clipboard.lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2019-07-20T08:45:16Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/df8533ca75987f5b94120cf77eb1d9f7c833421c/Items%20Editing/bfut_Copy%20item%20to%20clipboard.lua</source>
+      </version>
+      <version name="1.2" author="bfut" time="2020-02-22T12:47:28Z">
+        <changelog><![CDATA[+ improved performance]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/c292102104e04e71298632cf313970ba5516ec2e/Items%20Editing/bfut_Copy%20item%20to%20clipboard.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Copy items to project markers, remove overlaps.lua" type="script" desc="bfut_Copy items to project markers, remove overlaps">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies any selected items to project markers.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one project marker.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.04 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+      <version name="2.0" author="bfut" time="2020-02-22T12:47:04Z">
+        <changelog><![CDATA[+ native trim behind items behavior
++ native envelope behavior
++ inherit item grouping behavior from native copy+paste
++ improved performance]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/f3158e4807a7d21cdeb441b6b99fdbfbbe2dc6dd/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+      <version name="2.1" author="bfut" time="2020-03-01T18:47:33Z">
+        <changelog><![CDATA[+ improved performance]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/5d45a1705cc6e8ee437bc095bcb51fa548f3d222/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Copy items within time selection to project markers, remove overlaps.lua" type="script" desc="bfut_Copy items within time selection to project markers, remove overlaps">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies any selected items within time selection to project markers.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one project marker.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Set time selection that at least partially overlaps selected item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run the script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.04 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="2.1" author="bfut" time="2020-02-27T19:37:14Z">
+        <changelog><![CDATA[+ initial version]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/72bfd0a204857ad2ed7186e08ad44e1f053b0f2b/Items%20Editing/bfut_Copy%20items%20within%20time%20selection%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Extract loop section under mouse cursor to new item.lua" type="script" desc="bfut_Extract loop section under mouse cursor to new item">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Hover mouse over looped media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.12c or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2020-07-01T21:55:25Z">
+        <changelog><![CDATA[+ initial commit]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/0b3dc44e7b06992ecdefd59f1f4ae46b2c757eb5/Items%20Editing/bfut_Extract%20loop%20section%20under%20mouse%20cursor%20to%20new%20item.lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2020-07-11T22:21:54Z">
+        <changelog><![CDATA[+ support time signature markers]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/6b2a01ad987cc1103383bcaf6e0098fbfe0b0d11/Items%20Editing/bfut_Extract%20loop%20section%20under%20mouse%20cursor%20to%20new%20item.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI note row controls items pitch.lua" type="script" desc="bfut_MIDI note row controls items pitch">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20note%20row%20controls%20items%20pitch.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI note row controls items rate.lua" type="script" desc="bfut_MIDI note row controls items rate">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20note%20row%20controls%20items%20rate.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes split items, set items pitch.lua" type="script" desc="bfut_MIDI notes split items, set items pitch">
+      <metadata>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20split%20items,%20set%20items%20pitch.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to empty items (explode note rows to subtracks).lua" type="script" desc="bfut_MIDI notes to empty items (explode note rows to subtracks)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Convert MIDI notes to items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Converts MIDI notes to media items in one go.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP ITEM/SAMPLE LOADER:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s) on one track.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select another track with various media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Each used note row will point to one of the media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab If there are not enough media items, you'll get empty items.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.2" author="bfut" time="2020-07-01T12:58:20Z">
+        <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8f167dccf19784c3d50084c25bc3b2860cc2f6da/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-18T05:37:49Z">
+        <changelog><![CDATA[+ support time signature markers
+# Fix: no more side-effects due to arrange view zoom-level
+# 'note velocity to item volume' off by default]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/425e945a0bf2995fc6b2acd20d5ed9938fa34260/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Convert MIDI notes to items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Converts MIDI notes to media items in one go.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP ITEM/SAMPLE LOADER:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s) on one track.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select another track with various media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Each used note row will point to one of the media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab If there are not enough media items, you'll get empty items.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.2" author="bfut" time="2020-07-01T12:58:35Z">
+        <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/d9771b3f7f3eb6ca0da19c44551a5eda58c2103b/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-18T05:38:05Z">
+        <changelog><![CDATA[+ support time signature markers
+# Fix: no more side-effects due to arrange view zoom-level
+# 'note velocity to item volume' off by default]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8902a9eb5117a951a3298ee94f300e668d5068f4/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Convert MIDI notes to items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Converts MIDI notes to media items in one go.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP ITEM/SAMPLE LOADER:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s) on one track.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select another track with various media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Each used note row will point to one of the media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab If there are not enough media items, you'll get empty items.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.2" author="bfut" time="2020-07-01T12:58:53Z">
+        <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/328d641568bf15aee8364e90a331392dd4e98088/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-18T05:38:19Z">
+        <changelog><![CDATA[+ support time signature markers
+# Fix: no more side-effects due to arrange view zoom-level
+# 'note velocity to item volume' off by default]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/a87368ca0238319a32b0e1bf22d01c916e0fb377/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to items (explode note rows to subtracks).lua" type="script" desc="bfut_MIDI notes to items (explode note rows to subtracks)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Convert MIDI notes to items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Converts MIDI notes to media items in one go.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP ITEM/SAMPLE LOADER:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s) on one track.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select another track with various media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Each used note row will point to one of the media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab If there are not enough media items, you'll get empty items.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2020-02-27T19:20:55Z">
+        <changelog><![CDATA[+ convert note velocity to item volume
++ obey MIDI item start/end
++ improved performance]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/eb3dc8a43d7dc9824ad5cbf71141bdb9e5ae6e30/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+      <version name="1.2" author="bfut" time="2020-07-01T12:56:45Z">
+        <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/a7c03bcfa9ec283be4bbee5960e9cb3563d20beb/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-18T05:38:32Z">
+        <changelog><![CDATA[+ support time signature markers
+# Fix: no more side-effects due to arrange view zoom-level
+# 'note velocity to item volume' off by default]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/f7ccefbe3f5195d2d498232305951840f8a0d6c9/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Convert MIDI notes to items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Converts MIDI notes to media items in one go.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP ITEM/SAMPLE LOADER:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s) on one track.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select another track with various media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Each used note row will point to one of the media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab If there are not enough media items, you'll get empty items.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2020-02-27T19:21:26Z">
+        <changelog><![CDATA[+ convert note velocity to item volume
++ obey MIDI item start/end
++ improved performance]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/16b61d48d4fdfa794c9c3c07be2e451d1c1bd502/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+      <version name="1.2" author="bfut" time="2020-07-01T12:57:34Z">
+        <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/689233e38060b387d9dae6f1667286804523e483/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-18T05:38:45Z">
+        <changelog><![CDATA[+ support time signature markers
+# Fix: no more side-effects due to arrange view zoom-level
+# 'note velocity to item volume' off by default]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/78f4a3ff92917413bd812dec9597237ecd566340/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Convert MIDI notes to items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (explode note rows to subtracks).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Converts MIDI notes to media items in one go.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP ITEM/SAMPLE LOADER:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s) on one track.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select another track with various media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Each used note row will point to one of the media items.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab If there are not enough media items, you'll get empty items.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select MIDI item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select a track. (optional)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.18 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2020-02-27T19:21:52Z">
+        <changelog><![CDATA[+ convert note velocity to item volume
++ obey MIDI item start/end
++ improved performance]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/7a215368aea282ce0dcc94b6989112b78dd373eb/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+      <version name="1.2" author="bfut" time="2020-07-01T12:57:54Z">
+        <changelog><![CDATA[+ convert note multiples from looped items, obeying take playrate]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/f337425e8965d3642a66a633b6643af8fbd77434/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-12-18T05:38:57Z">
+        <changelog><![CDATA[+ support time signature markers
+# Fix: no more side-effects due to arrange view zoom-level
+# 'note velocity to item volume' off by default]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/676fdc8164344c67805cfb3680855d6e79965bf5/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Paste item from clipboard to selected items (replace).lua" type="script" desc="bfut_Paste item from clipboard to selected items (replace)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item to clipboard".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run script "bfut_Paste item from clipboard to selected items (replace)". REQUIRES: Reaper v6.04 or later, SWS v2.11.0.0 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/7ba682890db29889d7704bd8685bde4319246a11/Items%20Editing/bfut_Paste%20item%20from%20clipboard%20to%20selected%20items%20(replace).lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2019-07-20T08:45:30Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/706b5b41b0f5fa32f7f4ff2b0b8c8b1d9851bb7c/Items%20Editing/bfut_Paste%20item%20from%20clipboard%20to%20selected%20items%20(replace).lua</source>
+      </version>
+      <version name="1.2" author="bfut" time="2020-02-22T12:48:11Z">
+        <changelog><![CDATA[+ native pooled (ghost) MIDI item behavior
++ Fix: replace FXIDs in replaced items
+Requires SWS v2.11.0.0 or later]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/d969c76506db5b84efa1125742a0651709108a32/Items%20Editing/bfut_Paste%20item%20from%20clipboard%20to%20selected%20items%20(replace).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Remove item under mouse cursor (delete).lua" type="script" desc="bfut_Remove item under mouse cursor (delete)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Hover mouse over item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.04 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2019-12-29T19:41:45Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/1886f389de482bfa5913ec75d7b8d1c9709deed4/Items%20Editing/bfut_Remove%20item%20under%20mouse%20cursor%20(delete).lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2020-02-22T12:47:52Z">
+        <changelog><![CDATA[+ no longer requires SWS extension]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/e141498931f8625bb925cddc2fa8336c93b5806c/Items%20Editing/bfut_Remove%20item%20under%20mouse%20cursor%20(delete).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Replace item under mouse cursor with selected item.lua" type="script" desc="bfut_Replace item under mouse cursor with selected item">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Hover mouse over another item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script. REQUIRES: Reaper v6.04 or later, SWS v2.11.0.0 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-10-06T19:25:26Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/7ba682890db29889d7704bd8685bde4319246a11/Items%20Editing/bfut_Replace%20item%20under%20mouse%20cursor%20with%20selected%20item.lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2019-07-20T08:44:41Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/76ae20f26cb5dbd6fa006fe2a78b9cb5f88f8187/Items%20Editing/bfut_Replace%20item%20under%20mouse%20cursor%20with%20selected%20item.lua</source>
+      </version>
+      <version name="1.2" author="bfut" time="2020-02-22T12:48:33Z">
+        <changelog><![CDATA[+ native pooled (ghost) MIDI item behavior
++ Fix: replace FXIDs in replaced item]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/e55faeadf37cd3c1f6feaf6b91abc7d62c3dee10/Items%20Editing/bfut_Replace%20item%20under%20mouse%20cursor%20with%20selected%20item.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Split looped item into separate items.lua" type="script" desc="bfut_Split looped item into separate items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.12c or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2020-02-22T12:49:01Z">
+        <changelog><![CDATA[+ ignore locked items]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/7c0aa9392415db6f8a12e8b1aa7990da61af697e/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
+      </version>
+      <version name="1.2" author="bfut" time="2020-07-01T21:55:54Z">
+        <changelog><![CDATA[+ obey take source start offset]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/1c980e76fe68fe6d31ed67b2e96d5fa64a865053/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2020-07-11T22:21:20Z">
+        <changelog><![CDATA[+ support time signature markers
+# Fix: no more infinite loop for empty items]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/ffdd41dbba9425101592b9f14a6dc72daef23d75/Items%20Editing/bfut_Split%20looped%20item%20into%20separate%20items.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Step sequencer (copy first item on track and fill grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track and fill grid bar under mouse)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Step sequencer for items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track and fill grid bar under mouse)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track to grid bar under mouse).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Remove item under mouse cursor (delete).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires SWS extension.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Add a source media item at the beginning of your target track. Set a time selection, e.g. 16 grid bars. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid divison.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Install the scripts, and SWS.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Toggle on "Options > Trim content behind media items when editing".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Set mouse modifiers (Options > Preferences > Editing Behavior > Mouse Modifiers).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Open Actions > Show action list\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 5)\tx360\tab Assign keyboard shortcut to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively. Holding a key combination, continuously executes a script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one item on the track under mouse cursor.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Hover mouse over arrange view.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.04 or later, SWS v2.10.0.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="2.0" author="bfut" time="2019-12-31T16:08:19Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/0c388ab2df0a2038a8679b7f943ed78efb73b76a/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20and%20fill%20grid%20bar%20under%20mouse).lua</source>
+      </version>
+      <version name="2.5" author="bfut" time="2020-02-23T17:13:05Z">
+        <changelog><![CDATA[+ native item snap behavior
++ native trim behind items behavior
++ Fix: arrange view scrolling
++ performance improvements]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/c09c54773c19890e2c7985c822cf0be7b3b9e1e3/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20and%20fill%20grid%20bar%20under%20mouse).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Step sequencer (copy first item on track to grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track to grid bar under mouse)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Step sequencer for items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track and fill grid bar under mouse)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track to grid bar under mouse).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Remove item under mouse cursor (delete).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires SWS extension.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Add a source media item at the beginning of your target track. Set a time selection, e.g. 16 grid bars. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid divison.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO SET UP:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Install the scripts, and SWS.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Toggle on "Options > Trim content behind media items when editing".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Set mouse modifiers (Options > Preferences > Editing Behavior > Mouse Modifiers).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Open Actions > Show action list\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 5)\tx360\tab Assign keyboard shortcut to each script (e.g. SHIFT+Q, SHIFT+A, and SHIFT+D), respectively. Holding a key combination, continuously executes a script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one item on the track under mouse cursor.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Hover mouse over arrange view.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.04 or later, SWS v2.10.0.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="2.0" author="bfut" time="2019-12-31T16:08:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/45940cb86b82e7716918e195375985b4bc5e9102/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20to%20grid%20bar%20under%20mouse).lua</source>
+      </version>
+      <version name="2.5" author="bfut" time="2020-02-23T17:14:19Z">
+        <changelog><![CDATA[+ native item snap behavior
++ native trim behind items behavior
++ Fix: arrange view scrolling
++ performance improvements]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/e3c84f1e1d7d7a246a724c65146e08326dc6a998/Items%20Editing/bfut_Step%20sequencer%20(copy%20first%20item%20on%20track%20to%20grid%20bar%20under%20mouse).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Trim to source media lengths (limit items lengths).lua" type="script" desc="bfut_Trim to source media lengths (limit items lengths)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v5.99 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Items%20Editing/bfut_Trim%20to%20source%20media%20lengths%20(limit%20items%20lengths).lua</source>
+      </version>
+      <version name="1.1" author="bfut" time="2020-02-22T12:49:20Z">
+        <changelog><![CDATA[+ ignore locked items]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/a4e6be2cdc7a09f480d4e96c080f87bedf17a7db/Items%20Editing/bfut_Trim%20to%20source%20media%20lengths%20(limit%20items%20lengths).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Unselect grouped items.lua" type="script" desc="bfut_Unselect grouped items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.16 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2020-12-11T00:12:22Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/0ce6227f17bdc72caf5be76454507bfede7e2c97/Items%20Editing/bfut_Unselect%20grouped%20items.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Unselect ungrouped items.lua" type="script" desc="bfut_Unselect ungrouped items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.16 or later\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2020-12-11T00:13:10Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/25610b39fc6f4d3c21498571f9c17280c53b9d73/Items%20Editing/bfut_Unselect%20ungrouped%20items.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Stretch Markers">
+    <reapack name="bfut_MIDI notes control items stretch markers.lua" type="script" desc="bfut_MIDI notes control items stretch markers">
+      <version name="1.0" author="bfut" time="2018-01-27T07:13:37Z">
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/94ec804d13e2b9073d8ad3d4b3ea68e221a24456/Stretch%20Markers/bfut_MIDI%20notes%20control%20items%20stretch%20markers.lua</source>
+      </version>
+    </reapack>
+  </category>
+</index>
