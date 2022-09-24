@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.3
+  @version 1.4
   @description bfut_MIDI notes to empty items (explode note rows to subtracks)
   @about
     Convert MIDI notes to items
@@ -23,11 +23,9 @@
       1) Select MIDI item(s).
       2) Select a track. (optional)
       3) Run the script.
-    REQUIRES: Reaper v6.18 or later
+    REQUIRES: Reaper v6.68 or later
   @changelog
-    + support time signature markers
-    # Fix: no more side-effects due to arrange view zoom-level
-    # 'note velocity to item volume' off by default
+    + avoid creating excessive items from lengths below range threshold
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -45,6 +43,21 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
+--[[
+  USAGE NOTES:
+    --execute for selected MIDI items on 1 track
+    --insert subtracks to first selected track or to MIDI item track
+
+  WHAT IT DOES:
+    Option 1 (Sequencer):
+      --add subtrack for each used 'note row (pitch)', copy Note row name to track name
+      --add all notes as items respective to 'note row (pitch)'
+
+
+    Option2 (Piano roll):
+      --add 1 subtrack; add all notes as items on this one track
+      --each 'note row (pitch)' translates to playrate semitone (+1, -1)
+]]
 --[[ CONFIG options:
       option =
         1  -- explode note rows to subtracks
@@ -60,8 +73,8 @@
           72 C5
           127 G9
 
-      default_velocity = 1..127  // factor in note velocity
-                         -inf..0  // do not factor in note velocity
+      default_velocity =  1..127  // map note velocity to item volume
+                         -inf..0  // do not map note velocity to item volume
                             with -1 as factory default
 ]]
 local CONFIG = {
@@ -71,6 +84,7 @@ local CONFIG = {
   ,default_velocity = -1
   ,option2_track_name = "Piano roll"
 }
+MIN_NOTE_LEN = 4.2615384614919 * 10^-5
 function bfut_FetchSelectedMIDI_TakesOnTrack(count_sel_items)
   local MIDI_takes = {}
   local MIDI_takes_track
@@ -124,8 +138,10 @@ function bfut_FetchSelectedMIDI_TakesOnTrack(count_sel_items)
   return MIDI_takes, MIDI_takes_track
 end
 function bfut_FetchMIDI_notes(take, default_velocity)
+  local min_note_len = reaper.TimeMap2_timeToQN(0, MIN_NOTE_LEN)
   local notes = {}
   local item = reaper.GetMediaItemTake_Item(take)
+  local loop_source = reaper.GetMediaItemInfo_Value(item, "B_LOOPSRC")
   local item_start = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
   local item_end = item_start + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
   item_start = reaper.TimeMap2_timeToQN(0, item_start)
@@ -142,7 +158,7 @@ function bfut_FetchMIDI_notes(take, default_velocity)
     end
     note[4] = reaper.MIDI_GetProjQNFromPPQPos(take, note[4])
     note[5] = reaper.MIDI_GetProjQNFromPPQPos(take, note[5])
-    while note[4] < item_end and math.abs(note[4] - item_end) > 10^-13 do
+    while note[4] < item_end and math.abs(note[4] - item_end) > min_note_len do
       if note[5] > item_start then
         local note_multiple_start_time = math.max(
           reaper.TimeMap2_QNToTime(0, note[4]),
@@ -152,7 +168,7 @@ function bfut_FetchMIDI_notes(take, default_velocity)
           reaper.TimeMap2_QNToTime(0, note[5]),
           reaper.TimeMap2_QNToTime(0, item_end)
         )
-        if math.abs(note_multiple_end_time - note_multiple_start_time) > 0 then
+        if math.abs(reaper.MIDI_GetPPQPosFromProjTime(take, note_multiple_end_time) - reaper.MIDI_GetPPQPosFromProjTime(take, note_multiple_start_time)) >= 1.0 and math.abs(note_multiple_end_time - note_multiple_start_time) > 0 then
           notes[#notes + 1] = {
             note[1], note[2], note[3],
             note_multiple_start_time,
@@ -408,16 +424,6 @@ elseif CONFIG["option"] == 3 and not item_loader then
 else
   return
 end
-if CONFIG["reference_pitch"] > 127 then
-  CONFIG["reference_pitch"] = 127
-else
-  CONFIG["reference_pitch"] = math.max(math.modf(CONFIG["reference_pitch"]), 0)
-end
-if CONFIG["default_velocity"] > 127 then
-  CONFIG["default_velocity"] = 127
-else
-  CONFIG["default_velocity"] = math.modf(CONFIG["default_velocity"])
-end
 reaper.Undo_BeginBlock2(0)
 reaper.PreventUIRefresh(1)
 reaper.GetSet_ArrangeView2(0, true, 0, 0, 0, reaper.GetProjectLength(0) + 30)
@@ -448,7 +454,6 @@ if CONFIG["option"] == 1 then
     bfut_Option1_MIDI_AsSequencer_SetDefaultFadeLengths(temp_track, DEFFADELEN)
     reaper.SetTrackSelected(temp_track, true)
   end
-  reaper.Main_OnCommandEx(40421, 0)
 elseif CONFIG["option"] == 2 then
   subtracks = bfut_InsertSubTracks(
     parent_track,
@@ -479,7 +484,6 @@ elseif CONFIG["option"] == 2 then
       )
     end
   end
-  reaper.Main_OnCommandEx(40421, 0)
 elseif CONFIG["option"] == 3 then
   subtracks = bfut_InsertSubTracks(
     parent_track,
@@ -510,8 +514,8 @@ elseif CONFIG["option"] == 3 then
       )
     end
   end
-  reaper.Main_OnCommandEx(40421, 0)
 end
+reaper.Main_OnCommandEx(40421, 0)
 reaper.GetSet_LoopTimeRange2(0, true, false, TIME_SEL_START, TIME_SEL_END, false)
 reaper.SetEditCurPos2(0, ORIGINAL_CURSOR_POSITION, false, false)
 reaper.GetSet_ArrangeView2(0, true, 0, 0, VIEW_START, VIEW_END)
