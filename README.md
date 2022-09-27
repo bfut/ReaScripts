@@ -13,26 +13,8 @@ https://github.com/bfut/ReaScripts/raw/main/index.xml
 Then install individual scripts in Extensions > ReaPack > Browse packages.
 
 
-## Step sequencer for items
-* bfut_Step sequencer (copy first item on track and fill grid bar under mouse)
-* bfut_Step sequencer (copy first item on track to grid bar under mouse).lua
-* bfut_Remove item under mouse cursor (delete).lua
-
-Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires [SWS] extension.
-
-Add a source media item at the beginning of your target track. Set a time selection, e.g. 16 grid bars. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid divison.
-
-How to set up:
-  1. Install the scripts, and SWS.
-  2. Toggle on "Options > Trim content behind media items when editing". (recommended)
-  3. Assign keyboard shortcuts to each script.
-
-How to use:
-  1. There must be at least one item on the track under mouse cursor.
-  2. Hover mouse over track in arrange view.
-  3. Run the script.
-
 ## Convert MIDI notes to items
+![MIDI notes to items time](assets/bfut_MIDI-Notes-to-items_timesignature.gif)
 * bfut_MIDI notes to items (explode note rows to subtracks).lua
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua
 * bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua
@@ -52,6 +34,26 @@ How to use:
   1. Select MIDI item(s).
   1. Select a track. (optional)
   1. Run the script.
+
+
+## Step sequencer for items
+* bfut_Step sequencer (copy first item on track and fill grid bar under mouse)
+* bfut_Step sequencer (copy first item on track to grid bar under mouse).lua
+* bfut_Remove item under mouse cursor (delete).lua
+
+Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires [SWS] extension.
+
+Add a source media item at the beginning of your target track. Set a time selection, e.g. 16 grid bars. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid divison.
+
+How to set up:
+  1. Install the scripts, and SWS.
+  2. Toggle on "Options > Trim content behind media items when editing". (recommended)
+  3. Assign keyboard shortcuts to each script.
+
+How to use:
+  1. There must be at least one item on the track under mouse cursor.
+  2. Hover mouse over track in arrange view.
+  3. Run the script.
 
 
 ## Copy and replace selected items
@@ -78,7 +80,7 @@ How to use:
   1. Run the script.
 
 
-## Copy items to project markers
+## Copy items to project markers (propagate)
 * bfut_Copy items to project markers, remove overlaps.lua
 * bfut_Copy items within time selection to project markers, remove overlaps.lua
 
@@ -95,11 +97,7 @@ bfut_Extract loop section under mouse cursor to new item.lua
 bfut_Split looped item into separate items.lua  
 bfut_Trim to source media lengths (limit items lengths).lua  
 bfut_Unselect grouped items.lua  
-bfut_Unselect ungrouped items.lua  
-bfut_MIDI note row controls items pitch.lua  
-bfut_MIDI note row controls items rate.lua  
-bfut_MIDI notes control items stretch markers.lua  
-bfut_MIDI notes split items, set items pitch.lua
+bfut_Unselect ungrouped items.lua
 
 
 [SWS]: http://www.sws-extension.org

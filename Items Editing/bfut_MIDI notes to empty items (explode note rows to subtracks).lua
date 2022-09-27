@@ -23,9 +23,10 @@
       1) Select MIDI item(s).
       2) Select a track. (optional)
       3) Run the script.
+
     REQUIRES: Reaper v6.68 or later
   @changelog
-    + avoid creating excessive items from lengths below range threshold
+    + Fix: avoid creating excess items from lengths below time range threshold
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -46,17 +47,17 @@
 --[[
   USAGE NOTES:
     --execute for selected MIDI items on 1 track
-    --insert subtracks to first selected track or to MIDI item track
+    --inserts subtracks either for first selected track or to MIDI item track
 
   WHAT IT DOES:
     Option 1 (Sequencer):
-      --add subtrack for each used 'note row (pitch)', copy Note row name to track name
-      --add all notes as items respective to 'note row (pitch)'
+      --adds subtracks per used 'note row (pitch)', copies note row names to track names
+      --adds all notes as items to subtracks w.r.t. to 'note row (pitch)'
 
-
-    Option2 (Piano roll):
-      --add 1 subtrack; add all notes as items on this one track
-      --each 'note row (pitch)' translates to playrate semitone (+1, -1)
+    Options 2 and 3 (Piano roll):
+      --adds 1 subtrack; adds all notes as items on this subtrack
+      --2: each 'note row (pitch)' translates to playrate semitone (+1, -1)
+      --3: each 'note row (pitch)' translates to item pitch semitone (+1, -1)
 ]]
 --[[ CONFIG options:
       option =
@@ -68,13 +69,13 @@
 
       reference_pitch =
         Tune MIDI editor // MIDI note pitch is 0..127, default REAPER has:
-          0 C-1
-          60 C4 (factory default)
-          72 C5
-          127 G9
+          0    -- C-1
+          60   -- C4 (factory default)
+          72   -- C5
+          127  -- G9
 
-      default_velocity =  1..127  // map note velocity to item volume
-                         -inf..0  // do not map note velocity to item volume
+      default_velocity =  1..127  -- map note velocity to item volume
+                         -inf..0  -- do not map note velocity to item volume
                             with -1 as factory default
 ]]
 local CONFIG = {
@@ -84,7 +85,7 @@ local CONFIG = {
   ,default_velocity = -1
   ,option2_track_name = "Piano roll"
 }
-MIN_NOTE_LEN = 4.2615384614919 * 10^-5
+local MIN_NOTE_LEN = 4.2615384614919 * 10^-5
 function bfut_FetchSelectedMIDI_TakesOnTrack(count_sel_items)
   local MIDI_takes = {}
   local MIDI_takes_track
@@ -141,7 +142,6 @@ function bfut_FetchMIDI_notes(take, default_velocity)
   local min_note_len = reaper.TimeMap2_timeToQN(0, MIN_NOTE_LEN)
   local notes = {}
   local item = reaper.GetMediaItemTake_Item(take)
-  local loop_source = reaper.GetMediaItemInfo_Value(item, "B_LOOPSRC")
   local item_start = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
   local item_end = item_start + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
   item_start = reaper.TimeMap2_timeToQN(0, item_start)
