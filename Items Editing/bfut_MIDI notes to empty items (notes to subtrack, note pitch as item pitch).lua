@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.5
+  @version 1.6
   @description bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch)
   @about
     Convert MIDI notes to items
@@ -28,6 +28,7 @@
   @changelog
     + Copy item note text to pasted items
     + Fix: item take colors in pasted items
+    + Fix: adjust pitch for all takes in 'note pitch as item pitch' flavor
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -415,13 +416,15 @@ function bfut_Option3_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
     reaper.Main_OnCommandEx(40142, 0)
     local temp_item = reaper.GetSelectedMediaItem(0, 0)
     reaper.Main_OnCommandEx(40603, 0)
-    local temp_item_take = reaper.GetActiveTake(temp_item)
-    if temp_item_take then
-      reaper.SetMediaItemTakeInfo_Value(
-        temp_item_take,
-        "D_PITCH",
-        MIDI_notes[i][7] - reference_pitch + reaper.GetMediaItemTakeInfo_Value(temp_item_take, "D_PITCH")
-      )
+    for j = 0, reaper.GetMediaItemNumTakes(temp_item) - 1 do
+      local take = reaper.GetMediaItemTake(temp_item, j)
+      if take then
+        reaper.SetMediaItemTakeInfo_Value(
+          take,
+          "D_PITCH",
+          MIDI_notes[i][7] - reference_pitch + reaper.GetMediaItemTakeInfo_Value(take, "D_PITCH")
+        )
+      end
     end
     for _, key in ipairs({"D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE"}) do
       reaper.SetMediaItemInfo_Value(
