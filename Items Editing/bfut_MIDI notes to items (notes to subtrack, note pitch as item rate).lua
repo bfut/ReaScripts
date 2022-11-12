@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.4
+  @version 1.5
   @description bfut_MIDI notes to items (notes to subtrack, note pitch as item rate)
   @about
     Convert MIDI notes to items
@@ -24,9 +24,10 @@
       2) Select a track. (optional)
       3) Run the script.
 
-    REQUIRES: Reaper v6.68 or later
+    REQUIRES: Reaper v6.69 or later
   @changelog
-    + Fix: avoid creating excess items from lengths below time range threshold
+    + Copy item note text to pasted items
+    + Fix: item take colors in pasted items
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -183,6 +184,31 @@ function bfut_FetchMIDI_notes(take, default_velocity)
   end
   return notes
 end
+function bfut_GetSetItemColors(item, item_color, takes_colors, setNewValue)
+  if not setNewValue then
+    local item_color = reaper.GetDisplayedMediaItemColor(item)
+    local takes_colors = {}
+    for j = 0, reaper.GetMediaItemNumTakes(item) - 1 do
+      local tk = reaper.GetMediaItemTake(item, j)
+      if tk then
+        takes_colors[#takes_colors + 1] = reaper.GetDisplayedMediaItemColor2(item, tk)
+      end
+    end
+    return item_color, takes_colors
+  else
+    if reaper.GetMediaItemNumTakes(item) <= 1 and item_color then
+      reaper.SetMediaItemInfo_Value(item, "I_CUSTOMCOLOR", item_color)
+    elseif reaper.GetMediaItemNumTakes(item) == #takes_colors then
+      for j = 0, #takes_colors - 1 do
+        local tk = reaper.GetMediaItemTake(item, j)
+        if tk and takes_colors[j + 1] then
+          reaper.SetMediaItemTakeInfo_Value(tk, "I_CUSTOMCOLOR", takes_colors[j + 1])
+        end
+      end
+    end
+    return nil, nil
+  end
+end
 function bfut_InsertSubTracks(parent_track, option, note_rows, track_name)
   local subtracks = {}
   local temp_idx = reaper.GetMediaTrackInfo_Value(parent_track, "IP_TRACKNUMBER")
@@ -275,6 +301,8 @@ function bfut_Option1_MIDI_AsSequencer_PasteAsTakeOnTrack(track, source_item)
   reaper.SetMediaItemSelected(source_item, true)
   reaper.Main_OnCommandEx(40698, 0)
   reaper.SetMediaItemSelected(source_item, false)
+  local has_note_text, note_text = reaper.GetSetMediaItemInfo_String(source_item, "P_NOTES", "", false)
+  local item_color, takes_colors = bfut_GetSetItemColors(source_item, nil, nil, false)
   for i = 0, reaper.GetTrackNumMediaItems(track) - 1 do
     local temp_item = reaper.GetTrackMediaItem(track, i)
     reaper.SetMediaItemSelected(temp_item, true)
@@ -288,6 +316,10 @@ function bfut_Option1_MIDI_AsSequencer_PasteAsTakeOnTrack(track, source_item)
         reaper.GetMediaItemInfo_Value(source_item, key)
       )
     end
+    if has_note_text then
+      reaper.GetSetMediaItemInfo_String(temp_item, "P_NOTES", note_text, true)
+    end
+    bfut_GetSetItemColors(temp_item, item_color, takes_colors, true)
   end
 end
 function bfut_LimitItemsLength(item)
@@ -326,6 +358,8 @@ function bfut_Option2_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
   reaper.Main_OnCommandEx(40698, 0)
   reaper.SetOnlyTrackSelected(track, true)
   reaper.Main_OnCommandEx(40914,0)
+  local has_note_text, note_text = reaper.GetSetMediaItemInfo_String(source_item, "P_NOTES", "", false)
+  local item_color, takes_colors = bfut_GetSetItemColors(source_item, nil, nil, false)
   for i = 1, #MIDI_notes do
     reaper.GetSet_LoopTimeRange2(0, true, false, MIDI_notes[i][4], MIDI_notes[i][5], false)
     reaper.Main_OnCommandEx(40142,0)
@@ -343,6 +377,10 @@ function bfut_Option2_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
     end
     reaper.SetMediaItemInfo_Value(temp_item, "B_MUTE", (MIDI_notes[i][3] and 1 or 0))
     reaper.SetMediaItemInfo_Value(temp_item, "D_VOL", MIDI_notes[i][8])
+    if has_note_text then
+      reaper.GetSetMediaItemInfo_String(temp_item, "P_NOTES", note_text, true)
+    end
+    bfut_GetSetItemColors(temp_item, item_color, takes_colors, true)
   end
 end
 function bfut_Option3_MIDI_AsPianoRoll_EmptyTakes(MIDI_notes, track, _, reference_pitch, reaper_deffadelen)
@@ -370,17 +408,21 @@ function bfut_Option3_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
   reaper.Main_OnCommandEx(40698, 0)
   reaper.SetOnlyTrackSelected(track, true)
   reaper.Main_OnCommandEx(40914,0)
+  local has_note_text, note_text = reaper.GetSetMediaItemInfo_String(source_item, "P_NOTES", "", false)
+  local item_color, takes_colors = bfut_GetSetItemColors(source_item, nil, nil, false)
   for i = 1, #MIDI_notes do
     reaper.GetSet_LoopTimeRange2(0, true, false, MIDI_notes[i][4], MIDI_notes[i][5], false)
     reaper.Main_OnCommandEx(40142, 0)
     local temp_item = reaper.GetSelectedMediaItem(0, 0)
     reaper.Main_OnCommandEx(40603, 0)
     local temp_item_take = reaper.GetActiveTake(temp_item)
-    reaper.SetMediaItemTakeInfo_Value(
-      temp_item_take,
-      "D_PITCH",
-      MIDI_notes[i][7] - reference_pitch + reaper.GetMediaItemTakeInfo_Value(temp_item_take, "D_PITCH")
-    )
+    if temp_item_take then
+      reaper.SetMediaItemTakeInfo_Value(
+        temp_item_take,
+        "D_PITCH",
+        MIDI_notes[i][7] - reference_pitch + reaper.GetMediaItemTakeInfo_Value(temp_item_take, "D_PITCH")
+      )
+    end
     for _, key in ipairs({"D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE"}) do
       reaper.SetMediaItemInfo_Value(
         temp_item,
@@ -391,6 +433,10 @@ function bfut_Option3_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
     reaper.SetMediaItemInfo_Value(temp_item, "B_MUTE", (MIDI_notes[i][3] and 1 or 0))
     reaper.SetMediaItemInfo_Value(temp_item, "D_VOL", MIDI_notes[i][8])
     reaper.SetMediaItemInfo_Value(temp_item, "B_LOOPSRC", 0.0)
+    if has_note_text then
+      reaper.GetSetMediaItemInfo_String(temp_item, "P_NOTES", note_text, true)
+    end
+    bfut_GetSetItemColors(temp_item, item_color, takes_colors, true)
   end
 end
 local sel_MIDI_takes, MIDI_track = bfut_FetchSelectedMIDI_TakesOnTrack(reaper.CountSelectedMediaItems(0))
