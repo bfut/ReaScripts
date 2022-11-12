@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="5aa1ee58b1f25439231280c12512981ef739dd2c">
+<index version="1" name="bfut_ReaScripts" commit="8c3ba71df4f3b5af60dc8b802038b0ff4f43c5f3">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -149,6 +149,12 @@
 + Fix: item take colors in pasted items]]></changelog>
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/5aa1ee58b1f25439231280c12512981ef739dd2c/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
       </version>
+      <version name="1.6" author="bfut" time="2022-11-12T22:54:31Z">
+        <changelog><![CDATA[+ Copy item note text to pasted items
++ Fix: item take colors in pasted items
++ Fix: adjust pitch for all takes in 'note pitch as item pitch' flavor]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8c3ba71df4f3b5af60dc8b802038b0ff4f43c5f3/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
     </reapack>
     <reapack name="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch)">
       <metadata>
@@ -197,6 +203,12 @@
 + Fix: item take colors in pasted items]]></changelog>
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/5aa1ee58b1f25439231280c12512981ef739dd2c/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
       </version>
+      <version name="1.6" author="bfut" time="2022-11-12T22:54:31Z">
+        <changelog><![CDATA[+ Copy item note text to pasted items
++ Fix: item take colors in pasted items
++ Fix: adjust pitch for all takes in 'note pitch as item pitch' flavor]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8c3ba71df4f3b5af60dc8b802038b0ff4f43c5f3/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
     </reapack>
     <reapack name="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate)">
       <metadata>
@@ -244,6 +256,12 @@
         <changelog><![CDATA[+ Copy item note text to pasted items
 + Fix: item take colors in pasted items]]></changelog>
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/5aa1ee58b1f25439231280c12512981ef739dd2c/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+      <version name="1.6" author="bfut" time="2022-11-12T22:54:31Z">
+        <changelog><![CDATA[+ Copy item note text to pasted items
++ Fix: item take colors in pasted items
++ Fix: adjust pitch for all takes in 'note pitch as item pitch' flavor]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8c3ba71df4f3b5af60dc8b802038b0ff4f43c5f3/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_MIDI notes to items (explode note rows to subtracks).lua" type="script" desc="bfut_MIDI notes to items (explode note rows to subtracks)">
@@ -302,6 +320,12 @@
 + Fix: item take colors in pasted items]]></changelog>
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/5aa1ee58b1f25439231280c12512981ef739dd2c/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
       </version>
+      <version name="1.6" author="bfut" time="2022-11-12T22:54:31Z">
+        <changelog><![CDATA[+ Copy item note text to pasted items
++ Fix: item take colors in pasted items
++ Fix: adjust pitch for all takes in 'note pitch as item pitch' flavor]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8c3ba71df4f3b5af60dc8b802038b0ff4f43c5f3/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+      </version>
     </reapack>
     <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch)">
       <metadata>
@@ -359,6 +383,12 @@
 + Fix: item take colors in pasted items]]></changelog>
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/5aa1ee58b1f25439231280c12512981ef739dd2c/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
       </version>
+      <version name="1.6" author="bfut" time="2022-11-12T22:54:31Z">
+        <changelog><![CDATA[+ Copy item note text to pasted items
++ Fix: item take colors in pasted items
++ Fix: adjust pitch for all takes in 'note pitch as item pitch' flavor]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8c3ba71df4f3b5af60dc8b802038b0ff4f43c5f3/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+      </version>
     </reapack>
     <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate)">
       <metadata>
@@ -415,6 +445,12 @@
         <changelog><![CDATA[+ Copy item note text to pasted items
 + Fix: item take colors in pasted items]]></changelog>
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/5aa1ee58b1f25439231280c12512981ef739dd2c/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+      </version>
+      <version name="1.6" author="bfut" time="2022-11-12T22:54:31Z">
+        <changelog><![CDATA[+ Copy item note text to pasted items
++ Fix: item take colors in pasted items
++ Fix: adjust pitch for all takes in 'note pitch as item pitch' flavor]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8c3ba71df4f3b5af60dc8b802038b0ff4f43c5f3/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item from clipboard to selected items (replace).lua" type="script" desc="bfut_Paste item from clipboard to selected items (replace)">
