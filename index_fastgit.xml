@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="8c3ba71df4f3b5af60dc8b802038b0ff4f43c5f3">
+<index version="1" name="bfut_ReaScripts" commit="e65ec48b908b5e9af07fc9668fa5c4e15d8872b9">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -33,12 +33,12 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Copies any selected items to project markers.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Propagates selected items to project markers.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one project marker.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select media item(s).\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Run the script.\sa180\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.04 or later\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.69 or later\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -57,6 +57,12 @@
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/5d45a1705cc6e8ee437bc095bcb51fa548f3d222/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
       </version>
+      <version name="2.2" author="bfut" time="2022-11-15T10:39:03Z">
+        <changelog><![CDATA[+ ignore markers with distance to next below time range length threshold
++ Fix: strictly paste items to area between markers
++ Fix: paste items to respective original tracks]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/e65ec48b908b5e9af07fc9668fa5c4e15d8872b9/Items%20Editing/bfut_Copy%20items%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
     </reapack>
     <reapack name="bfut_Copy items within time selection to project markers, remove overlaps.lua" type="script" desc="bfut_Copy items within time selection to project markers, remove overlaps">
       <metadata>
@@ -64,13 +70,13 @@
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 Copies any selected items within time selection to project markers.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Propagates selected items within time selection to project markers.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab There must be at least one project marker.\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Select media item(s).\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Set time selection that at least partially overlaps selected item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Set time selection that (partially) overlaps selected item(s).\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run the script.\sa180\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.04 or later\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.69 or later\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -78,6 +84,12 @@
       <version name="2.1" author="bfut" time="2020-02-27T19:37:14Z">
         <changelog><![CDATA[+ initial version]]></changelog>
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/72bfd0a204857ad2ed7186e08ad44e1f053b0f2b/Items%20Editing/bfut_Copy%20items%20within%20time%20selection%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+      <version name="2.2" author="bfut" time="2022-11-15T10:39:03Z">
+        <changelog><![CDATA[+ ignore markers with distance to next below time range length threshold
++ Fix: strictly paste items to area between markers
++ Fix: paste items to respective original tracks]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/e65ec48b908b5e9af07fc9668fa5c4e15d8872b9/Items%20Editing/bfut_Copy%20items%20within%20time%20selection%20to%20project%20markers,%20remove%20overlaps.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Extract loop section under mouse cursor to new item.lua" type="script" desc="bfut_Extract loop section under mouse cursor to new item">
@@ -141,8 +153,8 @@
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/425e945a0bf2995fc6b2acd20d5ed9938fa34260/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
       </version>
       <version name="1.4" author="bfut" time="2022-09-24T21:25:01Z">
-        <changelog><![CDATA[+ Fix: avoid creating excess items from lengths below time range threshold]]></changelog>
-        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8b793a09f0a56818420841f612d1b3fb926924fe/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+        <changelog><![CDATA[+ avoid creating excessive items from lengths below range threshold]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/edc32a41d2b44aca5f9c354a7f320a6e6e557181/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
       </version>
       <version name="1.5" author="bfut" time="2022-11-12T22:03:27Z">
         <changelog><![CDATA[+ Copy item note text to pasted items
@@ -195,8 +207,8 @@
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8902a9eb5117a951a3298ee94f300e668d5068f4/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
       </version>
       <version name="1.4" author="bfut" time="2022-09-24T21:25:01Z">
-        <changelog><![CDATA[+ Fix: avoid creating excess items from lengths below time range threshold]]></changelog>
-        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8b793a09f0a56818420841f612d1b3fb926924fe/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+        <changelog><![CDATA[+ avoid creating excessive items from lengths below range threshold]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/edc32a41d2b44aca5f9c354a7f320a6e6e557181/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
       </version>
       <version name="1.5" author="bfut" time="2022-11-12T22:03:27Z">
         <changelog><![CDATA[+ Copy item note text to pasted items
@@ -249,8 +261,8 @@
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/a87368ca0238319a32b0e1bf22d01c916e0fb377/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
       </version>
       <version name="1.4" author="bfut" time="2022-09-24T21:25:01Z">
-        <changelog><![CDATA[+ Fix: avoid creating excess items from lengths below time range threshold]]></changelog>
-        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8b793a09f0a56818420841f612d1b3fb926924fe/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+        <changelog><![CDATA[+ avoid creating excessive items from lengths below range threshold]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/edc32a41d2b44aca5f9c354a7f320a6e6e557181/Items%20Editing/bfut_MIDI%20notes%20to%20empty%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
       </version>
       <version name="1.5" author="bfut" time="2022-11-12T22:03:27Z">
         <changelog><![CDATA[+ Copy item note text to pasted items
@@ -312,8 +324,8 @@
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/f7ccefbe3f5195d2d498232305951840f8a0d6c9/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
       </version>
       <version name="1.4" author="bfut" time="2022-09-24T21:25:01Z">
-        <changelog><![CDATA[+ Fix: avoid creating excess items from lengths below time range threshold]]></changelog>
-        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8b793a09f0a56818420841f612d1b3fb926924fe/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
+        <changelog><![CDATA[+ avoid creating excessive items from lengths below range threshold]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/edc32a41d2b44aca5f9c354a7f320a6e6e557181/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(explode%20note%20rows%20to%20subtracks).lua</source>
       </version>
       <version name="1.5" author="bfut" time="2022-11-12T22:03:27Z">
         <changelog><![CDATA[+ Copy item note text to pasted items
@@ -375,8 +387,8 @@
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/78f4a3ff92917413bd812dec9597237ecd566340/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
       </version>
       <version name="1.4" author="bfut" time="2022-09-24T21:25:01Z">
-        <changelog><![CDATA[+ Fix: avoid creating excess items from lengths below time range threshold]]></changelog>
-        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8b793a09f0a56818420841f612d1b3fb926924fe/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
+        <changelog><![CDATA[+ avoid creating excessive items from lengths below range threshold]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/edc32a41d2b44aca5f9c354a7f320a6e6e557181/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20pitch).lua</source>
       </version>
       <version name="1.5" author="bfut" time="2022-11-12T22:03:27Z">
         <changelog><![CDATA[+ Copy item note text to pasted items
@@ -438,8 +450,8 @@
         <source main="main">https://raw.fastgit.org/bfut/ReaScripts/676fdc8164344c67805cfb3680855d6e79965bf5/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
       </version>
       <version name="1.4" author="bfut" time="2022-09-24T21:25:01Z">
-        <changelog><![CDATA[+ Fix: avoid creating excess items from lengths below time range threshold]]></changelog>
-        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/8b793a09f0a56818420841f612d1b3fb926924fe/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
+        <changelog><![CDATA[+ avoid creating excessive items from lengths below range threshold]]></changelog>
+        <source main="main">https://raw.fastgit.org/bfut/ReaScripts/edc32a41d2b44aca5f9c354a7f320a6e6e557181/Items%20Editing/bfut_MIDI%20notes%20to%20items%20(notes%20to%20subtrack,%20note%20pitch%20as%20item%20rate).lua</source>
       </version>
       <version name="1.5" author="bfut" time="2022-11-12T22:03:27Z">
         <changelog><![CDATA[+ Copy item note text to pasted items
