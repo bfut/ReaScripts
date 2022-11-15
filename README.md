@@ -1,5 +1,5 @@
 # ReaScripts
-Scripts for REAPER Digital Audio Workstation, written by bfut. 
+Scripts for REAPER Digital Audio Workstation, written by bfut.
 
 Requirements: Reaper v6.xx, unless noted otherwise
 
@@ -56,6 +56,18 @@ How to use:
   3. Run the script.
 
 
+## Copy items to project markers (propagate)
+* bfut_Copy items to project markers, remove overlaps.lua
+* bfut_Copy items within time selection to project markers, remove overlaps.lua
+
+Propagates selected items to project markers.
+
+How to use:
+  1. There must be at least one project marker.
+  1. Select media item(s).
+  1. Run the script.
+
+
 ## Copy and replace selected items
 * bfut_Copy item to clipboard.lua
 * bfut_Paste item from clipboard to selected items (replace).lua
@@ -77,18 +89,6 @@ Replaces item under mouse cursor with selected item, preserving position, length
 How to use:
   1. Select media item.
   1. Hover mouse over another item.
-  1. Run the script.
-
-
-## Copy items to project markers (propagate)
-* bfut_Copy items to project markers, remove overlaps.lua
-* bfut_Copy items within time selection to project markers, remove overlaps.lua
-
-Copies any selected items to project markers.
-  
-How to use:
-  1. There must be at least one project marker.
-  1. Select media item(s).
   1. Run the script.
 
 
