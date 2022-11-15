@@ -1,19 +1,21 @@
 --[[
   @author bfut
-  @version 2.1
+  @version 2.2
   @description bfut_Copy items within time selection to project markers, remove overlaps
   @about
-    Copies any selected items within time selection to project markers.
+    Propagates selected items within time selection to project markers.
 
     HOW TO USE:
       1) There must be at least one project marker.
       2) Select media item(s).
-      3) Set time selection that at least partially overlaps selected item(s).
+      3) Set time selection that (partially) overlaps selected item(s).
       4) Run the script.
 
-    REQUIRES: Reaper v6.04 or later
+    REQUIRES: Reaper v6.69 or later
   @changelog
-    + initial version
+    + ignore markers with distance to next below time range length threshold
+    + Fix: strictly paste items to area between markers
+    + Fix: paste items to respective original tracks
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -32,15 +34,16 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 --[[ CONFIG options:
-  items_or_sel = "items"|"sel"
+  items_or_sel = "items"|"sel"  -- Copy items to or copy items within time selection to
 ]]
 local CONFIG = {
   items_or_sel = "sel"
 }
-local function bfut_GetMarkersByDistanceToNext(count_markers, count_regions, offset)
+local function bfut_GetMarkersByDistanceToNext(count_markers, count_regions)
   local markers = {}
   local marker_idx = 2
   local continue_loop = 0
+  local min_note_len = 4.2615384614919 * 10^-5
   for i = 0, count_markers + count_regions - 1 do
     local retval, isregion, pos, _, _, _ = reaper.EnumProjectMarkers2(0, i)
     continue_loop = i
@@ -60,30 +63,75 @@ local function bfut_GetMarkersByDistanceToNext(count_markers, count_regions, off
   markers[marker_idx-1][3] = 1 / 0
   table.sort(markers, function(a, b) return a[3] > b[3] end)
   for i = marker_idx - 1, 1, -1 do
-    if markers[i][3] > offset then
+    if markers[i][3] >= min_note_len then
       return markers, i
     end
     markers[i] = nil
   end
 end
+local function bfut_UnselectItemsOutsideSelectionRange(range_begin, range_end)
+  local count_sel_items = reaper.CountSelectedMediaItems(0)
+  for i = count_sel_items - 1, 0, -1 do
+    local item = reaper.GetSelectedMediaItem(0, i)
+    if item then
+      local pos = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
+      if pos + reaper.GetMediaItemInfo_Value(item, "D_LENGTH") <= range_begin or pos >= range_end then
+        if count_sel_items == 1 then
+          return false
+        end
+        reaper.SetMediaItemSelected(item, false)
+      end
+    end
+  end
+  if reaper.CountSelectedMediaItems(0) < 1 then
+    return false
+  end
+  return true
+end
 local retval, COUNT_MARKERS, COUNT_REGIONS = reaper.CountProjectMarkers(0)
 if not retval or COUNT_MARKERS < 1 then
   return
 end
-local FIRST_ITEM = reaper.GetSelectedMediaItem(0, 0)
-if not FIRST_ITEM then
+if not reaper.GetSelectedMediaItem(0, 0) then
   return
 end
-reaper.SetOnlyTrackSelected(reaper.GetMediaItem_Track(FIRST_ITEM))
-reaper.Main_OnCommandEx(40914, 0)
-local PLAY_POSITION = reaper.GetPlayPosition()
 local ORIGINAL_TIMESEL_START, ORIGINAL_TIMESEL_END = reaper.GetSet_LoopTimeRange2(0, false, false, -1, -1, false)
-local _offset = 0
 if CONFIG["items_or_sel"] ~= "items" then
-  reaper.Main_OnCommandEx(41173, 0)
-  _offset = math.max(reaper.GetCursorPosition() - ORIGINAL_TIMESEL_START, 0)
+  local count_sel_items = reaper.CountSelectedMediaItems(0)
+  for i = count_sel_items - 1, 0, -1 do
+    local item = reaper.GetSelectedMediaItem(0, i)
+    if item then
+      local pos = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
+      if pos + reaper.GetMediaItemInfo_Value(item, "D_LENGTH") <= ORIGINAL_TIMESEL_START or pos >= ORIGINAL_TIMESEL_END then
+        count_sel_items = count_sel_items - 1
+      end
+    end
+  end
+  if count_sel_items < 1 then
+    return
+  end
 end
-local markers, count_target_markers = bfut_GetMarkersByDistanceToNext(COUNT_MARKERS, COUNT_REGIONS, _offset + 2.2204460492503e-12)
+local VIEW_START, VIEW_END = reaper.GetSet_ArrangeView2(0, false, 0, 0, -1, -1)
+local UNDO_DESC
+if CONFIG["items_or_sel"] == "items" then
+  UNDO_DESC = "bfut_Copy items to project markers, remove overlaps"
+else
+  UNDO_DESC = "bfut_Copy items within time selection to project markers, remove overlaps"
+end
+reaper.Undo_BeginBlock2(0)
+reaper.PreventUIRefresh(1)
+if CONFIG["items_or_sel"] ~= "items" then
+  for i = reaper.CountSelectedMediaItems(0) - 1, 0, -1 do
+    local item = reaper.GetSelectedMediaItem(0, i)
+    if item then
+      local pos = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
+      if pos + reaper.GetMediaItemInfo_Value(item, "D_LENGTH") <= ORIGINAL_TIMESEL_START or pos >= ORIGINAL_TIMESEL_END then
+        reaper.SetMediaItemSelected(item, false)
+      end
+    end
+  end
+end
+local markers, count_target_markers = bfut_GetMarkersByDistanceToNext(COUNT_MARKERS, COUNT_REGIONS)
 if CONFIG["items_or_sel"] == "items" then
   reaper.Main_OnCommandEx(41174, 0)
   markers[1][3] = reaper.GetCursorPosition()
@@ -93,31 +141,45 @@ else
   markers[1][3] = ORIGINAL_TIMESEL_END - ORIGINAL_TIMESEL_START
 end
 local MAX_LEN = markers[1][3]
-reaper.Undo_BeginBlock2(0)
-reaper.PreventUIRefresh(1)
 reaper.SetCursorContext(1, nil)
 if CONFIG["items_or_sel"] == "items" then
   for _, val in ipairs(markers) do
     reaper.Main_OnCommandEx(41173, 0)
     local pos = reaper.GetCursorPosition()
-    reaper.GetSet_LoopTimeRange2(0, true, false, pos, pos + math.min(val[3], MAX_LEN), false)
-    reaper.GoToMarker(0, val[1], true)
+    local curr_timesel_start, curr_timesel_end = reaper.GetSet_LoopTimeRange2(0, true, false, pos, pos + math.min(val[3], MAX_LEN), false)
+    bfut_UnselectItemsOutsideSelectionRange(curr_timesel_start, curr_timesel_end)
+    reaper.SetOnlyTrackSelected(reaper.GetMediaItem_Track(reaper.GetSelectedMediaItem(0, 0)))
+    reaper.Main_OnCommandEx(40914, 0)
+    reaper.SetEditCurPos2(0, val[2], false, false)
     reaper.Main_OnCommandEx(41383, 0)
     reaper.Main_OnCommandEx(40058, 0)
   end
   reaper.GetSet_LoopTimeRange2(0, true, false, ORIGINAL_TIMESEL_START, ORIGINAL_TIMESEL_END, false)
 else
-  reaper.Main_OnCommandEx(41383, 0)
+  reaper.SetOnlyTrackSelected(reaper.GetMediaItem_Track(reaper.GetSelectedMediaItem(0, 0)))
+  reaper.Main_OnCommandEx(40914, 0)
+  local item_left = true
   for i = 1, count_target_markers - 1 do
+    reaper.Main_OnCommandEx(41383, 0)
     reaper.SetEditCurPos2(0, markers[i][2], false, false)
     reaper.Main_OnCommandEx(40058, 0)
-    reaper.GetSet_LoopTimeRange2(0, true, false, markers[i][2], markers[i][2] + math.min(markers[i + 1][3], MAX_LEN), false)
-    reaper.Main_OnCommandEx(41383, 0)
+    local curr_timesel_start, curr_timesel_end = reaper.GetSet_LoopTimeRange2(0, true, false, markers[i][2], markers[i][2] + math.min(markers[i + 1][3], MAX_LEN), false)
+    item_left = bfut_UnselectItemsOutsideSelectionRange(curr_timesel_start, curr_timesel_end)
+    if not item_left then
+      local curr_timesel_start, curr_timesel_end = reaper.GetSet_LoopTimeRange2(0, true, false, markers[i][2], markers[i][2] + math.min(markers[i + 0][3], MAX_LEN), false)
+      break
+    end
+    reaper.SetOnlyTrackSelected(reaper.GetMediaItem_Track(reaper.GetSelectedMediaItem(0, 0)))
+    reaper.Main_OnCommandEx(40914, 0)
   end
-  reaper.SetEditCurPos2(0, markers[count_target_markers][2], false, false)
-  reaper.Main_OnCommandEx(40058, 0)
-  reaper.GetSet_LoopTimeRange2(0, true, false, markers[count_target_markers][2], markers[count_target_markers][2] + math.min(markers[count_target_markers][3], MAX_LEN), false)
+  if item_left then
+    reaper.Main_OnCommandEx(41383, 0)
+    reaper.SetEditCurPos2(0, markers[count_target_markers][2], false, false)
+    reaper.Main_OnCommandEx(40058, 0)
+    local curr_timesel_start, curr_timesel_end = reaper.GetSet_LoopTimeRange2(0, true, false, markers[count_target_markers][2], markers[count_target_markers][2] + math.min(markers[count_target_markers][3], MAX_LEN), false)
+  end
 end
+reaper.GetSet_ArrangeView2(0, true, 0, 0, VIEW_START, VIEW_END)
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
-reaper.Undo_EndBlock2(0, "bfut_Copy items within time selection to project markers, remove overlaps", -1)
+reaper.Undo_EndBlock2(0, UNDO_DESC, -1)
