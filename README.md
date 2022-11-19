@@ -22,7 +22,7 @@ Then install individual scripts in Extensions > ReaPack > Browse packages.
 * bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua
 * bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua
 
-Converts MIDI notes to media items in one go. Fully supports items stretched across different time signatures.
+Converts MIDI notes to media items in one go. Supports time signature markers.
 
 How to set up item/sample loader:
   1. Select MIDI item(s) on one track.
@@ -60,7 +60,7 @@ How to use:
 * bfut_Copy items to project markers, remove overlaps.lua
 * bfut_Copy items within time selection to project markers, remove overlaps.lua
 
-Propagates selected items to project markers.
+Propagates selected items to project markers. Supports time signature markers.
 
 How to use:
   1. There must be at least one project marker.
@@ -97,7 +97,10 @@ bfut_Extract loop section under mouse cursor to new item.lua
 bfut_Split looped item into separate items.lua  
 bfut_Trim to source media lengths (limit items lengths).lua  
 bfut_Unselect grouped items.lua  
-bfut_Unselect ungrouped items.lua
+bfut_Unselect ungrouped items.lua  
+bfut_Unselect items outside time selection.lua  
+bfut_Unselect items touching time selection.lua  
+bfut_Unselect items within time selection.lua
 
 
 [SWS]: http://www.sws-extension.org
