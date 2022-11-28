@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.6
+  @version 1.7
   @description bfut_MIDI notes to empty items (explode note rows to subtracks)
   @about
     Convert MIDI notes to items
@@ -24,11 +24,9 @@
       2) Select a track. (optional)
       3) Run the script.
 
-    REQUIRES: Reaper v6.69 or later
+    REQUIRES: Reaper v6.70 or later
   @changelog
-    + Copy item note text to pasted items
-    + Fix: item take colors in pasted items
-    + Fix: adjust pitch for all takes in 'note pitch as item pitch' flavor
+    + preserve more item properties, especially group ID
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -87,7 +85,6 @@ local CONFIG = {
   ,default_velocity = -1
   ,option2_track_name = "Piano roll"
 }
-local MIN_NOTE_LEN = 4.2615384614919 * 10^-5
 function bfut_FetchSelectedMIDI_TakesOnTrack(count_sel_items)
   local MIDI_takes = {}
   local MIDI_takes_track
@@ -140,14 +137,14 @@ function bfut_FetchSelectedMIDI_TakesOnTrack(count_sel_items)
   end
   return MIDI_takes, MIDI_takes_track
 end
-function bfut_FetchMIDI_notes(take, default_velocity)
-  local min_note_len = reaper.TimeMap2_timeToQN(0, MIN_NOTE_LEN)
+function bfut_FetchMIDI_notes(take, default_velocity, min_note_len)
   local notes = {}
   local item = reaper.GetMediaItemTake_Item(take)
   local item_start = reaper.GetMediaItemInfo_Value(item, "D_POSITION")
   local item_end = item_start + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
   item_start = reaper.TimeMap2_timeToQN(0, item_start)
   item_end = reaper.TimeMap2_timeToQN(0, item_end)
+  min_note_len = reaper.TimeMap2_timeToQN(0, min_note_len)
   local take_sourcelength = reaper.GetMediaSourceLength(reaper.GetMediaItemTake_Source(take))
   local take_playrate = reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
   take_sourcelength = take_sourcelength / take_playrate
@@ -310,7 +307,9 @@ function bfut_Option1_MIDI_AsSequencer_PasteAsTakeOnTrack(track, source_item)
     reaper.Main_OnCommandEx(40603, 0)
     reaper.SetMediaItemSelected(temp_item, false)
     bfut_LimitItemsLength(temp_item)
-    for _, key in ipairs({"D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE"}) do
+    for _, key in ipairs({"B_ALLTAKESPLAY",
+                          "D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE",
+                          "I_GROUPID", "F_FREEMODE_Y", "F_FREEMODE_H"}) do
       reaper.SetMediaItemInfo_Value(
         temp_item,
         key,
@@ -369,7 +368,9 @@ function bfut_Option2_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
     bfut_ItemPlayrateChange(MIDI_notes[i][7], reference_pitch)
     reaper.Main_OnCommandEx(41385, 0)
     bfut_LimitItemsLength(temp_item)
-    for _, key in ipairs({"D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE"}) do
+    for _, key in ipairs({"B_ALLTAKESPLAY",
+                          "D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE",
+                          "I_GROUPID", "F_FREEMODE_Y", "F_FREEMODE_H"}) do
       reaper.SetMediaItemInfo_Value(
         temp_item,
         key,
@@ -426,7 +427,9 @@ function bfut_Option3_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
         )
       end
     end
-    for _, key in ipairs({"D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE"}) do
+    for _, key in ipairs({"B_ALLTAKESPLAY",
+                          "D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE",
+                          "I_GROUPID", "F_FREEMODE_Y", "F_FREEMODE_H"}) do
       reaper.SetMediaItemInfo_Value(
         temp_item,
         key,
@@ -457,6 +460,7 @@ end
 local VIEW_START, VIEW_END = reaper.GetSet_ArrangeView2(0, false, 0, 0, -1, -1)
 local TIME_SEL_START, TIME_SEL_END = reaper.GetSet_LoopTimeRange2(0, false, false, -1, -1, false)
 local ORIGINAL_CURSOR_POSITION = reaper.GetCursorPosition()
+local MIN_NOTE_LEN = 4.18 * 10^-5
 local UNDO_DESC
 if CONFIG["option"] == 1 and item_loader then
   UNDO_DESC = "bfut_MIDI notes to items (explode note rows to subtracks)"
@@ -488,7 +492,7 @@ if CONFIG["option"] == 1 then
     parent_track_items = bfut_FetchItemsFromTrack(parent_track, #note_rows)
   end
   for i = 1, #sel_MIDI_takes do
-    local MIDI_notes = bfut_FetchMIDI_notes(sel_MIDI_takes[i], CONFIG["default_velocity"])
+    local MIDI_notes = bfut_FetchMIDI_notes(sel_MIDI_takes[i], CONFIG["default_velocity"], MIN_NOTE_LEN)
     bfut_Option1_MIDI_AsSequencer_EmptyTakes(MIDI_notes, subtracks)
   end
   reaper.Main_OnCommandEx(40635, 0)
@@ -514,7 +518,7 @@ elseif CONFIG["option"] == 2 then
     parent_track_items = bfut_FetchItemsFromTrack(parent_track, 1)
   end
   for i = 1, #sel_MIDI_takes do
-    local MIDI_notes = bfut_FetchMIDI_notes(sel_MIDI_takes[i], CONFIG["default_velocity"])
+    local MIDI_notes = bfut_FetchMIDI_notes(sel_MIDI_takes[i], CONFIG["default_velocity"], MIN_NOTE_LEN)
     if #parent_track_items < 1 then
       bfut_Option2_MIDI_AsPianoRoll_EmptyTakes(
         MIDI_notes,
@@ -544,7 +548,7 @@ elseif CONFIG["option"] == 3 then
     parent_track_items = bfut_FetchItemsFromTrack(parent_track, 1)
   end
   for i = 1, #sel_MIDI_takes do
-    local MIDI_notes = bfut_FetchMIDI_notes(sel_MIDI_takes[i], CONFIG["default_velocity"])
+    local MIDI_notes = bfut_FetchMIDI_notes(sel_MIDI_takes[i], CONFIG["default_velocity"], MIN_NOTE_LEN)
     if #parent_track_items < 1 then
       bfut_Option3_MIDI_AsPianoRoll_EmptyTakes(
         MIDI_notes,
