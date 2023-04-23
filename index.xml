@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="102784d7b1b9774066c4ba7df15ab83bb35f3642">
+<index version="1" name="bfut_ReaScripts" commit="468bc45642dc8758c7b384400a2171010c6aea07">
   <category name="Items Editing">
+    <reapack name="bfut_Copy item properties to clipboard.lua" type="script" desc="bfut_Copy item properties to clipboard">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copy and paste properties\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Copy item properties to clipboard.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (item volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (take volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pan).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (playrate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific item properties in selected items.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item properties to clipboard".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run one of the scripts "bfut_Paste item properties from clipboard to set selected items property".\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.78 or later, SWS v2.12.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-04-23T11:22:22Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/468bc45642dc8758c7b384400a2171010c6aea07/Items%20Editing/bfut_Copy%20item%20properties%20to%20clipboard.lua</source>
+      </version>
+    </reapack>
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -523,6 +551,146 @@
 + Fix: replace FXIDs in replaced items
 Requires SWS v2.11.0.0 or later]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/d969c76506db5b84efa1125742a0651709108a32/Items%20Editing/bfut_Paste%20item%20from%20clipboard%20to%20selected%20items%20(replace).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Paste item properties from clipboard to set selected items property (item volume).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (item volume)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copy and paste properties\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Copy item properties to clipboard.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (item volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (take volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pan).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (playrate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific item properties in selected items.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item properties to clipboard".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run one of the scripts "bfut_Paste item properties from clipboard to set selected items property".\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.78 or later, SWS v2.12.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-04-23T11:22:22Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/468bc45642dc8758c7b384400a2171010c6aea07/Items%20Editing/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(item%20volume).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Paste item properties from clipboard to set selected items property (pan).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (pan)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copy and paste properties\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Copy item properties to clipboard.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (item volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (take volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pan).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (playrate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific item properties in selected items.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item properties to clipboard".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run one of the scripts "bfut_Paste item properties from clipboard to set selected items property".\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.78 or later, SWS v2.12.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-04-23T11:22:22Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/468bc45642dc8758c7b384400a2171010c6aea07/Items%20Editing/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(pan).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Paste item properties from clipboard to set selected items property (pitch).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (pitch)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copy and paste properties\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Copy item properties to clipboard.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (item volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (take volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pan).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (playrate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific item properties in selected items.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item properties to clipboard".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run one of the scripts "bfut_Paste item properties from clipboard to set selected items property".\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.78 or later, SWS v2.12.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-04-23T11:22:22Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/468bc45642dc8758c7b384400a2171010c6aea07/Items%20Editing/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(pitch).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Paste item properties from clipboard to set selected items property (playrate).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (playrate)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copy and paste properties\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Copy item properties to clipboard.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (item volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (take volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pan).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (playrate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific item properties in selected items.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item properties to clipboard".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run one of the scripts "bfut_Paste item properties from clipboard to set selected items property".\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.78 or later, SWS v2.12.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-04-23T11:22:22Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/468bc45642dc8758c7b384400a2171010c6aea07/Items%20Editing/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(playrate).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Paste item properties from clipboard to set selected items property (take volume).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (take volume)">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copy and paste properties\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Copy item properties to clipboard.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (item volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (take volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pan).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (playrate).lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific item properties in selected items.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item properties to clipboard".\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run one of the scripts "bfut_Paste item properties from clipboard to set selected items property".\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.78 or later, SWS v2.12.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-04-23T11:22:22Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/468bc45642dc8758c7b384400a2171010c6aea07/Items%20Editing/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(take%20volume).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Remove item under mouse cursor (delete).lua" type="script" desc="bfut_Remove item under mouse cursor (delete)">
