@@ -92,6 +92,23 @@ How to use:
   1. Run the script.
 
 
+## Copy and paste properties
+* bfut_Copy item properties to clipboard.lua
+* bfut_Paste item properties from clipboard to set selected items property (item volume).lua
+* bfut_Paste item properties from clipboard to set selected items property (take volume).lua
+* bfut_Paste item properties from clipboard to set selected items property (pan).lua
+* bfut_Paste item properties from clipboard to set selected items property (pitch).lua
+* bfut_Paste item properties from clipboard to set selected items property (playrate).lua
+
+Copies and sets specific item properties in selected items. Requires [SWS] extension.
+
+How to use:
+  1. Select media item.
+  1. Run script "bfut_Copy item properties to clipboard".
+  1. Select other media item(s).
+  1. Run one of the scripts "bfut_Paste item properties from clipboard to set selected items property".
+
+
 ## other scripts
 bfut_Extract loop section under mouse cursor to new item.lua  
 bfut_Split looped item into separate items.lua  
