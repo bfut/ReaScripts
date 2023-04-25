@@ -94,30 +94,37 @@ How to use:
 
 ## Copy and paste properties
 * bfut_Copy item properties to clipboard.lua
-* bfut_Paste item properties from clipboard to set selected items property (item volume).lua
-* bfut_Paste item properties from clipboard to set selected items property (take volume).lua
-* bfut_Paste item properties from clipboard to set selected items property (pan).lua
-* bfut_Paste item properties from clipboard to set selected items property (pitch).lua
-* bfut_Paste item properties from clipboard to set selected items property (playrate).lua
+* bfut_Paste item properties from clipboard to set selected items property (fadeinlength).lua
+* bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua
+* bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua
+* bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua
+* bfut_Paste item properties from clipboard to set selected items property (length).lua
+* bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua
+* bfut_Paste item properties from clipboard to set selected items property (volume).lua
+* bfut_Paste item properties from clipboard to set selected items take property (pan).lua
+* bfut_Paste item properties from clipboard to set selected items take property (pitch).lua
+* bfut_Paste item properties from clipboard to set selected items take property (playrate).lua
+* bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
+* bfut_Paste item properties from clipboard to set selected items take property (volume).lua
 
-Copies and sets specific item properties in selected items. Requires [SWS] extension.
+Copies and sets specific property in selected items. Requires [SWS] extension.
 
 How to use:
   1. Select media item.
-  1. Run script "bfut_Copy item properties to clipboard".
+  1. Run script "bfut_Copy item properties to clipboard"
   1. Select other media item(s).
-  1. Run one of the scripts "bfut_Paste item properties from clipboard to set selected items property".
+  1. Run one of the scripts "bfut_Paste item properties from clipboard to set selected items ... (...)"
 
 
 ## other scripts
-bfut_Extract loop section under mouse cursor to new item.lua  
-bfut_Split looped item into separate items.lua  
-bfut_Select items of less than 1 sample in length.lua  
-bfut_Trim to source media lengths (limit items lengths).lua  
-bfut_Unselect grouped items.lua  
-bfut_Unselect ungrouped items.lua  
-bfut_Unselect items outside time selection.lua  
-bfut_Unselect items touching time selection.lua  
+bfut_Extract loop section under mouse cursor to new item.lua
+bfut_Split looped item into separate items.lua
+bfut_Select items of less than 1 sample in length.lua
+bfut_Trim to source media lengths (limit items lengths).lua
+bfut_Unselect grouped items.lua
+bfut_Unselect ungrouped items.lua
+bfut_Unselect items outside time selection.lua
+bfut_Unselect items touching time selection.lua
 bfut_Unselect items within time selection.lua
 
 
