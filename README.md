@@ -107,7 +107,7 @@ How to use:
 * bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
 * bfut_Paste item properties from clipboard to set selected items take property (volume).lua
 
-Copies and sets specific property in selected items. Requires [SWS] extension.
+Copies and sets specific property in selected items. Observes item lock status. Requires [SWS] extension.
 
 How to use:
   1. Select media item.
@@ -117,14 +117,14 @@ How to use:
 
 
 ## other scripts
-bfut_Extract loop section under mouse cursor to new item.lua
-bfut_Split looped item into separate items.lua
-bfut_Select items of less than 1 sample in length.lua
-bfut_Trim to source media lengths (limit items lengths).lua
-bfut_Unselect grouped items.lua
-bfut_Unselect ungrouped items.lua
-bfut_Unselect items outside time selection.lua
-bfut_Unselect items touching time selection.lua
+bfut_Extract loop section under mouse cursor to new item.lua  
+bfut_Split looped item into separate items.lua  
+bfut_Select items of less than 1 sample in length.lua  
+bfut_Trim to source media lengths (limit items lengths).lua  
+bfut_Unselect grouped items.lua  
+bfut_Unselect ungrouped items.lua  
+bfut_Unselect items outside time selection.lua  
+bfut_Unselect items touching time selection.lua  
 bfut_Unselect items within time selection.lua
 
 

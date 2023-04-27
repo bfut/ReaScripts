@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.1
+  @version 1.2
   @description bfut_Copy item properties to clipboard
   @about
     Copy and paste properties
@@ -18,7 +18,7 @@
     * bfut_Paste item properties from clipboard to set selected items take property (playrate).lua
     * bfut_Paste item properties from clipboard to set selected items take property (pitch).lua
 
-    Copies and sets specific property in selected items.
+    Copies and sets specific property in selected items. Observes item lock status.
 
     HOW TO USE:
       1) Select media item.
@@ -28,7 +28,7 @@
 
     REQUIRES: Reaper v6.79 or later, SWS v2.12.1 or later
   @changelog
-    + support more item and item take properties
+    + improved performance
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2023 and later Benjamin Futasz
@@ -49,20 +49,28 @@
 local item = reaper.GetSelectedMediaItem(0, 0)
 if item then
   local take = reaper.GetActiveTake(item)
-    if take then
-      local itemD_VOL = reaper.GetMediaItemInfo_Value(item, "D_VOL")
-      local itemD_LENGTH = reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
-      local itemD_SNAPOFFSET = reaper.GetMediaItemInfo_Value(item, "D_SNAPOFFSET")
-      local itemD_FADEINLEN = reaper.GetMediaItemInfo_Value(item, "D_FADEINLEN")
-      local itemD_FADEOUTLEN = reaper.GetMediaItemInfo_Value(item, "D_FADEOUTLEN")
-      local itemC_FADEINSHAPE = reaper.GetMediaItemInfo_Value(item, "C_FADEINSHAPE")
-      local itemC_FADEOUTSHAPE = reaper.GetMediaItemInfo_Value(item, "C_FADEOUTSHAPE")
-      local takeD_STARTOFFS = reaper.GetMediaItemTakeInfo_Value(take, "D_STARTOFFS")
-      local takeD_VOL = reaper.GetMediaItemTakeInfo_Value(take, "D_VOL")
-      local takeD_PAN = reaper.GetMediaItemTakeInfo_Value(take, "D_PAN")
-      local takeD_PLAYRATE = reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
-      local takeD_PITCH = reaper.GetMediaItemTakeInfo_Value(take, "D_PITCH")
-      local buf = string.format("BFI0#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f",
+  local itemD_VOL = reaper.GetMediaItemInfo_Value(item, "D_VOL")
+  local itemD_LENGTH = reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
+  local itemD_SNAPOFFSET = reaper.GetMediaItemInfo_Value(item, "D_SNAPOFFSET")
+  local itemD_FADEINLEN = reaper.GetMediaItemInfo_Value(item, "D_FADEINLEN")
+  local itemD_FADEOUTLEN = reaper.GetMediaItemInfo_Value(item, "D_FADEOUTLEN")
+  local itemC_FADEINSHAPE = reaper.GetMediaItemInfo_Value(item, "C_FADEINSHAPE")
+  local itemC_FADEOUTSHAPE = reaper.GetMediaItemInfo_Value(item, "C_FADEOUTSHAPE")
+  local takeD_STARTOFFS = 0.0
+  local takeD_VOL = 1.0
+  local takeD_PAN = 0.0
+  local takeD_PLAYRATE = 1.0
+  local takeD_PITCH = 1.0
+  if take then
+    local takeD_STARTOFFS = reaper.GetMediaItemTakeInfo_Value(take, "D_STARTOFFS")
+    local takeD_VOL = reaper.GetMediaItemTakeInfo_Value(take, "D_VOL")
+    local takeD_PAN = reaper.GetMediaItemTakeInfo_Value(take, "D_PAN")
+    local takeD_PLAYRATE = reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
+    local takeD_PITCH = reaper.GetMediaItemTakeInfo_Value(take, "D_PITCH")
+  end
+  if reaper.APIExists("CF_SetClipboard") then
+    reaper.CF_SetClipboard(
+      string.format("BFI0##%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f",
         itemD_VOL,
         itemD_LENGTH,
         itemD_SNAPOFFSET,
@@ -75,13 +83,10 @@ if item then
         takeD_PAN,
         takeD_PLAYRATE,
         takeD_PITCH
-    )
-      if reaper.APIExists("CF_SetClipboard") then
-        reaper.CF_SetClipboard(buf)
-        reaper.Undo_BeginBlock2(0)
-        reaper.Undo_EndBlock2(0, "bfut_Copy item properties to clipboard", -1)
-      else
-        reaper.ReaScriptError("Requires extension, SWS v2.12.1 or later.\n")
-      end
+    ))
+    reaper.Undo_BeginBlock2(0)
+    reaper.Undo_EndBlock2(0, "bfut_Copy item properties to clipboard", -1)
+  else
+    reaper.ReaScriptError("Requires extension, SWS v2.12.1 or later.\n")
   end
 end
