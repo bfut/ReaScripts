@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="080999a334aaf2852c23eaefc910a70fae0da6dc">
+<index version="1" name="bfut_ReaScripts" commit="3b55f19434f9aef7d8651c1c0efb00dff17ea0e6">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -818,7 +818,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -841,6 +842,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Copy%20item%20properties%20to%20clipboard.lua</source>
       </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Copy%20item%20properties%20to%20clipboard.lua</source>
+      </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (fadeinlength).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (fadeinlength)">
       <metadata>
@@ -861,7 +867,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -880,6 +887,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(fadeinlength).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(fadeinlength).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (fadeinshape)">
@@ -901,7 +913,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -920,6 +933,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(fadeinshape).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(fadeinshape).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (fadeoutlength)">
@@ -941,7 +959,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -960,6 +979,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(fadeoutlength).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(fadeoutlength).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (fadeoutshape)">
@@ -981,7 +1005,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1000,6 +1025,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(fadeoutshape).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(fadeoutshape).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (length).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (length)">
@@ -1021,7 +1051,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1040,6 +1071,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(length).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(length).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (snapoffset)">
@@ -1061,7 +1097,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1080,6 +1117,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(snapoffset).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(snapoffset).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (volume).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (volume)">
@@ -1101,7 +1143,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1120,6 +1163,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(volume).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20property%20(volume).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (pan).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (pan)">
@@ -1141,7 +1189,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1160,6 +1209,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(pan).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(pan).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (pitch).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (pitch)">
@@ -1181,7 +1235,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1200,6 +1255,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(pitch).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(pitch).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (playrate).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (playrate)">
@@ -1221,7 +1281,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1240,6 +1301,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(playrate).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(playrate).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (startoffset)">
@@ -1261,7 +1327,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1280,6 +1347,11 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(startoffset).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(startoffset).lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (volume).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (volume)">
@@ -1301,7 +1373,8 @@ Requires SWS v2.11.0.0 or later]]></changelog>
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
@@ -1320,6 +1393,49 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       <version name="1.2" author="bfut" time="2023-04-27T17:08:33Z">
         <changelog><![CDATA[+ improved performance]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/080999a334aaf2852c23eaefc910a70fae0da6dc/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(volume).lua</source>
+      </version>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20property%20(volume).lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Paste item properties from clipboard to set selected items take stretch markers.lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take stretch markers">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Copy and paste properties\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Copy item properties to clipboard.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (length).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (fadeinlength).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (volume).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pan).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (playrate).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take property (pitch).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Paste item properties from clipboard to set selected items take stretch markers.lua\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Copies and sets specific property in selected items. Observes item lock status.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Select media item.\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run script "bfut_Copy item properties to clipboard"\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 3)\tx360\tab Select other media item(s).\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 4)\tx360\tab Run one of the scripts "bfut_Paste item properties from clipboard to set selected items ... (...)"\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v6.79 or later, SWS v2.12.1 or later\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.3" author="bfut" time="2023-04-28T11:57:13Z">
+        <changelog><![CDATA[+ support copy-/pasting stretch markers
++ this script set version is incompatible with any earlier versions]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20stretch%20markers.lua</source>
       </version>
     </reapack>
   </category>
