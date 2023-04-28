@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.2
+  @version 1.3
   @description bfut_Copy item properties to clipboard
   @about
     Copy and paste properties
@@ -17,6 +17,7 @@
     * bfut_Paste item properties from clipboard to set selected items take property (pan).lua
     * bfut_Paste item properties from clipboard to set selected items take property (playrate).lua
     * bfut_Paste item properties from clipboard to set selected items take property (pitch).lua
+    * bfut_Paste item properties from clipboard to set selected items take stretch markers.lua
 
     Copies and sets specific property in selected items. Observes item lock status.
 
@@ -28,7 +29,8 @@
 
     REQUIRES: Reaper v6.79 or later, SWS v2.12.1 or later
   @changelog
-    + improved performance
+    + support copy-/pasting stretch markers
+    + this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2023 and later Benjamin Futasz
@@ -48,7 +50,6 @@
 ]]
 local item = reaper.GetSelectedMediaItem(0, 0)
 if item then
-  local take = reaper.GetActiveTake(item)
   local itemD_VOL = reaper.GetMediaItemInfo_Value(item, "D_VOL")
   local itemD_LENGTH = reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
   local itemD_SNAPOFFSET = reaper.GetMediaItemInfo_Value(item, "D_SNAPOFFSET")
@@ -61,16 +62,31 @@ if item then
   local takeD_PAN = 0.0
   local takeD_PLAYRATE = 1.0
   local takeD_PITCH = 1.0
-  if take then
+  local take = reaper.GetActiveTake(item)
+  local num_takestretchmarkers = 0
+  local takestretchmarkers = {}
+    if take then
     local takeD_STARTOFFS = reaper.GetMediaItemTakeInfo_Value(take, "D_STARTOFFS")
     local takeD_VOL = reaper.GetMediaItemTakeInfo_Value(take, "D_VOL")
     local takeD_PAN = reaper.GetMediaItemTakeInfo_Value(take, "D_PAN")
     local takeD_PLAYRATE = reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
     local takeD_PITCH = reaper.GetMediaItemTakeInfo_Value(take, "D_PITCH")
+    num_takestretchmarkers = reaper.GetTakeNumStretchMarkers(take)
+    if num_takestretchmarkers > 0 then
+      for idx = 0, num_takestretchmarkers - 1 do
+        local retval, pos, opt_srcpos = reaper.GetTakeStretchMarker(take, idx)
+        if retval < 0 then
+          num_takestretchmarkers = idx
+          break
+        end
+        local slope = reaper.GetTakeStretchMarkerSlope(take, idx)
+        takestretchmarkers[#takestretchmarkers + 1] = string.format("%f#%f#%f", pos, opt_srcpos, slope)
+      end
+    end
   end
   if reaper.APIExists("CF_SetClipboard") then
     reaper.CF_SetClipboard(
-      string.format("BFI0##%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f",
+      string.format("BFI3#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#BFS3#%d#%s",
         itemD_VOL,
         itemD_LENGTH,
         itemD_SNAPOFFSET,
@@ -82,7 +98,9 @@ if item then
         takeD_VOL,
         takeD_PAN,
         takeD_PLAYRATE,
-        takeD_PITCH
+        takeD_PITCH,
+        num_takestretchmarkers,
+        table.concat(takestretchmarkers, "#")
     ))
     reaper.Undo_BeginBlock2(0)
     reaper.Undo_EndBlock2(0, "bfut_Copy item properties to clipboard", -1)

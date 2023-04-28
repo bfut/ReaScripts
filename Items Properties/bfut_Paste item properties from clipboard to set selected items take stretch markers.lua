@@ -1,7 +1,7 @@
 --[[
   @author bfut
   @version 1.3
-  @description bfut_Paste item properties from clipboard to set selected items property (volume)
+  @description bfut_Paste item properties from clipboard to set selected items take stretch markers
   @about
     Copy and paste properties
     * bfut_Copy item properties to clipboard.lua
@@ -49,8 +49,8 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 local CONFIG = {
-  mode = "item",
-  property = "D_VOL",
+  mode = "marker",
+  property = "stretch",
 }
 local function bfut_GetPropertiesFromCSV(buf)
   local vals = {}
@@ -156,4 +156,4 @@ else
 end
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
-reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items property (volume).lua", -1)
+reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items take stretch markers.lua", -1)

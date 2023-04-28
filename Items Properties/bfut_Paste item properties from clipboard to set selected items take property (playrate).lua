@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.2
+  @version 1.3
   @description bfut_Paste item properties from clipboard to set selected items take property (playrate)
   @about
     Copy and paste properties
@@ -17,6 +17,7 @@
     * bfut_Paste item properties from clipboard to set selected items take property (pan).lua
     * bfut_Paste item properties from clipboard to set selected items take property (playrate).lua
     * bfut_Paste item properties from clipboard to set selected items take property (pitch).lua
+    * bfut_Paste item properties from clipboard to set selected items take stretch markers.lua
 
     Copies and sets specific property in selected items. Observes item lock status.
 
@@ -28,7 +29,8 @@
 
     REQUIRES: Reaper v6.79 or later, SWS v2.12.1 or later
   @changelog
-    + improved performance
+    + support copy-/pasting stretch markers
+    + this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2023 and later Benjamin Futasz
@@ -68,10 +70,26 @@ local function bfut_GetPropertiesFromCSV(buf)
   }
   i = 1
   for item in buf:gmatch("[^#]+") do
-    vals[keys[i]] = item
+    vals[keys[i]] = tonumber(item)
     i = i + 1
   end
   return vals
+end
+local function bfut_GetStretchMarkersFromCSV(buf)
+  local num_vals = tonumber(string.match(buf, "[^#]+", 0))
+  local vals
+  if num_vals > 0 then
+    local cpos = buf:find("#", 2)
+    buf = buf:sub(cpos)
+    vals = {}
+    for item in buf:gmatch("[^#]+") do
+      vals[#vals + 1] = tonumber(item)
+    end
+    if #vals ~= 3*num_vals then
+      return 0, nil
+    end
+  end
+  return num_vals, vals
 end
 local COUNT_SEL_ITEMS = reaper.CountSelectedMediaItems(0)
 if COUNT_SEL_ITEMS < 1 then
@@ -86,29 +104,52 @@ local IS_ITEM_LOCKED = {
   [3.0] = true
 }
 local buf = reaper.CF_GetClipboard("")
-if not buf or not buf:sub(1,4) == "BFI0" or not buf:find("#") then
+if not buf or not buf:sub(1,4) == "BFI3" or not buf:find("#") then
   return
 end
-buf = buf:sub(5)
-local properties = bfut_GetPropertiesFromCSV(buf)
+local cpos = buf:find("#BFS3")
+if not cpos then
+  return
+end
 reaper.Undo_BeginBlock2(0)
 reaper.PreventUIRefresh(1)
-local parmname = CONFIG["property"]
-local newvalue = properties[CONFIG["mode"] .. CONFIG["property"]]
-if CONFIG["mode"] == "item" then
-  for i = 0, COUNT_SEL_ITEMS - 1 do
-    item = reaper.GetSelectedMediaItem(0, i)
-    if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
-      reaper.SetMediaItemInfo_Value(item, parmname, newvalue)
+if CONFIG["mode"] == "marker" then
+  buf = buf:sub(cpos + 5)
+  local num_takestretchmarkers, stretchmarkers = bfut_GetStretchMarkersFromCSV(buf)
+    for i = 0, COUNT_SEL_ITEMS - 1 do
+      item = reaper.GetSelectedMediaItem(0, i)
+      if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
+        local take = reaper.GetActiveTake(item)
+        if take then
+          reaper.DeleteTakeStretchMarkers(take, 0, reaper.GetTakeNumStretchMarkers(take))
+          for i = 0, num_takestretchmarkers - 1 do
+            local idx = reaper.SetTakeStretchMarker(take, -1, stretchmarkers[3*i + 1], stretchmarkers[3*i + 2])
+          end
+        end
+      end
     end
-  end
 else
-  for i = 0, COUNT_SEL_ITEMS - 1 do
-    item = reaper.GetSelectedMediaItem(0, i)
-    if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
-      local take = reaper.GetActiveTake(item)
-      if take then
-        reaper.SetMediaItemTakeInfo_Value(take, parmname, newvalue)
+  buf = buf:sub(5, cpos - 1)
+  local properties = bfut_GetPropertiesFromCSV(buf)
+  if properties then
+    local parmname = CONFIG["property"]
+    local newvalue = properties[CONFIG["mode"] .. CONFIG["property"]]
+    if CONFIG["mode"] == "item" then
+      for i = 0, COUNT_SEL_ITEMS - 1 do
+        item = reaper.GetSelectedMediaItem(0, i)
+        if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
+          reaper.SetMediaItemInfo_Value(item, parmname, newvalue)
+        end
+      end
+    else
+      for i = 0, COUNT_SEL_ITEMS - 1 do
+        item = reaper.GetSelectedMediaItem(0, i)
+        if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
+          local take = reaper.GetActiveTake(item)
+          if take then
+            reaper.SetMediaItemTakeInfo_Value(take, parmname, newvalue)
+          end
+        end
       end
     end
   end
