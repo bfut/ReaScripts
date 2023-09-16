@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="3b55f19434f9aef7d8651c1c0efb00dff17ea0e6">
+<index version="1" name="bfut_ReaScripts" commit="ab5c2fae47fa2800331fd74dd1269900311008ef">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -29,7 +29,7 @@
     </reapack>
     <reapack name="bfut_Copy items to project markers, remove overlaps.lua" type="script" desc="bfut_Copy items to project markers, remove overlaps">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -70,7 +70,7 @@
     </reapack>
     <reapack name="bfut_Copy items within time selection to project markers, remove overlaps.lua" type="script" desc="bfut_Copy items within time selection to project markers, remove overlaps">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -102,7 +102,7 @@
     </reapack>
     <reapack name="bfut_Extract loop section under mouse cursor to new item.lua" type="script" desc="bfut_Extract loop section under mouse cursor to new item">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -124,7 +124,7 @@
     </reapack>
     <reapack name="bfut_MIDI notes to empty items (explode note rows to subtracks).lua" type="script" desc="bfut_MIDI notes to empty items (explode note rows to subtracks)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -182,7 +182,7 @@
     </reapack>
     <reapack name="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -240,7 +240,7 @@
     </reapack>
     <reapack name="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to empty items (notes to subtrack, note pitch as item rate)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -298,7 +298,7 @@
     </reapack>
     <reapack name="bfut_MIDI notes to items (explode note rows to subtracks).lua" type="script" desc="bfut_MIDI notes to items (explode note rows to subtracks)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -365,7 +365,7 @@
     </reapack>
     <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item pitch)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -432,7 +432,7 @@
     </reapack>
     <reapack name="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate).lua" type="script" desc="bfut_MIDI notes to items (notes to subtrack, note pitch as item rate)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -499,7 +499,7 @@
     </reapack>
     <reapack name="bfut_Paste item from clipboard to selected items (replace).lua" type="script" desc="bfut_Paste item from clipboard to selected items (replace)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -527,13 +527,18 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Remove item under mouse cursor (delete).lua" type="script" desc="bfut_Remove item under mouse cursor (delete)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
+{\pard \ql \f0 \sa180 \li0 \fi0 Step sequencer for items\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track and fill grid bar under mouse)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Step sequencer (copy first item on track to grid bar under mouse).lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Remove item under mouse cursor (delete).lua\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
 {\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Hover mouse over item.\par}
-{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script. REQUIRES: Reaper v6.04 or later\sa180\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 REQUIRES: Reaper v5.99 or later\par}
 }
 ]]></description>
         <link rel="website">https://github.com/bfut</link>
@@ -545,10 +550,14 @@ Requires SWS v2.11.0.0 or later]]></changelog>
         <changelog><![CDATA[+ no longer requires SWS extension]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/e141498931f8625bb925cddc2fa8336c93b5806c/Items%20Editing/bfut_Remove%20item%20under%20mouse%20cursor%20(delete).lua</source>
       </version>
+      <version name="2.6" author="bfut" time="2023-09-16T11:09:02Z">
+        <changelog><![CDATA[+ performance improvements]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/ab5c2fae47fa2800331fd74dd1269900311008ef/Items%20Editing/bfut_Remove%20item%20under%20mouse%20cursor%20(delete).lua</source>
+      </version>
     </reapack>
     <reapack name="bfut_Replace item under mouse cursor with selected item.lua" type="script" desc="bfut_Replace item under mouse cursor with selected item">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -574,7 +583,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Select items of less than 1 sample in length.lua" type="script" desc="bfut_Select items of less than 1 sample in length">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -590,7 +599,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Split looped item into separate items.lua" type="script" desc="bfut_Split looped item into separate items">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -620,7 +629,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Step sequencer (copy first item on track and fill grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track and fill grid bar under mouse)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -658,7 +667,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Step sequencer (copy first item on track to grid bar under mouse).lua" type="script" desc="bfut_Step sequencer (copy first item on track to grid bar under mouse)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -696,7 +705,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Trim to source media lengths (limit items lengths).lua" type="script" desc="bfut_Trim to source media lengths (limit items lengths)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -717,7 +726,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Unselect grouped items.lua" type="script" desc="bfut_Unselect grouped items">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -734,7 +743,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Unselect items outside time selection.lua" type="script" desc="bfut_Unselect items outside time selection">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -750,7 +759,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Unselect items touching time selection.lua" type="script" desc="bfut_Unselect items touching time selection">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -766,7 +775,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Unselect items within time selection.lua" type="script" desc="bfut_Unselect items within time selection">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -782,7 +791,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Unselect ungrouped items.lua" type="script" desc="bfut_Unselect ungrouped items">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -801,7 +810,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
   <category name="Items Properties">
     <reapack name="bfut_Copy item properties to clipboard.lua" type="script" desc="bfut_Copy item properties to clipboard">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -850,7 +859,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (fadeinlength).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (fadeinlength)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -896,7 +905,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (fadeinshape)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -942,7 +951,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (fadeoutlength)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -988,7 +997,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (fadeoutshape)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1034,7 +1043,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (length).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (length)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1080,7 +1089,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (snapoffset)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1126,7 +1135,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items property (volume).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items property (volume)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1172,7 +1181,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (pan).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (pan)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1218,7 +1227,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (pitch).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (pitch)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1264,7 +1273,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (playrate).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (playrate)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1310,7 +1319,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (startoffset)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1356,7 +1365,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take property (volume).lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take property (volume)">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
@@ -1402,7 +1411,7 @@ Requires SWS v2.11.0.0 or later]]></changelog>
     </reapack>
     <reapack name="bfut_Paste item properties from clipboard to set selected items take stretch markers.lua" type="script" desc="bfut_Paste item properties from clipboard to set selected items take stretch markers">
       <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
