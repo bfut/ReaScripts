@@ -1,14 +1,20 @@
 --[[
   @author bfut
-  @version 1.1
+  @version 2.6
   @description bfut_Remove item under mouse cursor (delete)
   @about
+    Step sequencer for items
+    * bfut_Step sequencer (copy first item on track and fill grid bar under mouse)
+    * bfut_Step sequencer (copy first item on track to grid bar under mouse).lua
+    * bfut_Remove item under mouse cursor (delete).lua
+
     HOW TO USE:
       1) Hover mouse over item.
       2) Run the script.
-    REQUIRES: Reaper v6.04 or later
+
+    REQUIRES: Reaper v5.99 or later
   @changelog
-    + no longer requires SWS extension
+    + performance improvements
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2019 and later Benjamin Futasz
@@ -26,51 +32,11 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
-local function bfut_GetSelectedItemsGUIDs(count_sel_items)
-  local sel_items_takes_guid = {}
-  for i = count_sel_items - 1, 0, -1 do
-    local take = reaper.GetMediaItemTake(reaper.GetSelectedMediaItem(0, i), 0)
-    if take then
-      local _, guid = reaper.GetSetMediaItemTakeInfo_String(take, "GUID", "", false)
-      sel_items_takes_guid[i + 1] = guid
-    else
-      sel_items_takes_guid[i + 1] = "-1"
-    end
-  end
-  return sel_items_takes_guid
-end
-local function bfut_SelectItems(sel_items_takes_guid)
-  for _, guid in ipairs(sel_items_takes_guid) do
-    local take = reaper.GetMediaItemTakeByGUID(0, guid)
-    if take then
-      reaper.SetMediaItemSelected(reaper.GetMediaItemTake_Item(take), true)
-    end
-  end
-end
-local IS_ITEM_LOCKED = {
-  [1.0] = true,
-  [3.0] = true
-}
-if reaper.APIExists("BR_GetMouseCursorContext_Item") then
-  reaper.BR_GetMouseCursorContext()
-  local item = reaper.BR_GetMouseCursorContext_Item()
-  if item and not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
-    reaper.Undo_BeginBlock2(0)
-    reaper.DeleteTrackMediaItem(reaper.GetMediaItem_Track(item), item)
-    reaper.Undo_EndBlock2(0, "bfut_Remove item under mouse cursor (delete)", -1)
-  end
-else
+local SCREEN_X, SCREEN_Y = reaper.GetMousePosition()
+local item = reaper.GetItemFromPoint(SCREEN_X, SCREEN_Y, true)
+if item then
   reaper.Undo_BeginBlock2(0)
-  reaper.PreventUIRefresh(1)
-  local sel_items_takes_guid = bfut_GetSelectedItemsGUIDs(reaper.CountSelectedMediaItems(0))
-  reaper.Main_OnCommandEx(40528, 0)
-  local item = reaper.GetSelectedMediaItem(0, 0)
-  if item and not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
-    reaper.DeleteTrackMediaItem(reaper.GetMediaItem_Track(item), item)
-  end
-  reaper.SelectAllMediaItems(0, false)
-  bfut_SelectItems(sel_items_takes_guid)
-  reaper.PreventUIRefresh(-1)
+  reaper.DeleteTrackMediaItem(reaper.GetMediaItem_Track(item), item)
+  reaper.UpdateArrange()
   reaper.Undo_EndBlock2(0, "bfut_Remove item under mouse cursor (delete)", -1)
 end
-reaper.UpdateArrange()
