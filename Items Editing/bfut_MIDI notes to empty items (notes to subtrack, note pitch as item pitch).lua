@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.7
+  @version 1.8
   @description bfut_MIDI notes to empty items (notes to subtrack, note pitch as item pitch)
   @about
     Convert MIDI notes to items
@@ -23,10 +23,10 @@
       1) Select MIDI item(s).
       2) Select a track. (optional)
       3) Run the script.
-
-    REQUIRES: Reaper v6.70 or later
   @changelog
-    + preserve more item properties, especially group ID
+    REQUIRES: Reaper v6.82 or later
+    + performance improvements
+    - no longer preserve free item position
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2017 and later Benjamin Futasz
@@ -309,7 +309,7 @@ function bfut_Option1_MIDI_AsSequencer_PasteAsTakeOnTrack(track, source_item)
     bfut_LimitItemsLength(temp_item)
     for _, key in ipairs({"B_ALLTAKESPLAY",
                           "D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE",
-                          "I_GROUPID", "F_FREEMODE_Y", "F_FREEMODE_H"}) do
+                          "I_GROUPID"}) do
       reaper.SetMediaItemInfo_Value(
         temp_item,
         key,
@@ -370,7 +370,7 @@ function bfut_Option2_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
     bfut_LimitItemsLength(temp_item)
     for _, key in ipairs({"B_ALLTAKESPLAY",
                           "D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE",
-                          "I_GROUPID", "F_FREEMODE_Y", "F_FREEMODE_H"}) do
+                          "I_GROUPID"}) do
       reaper.SetMediaItemInfo_Value(
         temp_item,
         key,
@@ -379,6 +379,8 @@ function bfut_Option2_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
     end
     reaper.SetMediaItemInfo_Value(temp_item, "B_MUTE", (MIDI_notes[i][3] and 1 or 0))
     reaper.SetMediaItemInfo_Value(temp_item, "D_VOL", MIDI_notes[i][8])
+    reaper.SetMediaItemInfo_Value(temp_item, "F_FREEMODE_Y", 0)
+    reaper.SetMediaItemInfo_Value(temp_item, "F_FREEMODE_H", 1.0)
     if has_note_text then
       reaper.GetSetMediaItemInfo_String(temp_item, "P_NOTES", note_text, true)
     end
@@ -429,7 +431,7 @@ function bfut_Option3_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
     end
     for _, key in ipairs({"B_ALLTAKESPLAY",
                           "D_FADEINLEN", "C_FADEINSHAPE", "D_FADEOUTLEN", "C_FADEOUTSHAPE",
-                          "I_GROUPID", "F_FREEMODE_Y", "F_FREEMODE_H"}) do
+                          "I_GROUPID"}) do
       reaper.SetMediaItemInfo_Value(
         temp_item,
         key,
@@ -437,8 +439,10 @@ function bfut_Option3_MIDI_AsPianoRoll(MIDI_notes, track, source_item, reference
       )
     end
     reaper.SetMediaItemInfo_Value(temp_item, "B_MUTE", (MIDI_notes[i][3] and 1 or 0))
-    reaper.SetMediaItemInfo_Value(temp_item, "D_VOL", MIDI_notes[i][8])
     reaper.SetMediaItemInfo_Value(temp_item, "B_LOOPSRC", 0.0)
+    reaper.SetMediaItemInfo_Value(temp_item, "D_VOL", MIDI_notes[i][8])
+    reaper.SetMediaItemInfo_Value(temp_item, "F_FREEMODE_Y", 0)
+    reaper.SetMediaItemInfo_Value(temp_item, "F_FREEMODE_H", 1.0)
     if has_note_text then
       reaper.GetSetMediaItemInfo_String(temp_item, "P_NOTES", note_text, true)
     end
