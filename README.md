@@ -1,7 +1,7 @@
 # ReaScripts
 Scripts for REAPER Digital Audio Workstation, written by bfut.
 
-Requirements: Reaper v6.xx, unless noted otherwise
+Requirements: Reaper v6.xx
 
 
 ### Installation
@@ -41,7 +41,7 @@ How to use:
 * bfut_Step sequencer (copy first item on track to grid bar under mouse).lua
 * bfut_Remove item under mouse cursor (delete).lua
 
-Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires [SWS] extension.
+Copies first item on track under mouse cursor to grid bar under mouse cursor. Requires SWS extension.
 
 Add a source media item at the beginning of your target track. Set a time selection, e.g. 16 grid bars. Hit play. As you add and remove media items, REAPER's arrange view now behaves like a pattern-based step sequencer. Try adjusting the grid divison.
 
@@ -72,7 +72,7 @@ How to use:
 * bfut_Copy item to clipboard.lua
 * bfut_Paste item from clipboard to selected items (replace).lua
 
-Copies and replaces selected items, preserving position, length, mute status, etc. in the replaced items. Requires [SWS] extension.
+Copies and replaces selected items, preserving position, length, mute status, etc. in the replaced items. Requires SWS extension.
 
 How to use:
   1. Select media item.
@@ -107,7 +107,7 @@ How to use:
 * bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
 * bfut_Paste item properties from clipboard to set selected items take property (volume).lua
 
-Copies and sets specific property in selected items. Observes item lock status. Requires [SWS] extension.
+Copies and sets specific property in selected items. Observes item lock status. Requires SWS extension.
 
 How to use:
   1. Select media item.
@@ -117,8 +117,11 @@ How to use:
 
 
 ## other scripts
+bfut_Add marker at each time signature marker.lua  
+bfut_Add marker at each time signature marker within time selection.lua  
 bfut_Extract loop section under mouse cursor to new item.lua  
 bfut_Split looped item into separate items.lua  
+bfut_Delete regions of less than 1 sample in length.lua  
 bfut_Select items of less than 1 sample in length.lua  
 bfut_Trim to source media lengths (limit items lengths).lua  
 bfut_Unselect grouped items.lua  
@@ -126,6 +129,3 @@ bfut_Unselect ungrouped items.lua
 bfut_Unselect items outside time selection.lua  
 bfut_Unselect items touching time selection.lua  
 bfut_Unselect items within time selection.lua
-
-
-[SWS]: http://www.sws-extension.org
