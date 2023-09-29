@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="64973d25f103978c26b92c2259751ed8f4a0172f">
+<index version="1" name="bfut_ReaScripts" commit="44e1ce76f1e3147eb6a09618c2aa4424b016106c">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -1475,6 +1475,69 @@ Requires SWS v2.11.0.0 or later]]></changelog>
         <changelog><![CDATA[+ support copy-/pasting stretch markers
 + this script set version is incompatible with any earlier versions]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/3b55f19434f9aef7d8651c1c0efb00dff17ea0e6/Items%20Properties/bfut_Paste%20item%20properties%20from%20clipboard%20to%20set%20selected%20items%20take%20stretch%20markers.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Markers">
+    <reapack name="bfut_Add marker at each time signature marker within time selection.lua" type="script" desc="bfut_Add marker at each time signature marker within time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Add marker at each time signature marker\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Add marker at each time signature marker within time selection\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Set time selection. (optional)\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 2)\tx360\tab Run the script.\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-09-29T19:02:49Z">
+        <changelog><![CDATA[REQUIRES: Reaper v6.82 or later
++ initial version]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/44e1ce76f1e3147eb6a09618c2aa4424b016106c/Markers/bfut_Add%20marker%20at%20each%20time%20signature%20marker%20within%20time%20selection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Add marker at each time signature marker.lua" type="script" desc="bfut_Add marker at each time signature marker">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Add marker at each time signature marker\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Add marker at each time signature marker within time selection\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Run the script.\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-09-29T19:02:49Z">
+        <changelog><![CDATA[REQUIRES: Reaper v6.82 or later
++ initial version]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/44e1ce76f1e3147eb6a09618c2aa4424b016106c/Markers/bfut_Add%20marker%20at%20each%20time%20signature%20marker.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Regions">
+    <reapack name="bfut_Delete regions of less than 1 sample in length.lua" type="script" desc="bfut_Delete regions of less than 1 sample in length">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 HOW TO USE:\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 1)\tx360\tab Run the script.\sa180\par}
+}
+]]></description>
+        <link rel="website">https://github.com/bfut</link>
+      </metadata>
+      <version name="1.0" author="bfut" time="2023-09-29T19:01:56Z">
+        <changelog><![CDATA[REQUIRES: Reaper v6.82 or later
++ initial version]]></changelog>
+        <source main="main">https://github.com/bfut/ReaScripts/raw/94875c3aea1fcd0334e381ef5059e3bbd8457462/Regions/bfut_Delete%20regions%20of%20less%20than%201%20sample%20in%20length.lua</source>
       </version>
     </reapack>
   </category>
