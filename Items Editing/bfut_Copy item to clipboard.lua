@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.2
+  @version 1.3
   @description bfut_Copy item to clipboard
   @about
     HOW TO USE:
@@ -8,9 +8,9 @@
       2) Run script "bfut_Copy item to clipboard".
       3) Select other media item(s).
       4) Run script "bfut_Paste item from clipboard to selected items (replace)".
-    REQUIRES: Reaper v6.04 or later, SWS v2.10.0.1 or later
   @changelog
-    + improved performance
+    REQUIRES: Reaper v7.00 or later
+    # this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2018 and later Benjamin Futasz
@@ -32,10 +32,8 @@ local item = reaper.GetSelectedMediaItem(0, 0)
 if item then
   local retval, item_chunk = reaper.GetItemStateChunk(item, "", false)
   if retval then
-    if reaper.APIExists("CF_SetClipboard") then
-      reaper.CF_SetClipboard(item_chunk)
-    else
-      reaper.ReaScriptError("Requires extension, SWS v2.10.0.1 or later.\n")
-    end
+    reaper.SetExtState("bfut", "CIC3", item_chunk, true)
+    reaper.Undo_BeginBlock2(0)
+    reaper.Undo_EndBlock2(0, "bfut_Copy item to clipboard", -1)
   end
 end

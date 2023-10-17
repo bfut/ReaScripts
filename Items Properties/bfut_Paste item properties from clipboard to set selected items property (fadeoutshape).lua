@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.3
+  @version 1.4
   @description bfut_Paste item properties from clipboard to set selected items property (fadeoutshape)
   @about
     Copy and paste properties
@@ -12,6 +12,8 @@
     * bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua
+    * bfut_Paste item properties from clipboard to set selected items property (fixedlane).lua
+    * bfut_Paste item properties from clipboard to set selected items property (freeitemposition).lua
     * bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
     * bfut_Paste item properties from clipboard to set selected items take property (volume).lua
     * bfut_Paste item properties from clipboard to set selected items take property (pan).lua
@@ -26,11 +28,11 @@
       2) Run script "bfut_Copy item properties to clipboard"
       3) Select other media item(s).
       4) Run one of the scripts "bfut_Paste item properties from clipboard to set selected items ... (...)"
-
-    REQUIRES: Reaper v6.79 or later, SWS v2.12.1 or later
   @changelog
-    + support copy-/pasting stretch markers
-    + this script set version is incompatible with any earlier versions
+    REQUIRES: Reaper v7.00 or later
+    + add support for fixed item lane property, see new script (fixedlane)
+    + add support for free item position property, see new script (freeitemposition)
+    # this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2023 and later Benjamin Futasz
@@ -50,7 +52,7 @@
 ]]
 local CONFIG = {
   mode = "item",
-  property = "C_FADEOUTSHAPE",
+  property1 = "C_FADEOUTSHAPE",
 }
 local function bfut_GetPropertiesFromCSV(buf)
   local vals = {}
@@ -62,6 +64,9 @@ local function bfut_GetPropertiesFromCSV(buf)
     "itemD_FADEOUTLEN",
     "itemC_FADEINSHAPE",
     "itemC_FADEOUTSHAPE",
+    "itemF_FREEMODE_Y",
+    "itemF_FREEMODE_H",
+    "itemI_FIXEDLANE",
     "takeD_STARTOFFS",
     "takeD_VOL",
     "takeD_PAN",
@@ -95,16 +100,15 @@ local COUNT_SEL_ITEMS = reaper.CountSelectedMediaItems(0)
 if COUNT_SEL_ITEMS < 1 then
   return
 end
-if not reaper.APIExists("CF_GetClipboard") then
-  reaper.ReaScriptError("Requires extension, SWS v2.12.1 or later.\n")
-  return
-end
 local IS_ITEM_LOCKED = {
   [1.0] = true,
   [3.0] = true
 }
-local buf = reaper.CF_GetClipboard("")
-if not buf or not buf:sub(1,4) == "BFI3" or not buf:find("#") then
+if not reaper.HasExtState("bfut", "BFI4") then
+  return
+end
+local buf = reaper.GetExtState("bfut", "BFI4")
+if not buf:sub(1,4) == "BFI4" or not buf:find("#") then
   return
 end
 local cpos = buf:find("#BFS3")
@@ -132,13 +136,13 @@ else
   buf = buf:sub(5, cpos - 1)
   local properties = bfut_GetPropertiesFromCSV(buf)
   if properties then
-    local parmname = CONFIG["property"]
-    local newvalue = properties[CONFIG["mode"] .. CONFIG["property"]]
+    local parmname1 = CONFIG["property1"]
+    local newvalue1 = properties[CONFIG["mode"] .. CONFIG["property1"]]
     if CONFIG["mode"] == "item" then
       for i = 0, COUNT_SEL_ITEMS - 1 do
         item = reaper.GetSelectedMediaItem(0, i)
         if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
-          reaper.SetMediaItemInfo_Value(item, parmname, newvalue)
+          reaper.SetMediaItemInfo_Value(item, parmname1, newvalue1)
         end
       end
     else
@@ -147,7 +151,7 @@ else
         if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
           local take = reaper.GetActiveTake(item)
           if take then
-            reaper.SetMediaItemTakeInfo_Value(take, parmname, newvalue)
+            reaper.SetMediaItemTakeInfo_Value(take, parmname1, newvalue1)
           end
         end
       end

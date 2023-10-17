@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.2
+  @version 1.3
   @description bfut_Paste item from clipboard to selected items (replace)
   @about
     HOW TO USE:
@@ -8,11 +8,10 @@
       2) Run script "bfut_Copy item to clipboard".
       3) Select other media item(s).
       4) Run script "bfut_Paste item from clipboard to selected items (replace)".
-    REQUIRES: Reaper v6.04 or later, SWS v2.11.0.0 or later
   @changelog
-    + native pooled (ghost) MIDI item behavior
-    + Fix: replace FXIDs in replaced items
-    Requires SWS v2.11.0.0 or later
+    REQUIRES: Reaper v7.00 or later
+    + add support for item lanes / free item position: preserve positions of selected items
+    # this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2018 and later Benjamin Futasz
@@ -29,11 +28,6 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-]]
---[[ CONFIG defaults:
-  always_pool_midi =
-    false  -- factory default
-    true  -- ignore Options: Toggle pooled (ghost) MIDI source data when copying media items
 ]]
 local CONFIG = {
   always_pool_midi = false
@@ -63,10 +57,6 @@ local COUNT_SEL_ITEMS = reaper.CountSelectedMediaItems(0)
 if COUNT_SEL_ITEMS < 1 then
   return
 end
-if not reaper.APIExists("CF_GetClipboard") then
-  reaper.ReaScriptError("Requires extension, SWS v2.11.0.0 or later.\n")
-  return
-end
 local RPPXML_LOCK = {
   ["1"] = 0,
   ["2"] = 2,
@@ -77,7 +67,10 @@ local IS_ITEM_LOCKED = {
     [3.0] = true
 }
 local POOL_MIDI = CONFIG["always_pool_midi"] or (reaper.GetToggleCommandState(41071) == 1)
-local buf = reaper.CF_GetClipboard("")
+if not reaper.HasExtState("bfut", "CIC3") then
+  return
+end
+local buf = reaper.GetExtState("bfut", "CIC3")
 if not buf or buf:find('<ITEM', 0, true) ~= 1 then
   return
 end
@@ -86,6 +79,9 @@ reaper.PreventUIRefresh(1)
 for i = 0, COUNT_SEL_ITEMS - 1 do
   item = reaper.GetSelectedMediaItem(0, i)
   if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
+    local itemF_FREEMODE_Y = reaper.GetMediaItemInfo_Value(item, "F_FREEMODE_Y")
+    local itemF_FREEMODE_H = reaper.GetMediaItemInfo_Value(item, "F_FREEMODE_H")
+    local itemI_FIXEDLANE = reaper.GetMediaItemInfo_Value(item, "I_FIXEDLANE")
     local retval, old_item_chunk = reaper.GetItemStateChunk(item, "", false)
     if retval then
       local new_item_chunk = buf
@@ -110,6 +106,17 @@ for i = 0, COUNT_SEL_ITEMS - 1 do
         new_item_chunk = bfut_ResetAllChunkGuids(new_item_chunk, "POOLEDEVTS")
       end
       if not reaper.SetItemStateChunk(item, new_item_chunk, true) then
+        reaper.ShowConsoleMsg(string.format("%s SetItemStateChunk(selected item) has failed.\n", i))
+      end
+      if reaper.SetItemStateChunk(item, new_item_chunk, true) then
+        local freemode = reaper.GetMediaTrackInfo_Value(reaper.GetMediaItem_Track(item), "I_FREEMODE")
+        if freemode == 1 then
+          reaper.SetMediaItemInfo_Value(item, "F_FREEMODE_Y", itemF_FREEMODE_Y)
+          reaper.SetMediaItemInfo_Value(item, "F_FREEMODE_H", itemF_FREEMODE_H)
+        elseif freemode == 2 then
+          reaper.SetMediaItemInfo_Value(item, "I_FIXEDLANE", itemI_FIXEDLANE)
+        end
+      else
         reaper.ShowConsoleMsg(string.format("%s SetItemStateChunk(selected item) has failed.\n", i))
       end
     end

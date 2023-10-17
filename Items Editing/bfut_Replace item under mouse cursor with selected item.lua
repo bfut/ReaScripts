@@ -1,16 +1,15 @@
 --[[
   @author bfut
-  @version 1.2
+  @version 1.3
   @description bfut_Replace item under mouse cursor with selected item
   @about
     HOW TO USE:
       1) Select media item.
       2) Hover mouse over another item.
       3) Run the script.
-    REQUIRES: Reaper v6.04 or later, SWS v2.11.0.0 or later
   @changelog
-    + native pooled (ghost) MIDI item behavior
-    + Fix: replace FXIDs in replaced item
+    REQUIRES: Reaper v7.00 or later
+    + add support for item lanes / free item position: preserve position of item under mouse
   @website https://github.com/bfut
   LICENSE:
     Copyright (C) 2018 and later Benjamin Futasz
@@ -27,11 +26,6 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-]]
---[[ CONFIG defaults:
-  always_pool_midi =
-    false  -- factory default
-    true  -- ignore Options: Toggle pooled (ghost) MIDI source data when copying media items
 ]]
 local CONFIG = {
   always_pool_midi = false
@@ -57,10 +51,6 @@ local function bfut_ResetAllChunkGuids(item_chunk, key)
   end
   return item_chunk:gsub('temp'..key, key), true
 end
-if not reaper.APIExists("BR_GetMouseCursorContext_Item") then
-  reaper.ReaScriptError("Requires extension, SWS v2.11.0.0 or later.\n")
-  return
-end
 local RPPXML_LOCK = {
   ["1"] = 0,
   ["2"] = 2,
@@ -74,8 +64,8 @@ local SRC_ITEM = reaper.GetSelectedMediaItem(0, 0)
 if not SRC_ITEM then
   return
 end
-reaper.BR_GetMouseCursorContext()
-local TARGET_ITEM = reaper.BR_GetMouseCursorContext_Item()
+local SCREEN_X, SCREEN_Y = reaper.GetMousePosition()
+local TARGET_ITEM = reaper.GetItemFromPoint(SCREEN_X, SCREEN_Y, true)
 if not TARGET_ITEM or TARGET_ITEM == SRC_ITEM then
   return
 end
@@ -90,6 +80,9 @@ local retval, src_item_chunk = reaper.GetItemStateChunk(SRC_ITEM, "", false)
 if not retval then
   return
 end
+local TARGET_ITEMF_FREEMODE_Y = reaper.GetMediaItemInfo_Value(TARGET_ITEM, "F_FREEMODE_Y")
+local TARGET_ITEMF_FREEMODE_H = reaper.GetMediaItemInfo_Value(TARGET_ITEM, "F_FREEMODE_H")
+local TARGET_ITEMI_FIXEDLANE = reaper.GetMediaItemInfo_Value(TARGET_ITEM, "I_FIXEDLANE")
 for _, key in ipairs({"POSITION", "LENGTH", "MUTE", "SEL", "IID"}) do
   src_item_chunk = bfut_GetSetItemChunkValue(
     src_item_chunk,
@@ -112,7 +105,15 @@ if not CONFIG["always_pool_midi"] and (reaper.GetToggleCommandState(41071) ~= 1)
 end
 reaper.Undo_BeginBlock2(0)
 reaper.PreventUIRefresh(1)
-if not reaper.SetItemStateChunk(TARGET_ITEM, src_item_chunk, true) then
+if reaper.SetItemStateChunk(TARGET_ITEM, src_item_chunk, true) then
+  local freemode = reaper.GetMediaTrackInfo_Value(reaper.GetMediaItem_Track(TARGET_ITEM), "I_FREEMODE")
+  if freemode == 1 then
+    reaper.SetMediaItemInfo_Value(TARGET_ITEM, "F_FREEMODE_Y", TARGET_ITEMF_FREEMODE_Y)
+    reaper.SetMediaItemInfo_Value(TARGET_ITEM, "F_FREEMODE_H", TARGET_ITEMF_FREEMODE_H)
+  elseif freemode == 2 then
+    reaper.SetMediaItemInfo_Value(TARGET_ITEM, "I_FIXEDLANE", TARGET_ITEMI_FIXEDLANE)
+  end
+else
   reaper.ShowConsoleMsg("SetItemStateChunk(selected item) has failed.\n")
 end
 reaper.PreventUIRefresh(-1)

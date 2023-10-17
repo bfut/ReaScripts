@@ -1,7 +1,7 @@
 --[[
   @author bfut
   @version 1.4
-  @description bfut_Paste item properties from clipboard to set selected items property (snapoffset)
+  @description bfut_Paste item properties from clipboard to set selected items property (fixedlane)
   @about
     Copy and paste properties
     * bfut_Copy item properties to clipboard.lua
@@ -52,7 +52,7 @@
 ]]
 local CONFIG = {
   mode = "item",
-  property1 = "D_SNAPOFFSET",
+  property1 = "I_FIXEDLANE",
 }
 local function bfut_GetPropertiesFromCSV(buf)
   local vals = {}
@@ -160,4 +160,4 @@ else
 end
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
-reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua", -1)
+reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items property (fixedlane).lua", -1)

@@ -11,9 +11,8 @@
     HOW TO USE:
       1) Hover mouse over item.
       2) Run the script.
-
-    REQUIRES: Reaper v5.99 or later
   @changelog
+    REQUIRES: Reaper v7.00 or later
     + performance improvements
   @website https://github.com/bfut
   LICENSE:
