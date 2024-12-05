@@ -63,6 +63,7 @@ Possible usage:
 ## Copy items to project markers (propagate)
 * bfut_Copy items to project markers, remove overlaps.lua
 * bfut_Copy items within time selection to project markers, remove overlaps.lua
+* bfut_Copy items to regions.lua
 
 Propagates selected items to project markers. Supports time signature markers.
 
