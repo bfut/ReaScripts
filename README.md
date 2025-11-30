@@ -98,20 +98,28 @@ How to use:
 
 
 ## Copy and paste properties
-* bfut_Copy item properties to clipboard.lua
-* bfut_Paste item properties from clipboard to set selected items property (fadeinlength).lua
-* bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua
-* bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua
-* bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua
-* bfut_Paste item properties from clipboard to set selected items property (fixedlane).lua
-* bfut_Paste item properties from clipboard to set selected items property (length).lua
-* bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua
-* bfut_Paste item properties from clipboard to set selected items property (volume).lua
-* bfut_Paste item properties from clipboard to set selected items take property (pan).lua
-* bfut_Paste item properties from clipboard to set selected items take property (pitch).lua
-* bfut_Paste item properties from clipboard to set selected items take property (playrate).lua
-* bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
-* bfut_Paste item properties from clipboard to set selected items take property (volume).lua
+  * bfut_Copy item properties to clipboard.lua
+  * bfut_Paste item properties from clipboard to set selected items property (volume).lua
+  * bfut_Paste item properties from clipboard to set selected items property (length).lua
+  * bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua
+  * bfut_Paste item properties from clipboard to set selected items property (fadeinlength).lua
+  * bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua
+  * bfut_Paste item properties from clipboard to set selected items property (fadeincurvature).lua
+  * bfut_Paste item properties from clipboard to set selected items property (fadeoutcurvature).lua
+  * bfut_Paste item properties from clipboard to set selected items property (autofadeinlength).lua
+  * bfut_Paste item properties from clipboard to set selected items property (autofadeoutlength).lua
+  * bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua
+  * bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua
+  * bfut_Paste item properties from clipboard to set selected items property (lowpassfade).lua
+  * bfut_Paste item properties from clipboard to set selected items property (activetake).lua
+  * bfut_Paste item properties from clipboard to set selected items property (fixedlane).lua
+  * bfut_Paste item properties from clipboard to set selected items property (freeitemposition).lua
+  * bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
+  * bfut_Paste item properties from clipboard to set selected items take property (volume).lua
+  * bfut_Paste item properties from clipboard to set selected items take property (pan).lua
+  * bfut_Paste item properties from clipboard to set selected items take property (playrate).lua
+  * bfut_Paste item properties from clipboard to set selected items take property (pitch).lua
+  * bfut_Paste item properties from clipboard to set selected items take stretch markers.lua
 
 Copies and sets specific property in selected items. Observes item lock status.
 

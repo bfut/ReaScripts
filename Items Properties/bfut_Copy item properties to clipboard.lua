@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.4
+  @version 1.5
   @description bfut_Copy item properties to clipboard
   @about
     Copy and paste properties
@@ -10,8 +10,14 @@
     * bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeinlength).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua
+    * bfut_Paste item properties from clipboard to set selected items property (fadeincurvature).lua
+    * bfut_Paste item properties from clipboard to set selected items property (fadeoutcurvature).lua
+    * bfut_Paste item properties from clipboard to set selected items property (autofadeinlength).lua
+    * bfut_Paste item properties from clipboard to set selected items property (autofadeoutlength).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua
+    * bfut_Paste item properties from clipboard to set selected items property (lowpassfade).lua
+    * bfut_Paste item properties from clipboard to set selected items property (activetake).lua
     * bfut_Paste item properties from clipboard to set selected items property (fixedlane).lua
     * bfut_Paste item properties from clipboard to set selected items property (freeitemposition).lua
     * bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
@@ -29,9 +35,9 @@
       3) Select other media item(s).
       4) Run one of the scripts "bfut_Paste item properties from clipboard to set selected items ... (...)"
   @changelog
-    REQUIRES: Reaper v7.00 or later
-    + add support for fixed item lane property, see new script (fixedlane)
-    + add support for free item position property, see new script (freeitemposition)
+    REQUIRES: Reaper v7.55 or later
+    + extend support for item fade properties, see new scripts (fadeincurvature, fadeoutcurvature, autofadeinlength, autofadeoutlength, lowpassfade)
+    + add support for active take property, see new script (activetake)
     # this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
@@ -57,8 +63,14 @@ if item then
   local itemD_SNAPOFFSET = reaper.GetMediaItemInfo_Value(item, "D_SNAPOFFSET")
   local itemD_FADEINLEN = reaper.GetMediaItemInfo_Value(item, "D_FADEINLEN")
   local itemD_FADEOUTLEN = reaper.GetMediaItemInfo_Value(item, "D_FADEOUTLEN")
+  local itemD_FADEINDIR = reaper.GetMediaItemInfo_Value(item, "D_FADEINDIR")
+  local itemD_FADEOUTDIR = reaper.GetMediaItemInfo_Value(item, "D_FADEOUTDIR")
+  local itemD_FADEINLEN_AUTO = reaper.GetMediaItemInfo_Value(item, "D_FADEINLEN_AUTO")
+  local itemD_FADEOUTLEN_AUTO = reaper.GetMediaItemInfo_Value(item, "D_FADEOUTLEN_AUTO")
   local itemC_FADEINSHAPE = reaper.GetMediaItemInfo_Value(item, "C_FADEINSHAPE")
   local itemC_FADEOUTSHAPE = reaper.GetMediaItemInfo_Value(item, "C_FADEOUTSHAPE")
+  local itemI_FADELPF = reaper.GetMediaItemInfo_Value(item, "I_FADELPF")
+  local itemI_CURTAKE = reaper.GetMediaItemInfo_Value(item, "I_CURTAKE")
   local itemF_FREEMODE_Y = reaper.GetMediaItemInfo_Value(item, "F_FREEMODE_Y")
   local itemF_FREEMODE_H = reaper.GetMediaItemInfo_Value(item, "F_FREEMODE_H")
   local itemI_FIXEDLANE = reaper.GetMediaItemInfo_Value(item, "I_FIXEDLANE")
@@ -89,15 +101,21 @@ if item then
       end
     end
   end
-  reaper.SetExtState("bfut", "BFI4",
-    string.format("BFI4#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#BFS3#%d#%s",
+  reaper.SetExtState("bfut", "BFI5",
+    string.format("BFI5#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#BFS3#%d#%s",
       itemD_VOL,
       itemD_LENGTH,
       itemD_SNAPOFFSET,
       itemD_FADEINLEN,
       itemD_FADEOUTLEN,
+      itemD_FADEINDIR,
+      itemD_FADEOUTDIR,
+      itemD_FADEINLEN_AUTO,
+      itemD_FADEOUTLEN_AUTO,
       itemC_FADEINSHAPE,
       itemC_FADEOUTSHAPE,
+      itemI_FADELPF,
+      itemI_CURTAKE,
       itemF_FREEMODE_Y,
       itemF_FREEMODE_H,
       itemI_FIXEDLANE,

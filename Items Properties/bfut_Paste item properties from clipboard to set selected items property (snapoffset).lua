@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.4
+  @version 1.5
   @description bfut_Paste item properties from clipboard to set selected items property (snapoffset)
   @about
     Copy and paste properties
@@ -10,8 +10,14 @@
     * bfut_Paste item properties from clipboard to set selected items property (snapoffset).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeinlength).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeoutlength).lua
+    * bfut_Paste item properties from clipboard to set selected items property (fadeincurvature).lua
+    * bfut_Paste item properties from clipboard to set selected items property (fadeoutcurvature).lua
+    * bfut_Paste item properties from clipboard to set selected items property (autofadeinlength).lua
+    * bfut_Paste item properties from clipboard to set selected items property (autofadeoutlength).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeinshape).lua
     * bfut_Paste item properties from clipboard to set selected items property (fadeoutshape).lua
+    * bfut_Paste item properties from clipboard to set selected items property (lowpassfade).lua
+    * bfut_Paste item properties from clipboard to set selected items property (activetake).lua
     * bfut_Paste item properties from clipboard to set selected items property (fixedlane).lua
     * bfut_Paste item properties from clipboard to set selected items property (freeitemposition).lua
     * bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
@@ -29,9 +35,9 @@
       3) Select other media item(s).
       4) Run one of the scripts "bfut_Paste item properties from clipboard to set selected items ... (...)"
   @changelog
-    REQUIRES: Reaper v7.00 or later
-    + add support for fixed item lane property, see new script (fixedlane)
-    + add support for free item position property, see new script (freeitemposition)
+    REQUIRES: Reaper v7.55 or later
+    + extend support for item fade properties, see new scripts (fadeincurvature, fadeoutcurvature, autofadeinlength, autofadeoutlength, lowpassfade)
+    + add support for active take property, see new script (activetake)
     # this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
@@ -62,8 +68,14 @@ local function bfut_GetPropertiesFromCSV(buf)
     "itemD_SNAPOFFSET",
     "itemD_FADEINLEN",
     "itemD_FADEOUTLEN",
+    "itemD_FADEINDIR",
+    "itemD_FADEOUTDIR",
+    "itemD_FADEINLEN_AUTO",
+    "itemD_FADEOUTLEN_AUTO",
     "itemC_FADEINSHAPE",
     "itemC_FADEOUTSHAPE",
+    "itemI_FADELPF",
+    "itemI_CURTAKE",
     "itemF_FREEMODE_Y",
     "itemF_FREEMODE_H",
     "itemI_FIXEDLANE",
@@ -104,11 +116,11 @@ local IS_ITEM_LOCKED = {
   [1.0] = true,
   [3.0] = true
 }
-if not reaper.HasExtState("bfut", "BFI4") then
+if not reaper.HasExtState("bfut", "BFI5") then
   return
 end
-local buf = reaper.GetExtState("bfut", "BFI4")
-if not buf:sub(1,4) == "BFI4" or not buf:find("#") then
+local buf = reaper.GetExtState("bfut", "BFI5")
+if not buf:sub(1,4) == "BFI5" or not buf:find("#") then
   return
 end
 local cpos = buf:find("#BFS3")

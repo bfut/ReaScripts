@@ -1,7 +1,7 @@
 --[[
   @author bfut
   @version 1.5
-  @description bfut_Paste item properties from clipboard to set selected items property (freeitemposition)
+  @description bfut_Paste item properties from clipboard to set selected items property (fadeoutcurvature)
   @about
     Copy and paste properties
     * bfut_Copy item properties to clipboard.lua
@@ -58,8 +58,7 @@
 ]]
 local CONFIG = {
   mode = "item",
-  property1 = "F_FREEMODE_Y",
-  property2 = "F_FREEMODE_H",
+  property1 = "D_FADEOUTDIR",
 }
 local function bfut_GetPropertiesFromCSV(buf)
   local vals = {}
@@ -150,15 +149,12 @@ else
   local properties = bfut_GetPropertiesFromCSV(buf)
   if properties then
     local parmname1 = CONFIG["property1"]
-    local parmname2 = CONFIG["property2"]
     local newvalue1 = properties[CONFIG["mode"] .. CONFIG["property1"]]
-    local newvalue2 = properties[CONFIG["mode"] .. CONFIG["property2"]]
     if CONFIG["mode"] == "item" then
       for i = 0, COUNT_SEL_ITEMS - 1 do
         item = reaper.GetSelectedMediaItem(0, i)
         if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
           reaper.SetMediaItemInfo_Value(item, parmname1, newvalue1)
-          reaper.SetMediaItemInfo_Value(item, parmname2, newvalue2)
         end
       end
     else
@@ -176,4 +172,4 @@ else
 end
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
-reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items property (freeitemposition).lua", -1)
+reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items property (fadeoutcurvature).lua", -1)
