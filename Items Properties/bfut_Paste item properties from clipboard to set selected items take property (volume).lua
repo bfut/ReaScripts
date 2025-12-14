@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.5
+  @version 1.6
   @description bfut_Paste item properties from clipboard to set selected items take property (volume)
   @about
     Copy and paste properties
@@ -23,8 +23,14 @@
     * bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
     * bfut_Paste item properties from clipboard to set selected items take property (volume).lua
     * bfut_Paste item properties from clipboard to set selected items take property (pan).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (panlaw).lua
     * bfut_Paste item properties from clipboard to set selected items take property (playrate).lua
     * bfut_Paste item properties from clipboard to set selected items take property (pitch).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (preservepitch).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (channelmode).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (pitchmode).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (recordpassid).lua
+    * bfut_Paste item properties from clipboard to set selected items take markers.lua
     * bfut_Paste item properties from clipboard to set selected items take stretch markers.lua
 
     Copies and sets specific property in selected items. Observes item lock status.
@@ -35,9 +41,9 @@
       3) Select other media item(s).
       4) Run one of the scripts "bfut_Paste item properties from clipboard to set selected items ... (...)"
   @changelog
-    REQUIRES: Reaper v7.55 or later
-    + extend support for item fade properties, see new scripts (fadeincurvature, fadeoutcurvature, autofadeinlength, autofadeoutlength, lowpassfade)
-    + add support for active take property, see new script (activetake)
+    REQUIRES: Reaper v7.56 or later
+    + support copy-/pasting take markers
+    + extend support for item take properties, see new scripts (panlaw, preservepitch, channelmode, pitchmode, recordpassid)
     # this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
@@ -82,8 +88,13 @@ local function bfut_GetPropertiesFromCSV(buf)
     "takeD_STARTOFFS",
     "takeD_VOL",
     "takeD_PAN",
+    "takeD_PANLAW",
     "takeD_PLAYRATE",
     "takeD_PITCH",
+    "takeB_PPITCH",
+    "takeI_CHANMODE",
+    "takeI_PITCHMODE",
+    "takeI_RECPASSID",
   }
   i = 1
   for item in buf:gmatch("[^#]+") do
@@ -108,6 +119,24 @@ local function bfut_GetStretchMarkersFromCSV(buf)
   end
   return num_vals, vals
 end
+local function bfut_GetTakeMarkersFromCSV(buf)
+  local buf_protected = buf:gsub("##", "")
+  local num_vals = tonumber(string.match(buf_protected, "[^#]+", 0))
+  local vals
+  if num_vals > 0 and num_vals % 3 == 0 then
+    local cpos = buf_protected:find("#", 2)
+    buf_protected = buf_protected:sub(cpos)
+    vals = {}
+    for item in buf_protected:gmatch("([^#]+)") do
+      item = item:gsub("", "#")
+      vals[#vals + 1] = item
+    end
+    if #vals ~= 3*num_vals then
+      return 0, nil
+    end
+  end
+  return num_vals, vals
+end
 local COUNT_SEL_ITEMS = reaper.CountSelectedMediaItems(0)
 if COUNT_SEL_ITEMS < 1 then
   return
@@ -116,22 +145,45 @@ local IS_ITEM_LOCKED = {
   [1.0] = true,
   [3.0] = true
 }
-if not reaper.HasExtState("bfut", "BFI5") then
+if not reaper.HasExtState("bfut", "BFI6") then
   return
 end
-local buf = reaper.GetExtState("bfut", "BFI5")
-if not buf:sub(1,4) == "BFI5" or not buf:find("#") then
+local buf = reaper.GetExtState("bfut", "BFI6")
+if not buf:sub(1,4) == "BFI6" or not buf:find("#") then
   return
 end
 local cpos = buf:find("#BFS3")
 if not cpos then
   return
 end
+local cpos2 = buf:find("#BFM1")
+if not cpos2 then
+  return
+end
 reaper.Undo_BeginBlock2(0)
 reaper.PreventUIRefresh(1)
 if CONFIG["mode"] == "marker" then
-  buf = buf:sub(cpos + 5)
-  local num_takestretchmarkers, stretchmarkers = bfut_GetStretchMarkersFromCSV(buf)
+  if CONFIG["property1"] == "tmarker" then
+    buf = buf:sub(cpos2 + 5)
+    local num_takemarkers, takemarkers = bfut_GetTakeMarkersFromCSV(buf)
+    for i = 0, COUNT_SEL_ITEMS - 1 do
+      item = reaper.GetSelectedMediaItem(0, i)
+      if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
+        local take = reaper.GetActiveTake(item)
+        if take then
+          local num_existing_markers = reaper.GetNumTakeMarkers(take)
+          for idx = num_existing_markers - 1, 0, -1 do
+            reaper.DeleteTakeMarker(take, idx)
+          end
+          for i = 0, num_takemarkers - 1 do
+            reaper.SetTakeMarker(take, -1, takemarkers[3*i + 2], tonumber(takemarkers[3*i + 1]), tonumber(takemarkers[3*i + 3]))
+          end
+        end
+      end
+    end
+  elseif CONFIG["property1"] == "stretch" then
+    buf = buf:sub(cpos + 5)
+    local num_takestretchmarkers, stretchmarkers = bfut_GetStretchMarkersFromCSV(buf)
     for i = 0, COUNT_SEL_ITEMS - 1 do
       item = reaper.GetSelectedMediaItem(0, i)
       if not IS_ITEM_LOCKED[reaper.GetMediaItemInfo_Value(item, "C_LOCK")] then
@@ -144,6 +196,7 @@ if CONFIG["mode"] == "marker" then
         end
       end
     end
+  end
 else
   buf = buf:sub(5, cpos - 1)
   local properties = bfut_GetPropertiesFromCSV(buf)
@@ -172,4 +225,4 @@ else
 end
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
-reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items take property (volume).lua", -1)
+reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items take property (volume)", -1)

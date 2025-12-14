@@ -1,6 +1,6 @@
 --[[
   @author bfut
-  @version 1.5
+  @version 1.6
   @description bfut_Copy item properties to clipboard
   @about
     Copy and paste properties
@@ -23,8 +23,14 @@
     * bfut_Paste item properties from clipboard to set selected items take property (startoffset).lua
     * bfut_Paste item properties from clipboard to set selected items take property (volume).lua
     * bfut_Paste item properties from clipboard to set selected items take property (pan).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (panlaw).lua
     * bfut_Paste item properties from clipboard to set selected items take property (playrate).lua
     * bfut_Paste item properties from clipboard to set selected items take property (pitch).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (preservepitch).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (channelmode).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (pitchmode).lua
+    * bfut_Paste item properties from clipboard to set selected items take property (recordpassid).lua
+    * bfut_Paste item properties from clipboard to set selected items take markers.lua
     * bfut_Paste item properties from clipboard to set selected items take stretch markers.lua
 
     Copies and sets specific property in selected items. Observes item lock status.
@@ -35,9 +41,9 @@
       3) Select other media item(s).
       4) Run one of the scripts "bfut_Paste item properties from clipboard to set selected items ... (...)"
   @changelog
-    REQUIRES: Reaper v7.55 or later
-    + extend support for item fade properties, see new scripts (fadeincurvature, fadeoutcurvature, autofadeinlength, autofadeoutlength, lowpassfade)
-    + add support for active take property, see new script (activetake)
+    REQUIRES: Reaper v7.56 or later
+    + support copy-/pasting take markers
+    + extend support for item take properties, see new scripts (panlaw, preservepitch, channelmode, pitchmode, recordpassid)
     # this script set version is incompatible with any earlier versions
   @website https://github.com/bfut
   LICENSE:
@@ -77,17 +83,29 @@ if item then
   local takeD_STARTOFFS = 0.0
   local takeD_VOL = 1.0
   local takeD_PAN = 0.0
+  local takeD_PANLAW = 0.0
   local takeD_PLAYRATE = 1.0
   local takeD_PITCH = 1.0
+  local takeB_PPITCH = 0.0
+  local takeI_CHANMODE = 0.0
+  local takeI_PITCHMODE = 0.0
+  local takeI_RECPASSID = 0.0
   local take = reaper.GetActiveTake(item)
   local num_takestretchmarkers = 0
   local takestretchmarkers = {}
+  local num_takemarkers = 0
+  local takemarkers = {}
   if take then
     takeD_STARTOFFS = reaper.GetMediaItemTakeInfo_Value(take, "D_STARTOFFS")
     takeD_VOL = reaper.GetMediaItemTakeInfo_Value(take, "D_VOL")
     takeD_PAN = reaper.GetMediaItemTakeInfo_Value(take, "D_PAN")
+    takeD_PANLAW = reaper.GetMediaItemTakeInfo_Value(take, "D_PANLAW")
     takeD_PLAYRATE = reaper.GetMediaItemTakeInfo_Value(take, "D_PLAYRATE")
     takeD_PITCH = reaper.GetMediaItemTakeInfo_Value(take, "D_PITCH")
+    takeB_PPITCH = reaper.GetMediaItemTakeInfo_Value(take, "B_PPITCH")
+    takeI_CHANMODE = reaper.GetMediaItemTakeInfo_Value(take, "I_CHANMODE")
+    takeI_PITCHMODE = reaper.GetMediaItemTakeInfo_Value(take, "I_PITCHMODE")
+    takeI_RECPASSID = reaper.GetMediaItemTakeInfo_Value(take, "I_RECPASSID")
     num_takestretchmarkers = reaper.GetTakeNumStretchMarkers(take)
     if num_takestretchmarkers > 0 then
       for idx = 0, num_takestretchmarkers - 1 do
@@ -100,9 +118,21 @@ if item then
         takestretchmarkers[#takestretchmarkers + 1] = string.format("%f#%f#%f", pos, opt_srcpos, slope)
       end
     end
+    num_takemarkers = reaper.GetNumTakeMarkers(take)
+    if num_takemarkers > 0 then
+      for idx = 0, num_takemarkers - 1 do
+        local pos, name_, opt_color = reaper.GetTakeMarker(take, idx)
+        if pos < 0 then
+          num_takemarkers = idx
+          break
+        end
+        name_ = name_:gsub("#", "##")
+        takemarkers[#takemarkers + 1] = string.format("%f#%s#%f", pos, name_, opt_color)
+      end
+    end
   end
-  reaper.SetExtState("bfut", "BFI5",
-    string.format("BFI5#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#BFS3#%d#%s",
+  reaper.SetExtState("bfut", "BFI6",
+    string.format("BFI6#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#%f#BFS3#%d#%s#BFM1#%d#%s",
       itemD_VOL,
       itemD_LENGTH,
       itemD_SNAPOFFSET,
@@ -122,10 +152,17 @@ if item then
       takeD_STARTOFFS,
       takeD_VOL,
       takeD_PAN,
+      takeD_PANLAW,
       takeD_PLAYRATE,
       takeD_PITCH,
+      takeB_PPITCH,
+      takeI_CHANMODE,
+      takeI_PITCHMODE,
+      takeI_RECPASSID,
       num_takestretchmarkers,
-      table.concat(takestretchmarkers, "#")
+      table.concat(takestretchmarkers, "#"),
+      num_takemarkers,
+      table.concat(takemarkers, "#")
     ), true)
   reaper.Undo_BeginBlock2(0)
   reaper.Undo_EndBlock2(0, "bfut_Copy item properties to clipboard", -1)

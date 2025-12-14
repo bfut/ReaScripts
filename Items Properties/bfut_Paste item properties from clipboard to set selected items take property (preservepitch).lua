@@ -1,7 +1,7 @@
 --[[
   @author bfut
   @version 1.6
-  @description bfut_Paste item properties from clipboard to set selected items take property (playrate)
+  @description bfut_Paste item properties from clipboard to set selected items take property (preservepitch)
   @about
     Copy and paste properties
     * bfut_Copy item properties to clipboard.lua
@@ -64,7 +64,7 @@
 ]]
 local CONFIG = {
   mode = "take",
-  property1 = "D_PLAYRATE",
+  property1 = "B_PPITCH",
 }
 local function bfut_GetPropertiesFromCSV(buf)
   local vals = {}
@@ -225,4 +225,4 @@ else
 end
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
-reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items take property (playrate)", -1)
+reaper.Undo_EndBlock2(0, "bfut_Paste item properties from clipboard to set selected items take property (preservepitch)", -1)
