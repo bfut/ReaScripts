@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="bfut_ReaScripts" commit="f6760603779369d8e0f463fefd273bfdab9feb56">
+<index version="1" name="bfut_ReaScripts" commit="5075161017214dc8a801c648cf7cbdae7364cf99">
   <category name="Items Editing">
     <reapack name="bfut_Copy item to clipboard.lua" type="script" desc="bfut_Copy item to clipboard">
       <metadata>
@@ -124,6 +124,22 @@
       <version name="2.3" author="bfut" time="2022-11-19T14:59:35Z">
         <changelog><![CDATA[+ support time signature markers]]></changelog>
         <source main="main">https://github.com/bfut/ReaScripts/raw/566f070bc827cf0bc53ec362ad81389bc7d34e5c/Items%20Editing/bfut_Copy%20items%20within%20time%20selection%20to%20project%20markers,%20remove%20overlaps.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Create razor edit area from take marker section under mouse.lua" type="script" desc="bfut_Create razor edit area from take marker section under mouse">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Select take marker section\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Create razor edit area from take marker section under mouse.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Set time selection to take marker section under mouse.lua\sa180\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="bfut" time="2026-04-02T22:05:50Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/5075161017214dc8a801c648cf7cbdae7364cf99/Items%20Editing/bfut_Create%20razor%20edit%20area%20from%20take%20marker%20section%20under%20mouse.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Extract loop section under mouse cursor to new item.lua" type="script" desc="bfut_Extract loop section under mouse cursor to new item">
@@ -661,6 +677,22 @@ Requires SWS v2.11.0.0 or later]]></changelog>
       </metadata>
       <version name="1.0" author="bfut" time="2022-11-28T10:02:48Z">
         <source main="main">https://github.com/bfut/ReaScripts/raw/cf43cdf8bb76f489fc993d218c85df7c9a8b0539/Items%20Editing/bfut_Select%20items%20of%20less%20than%201%20sample%20in%20length.lua</source>
+      </version>
+    </reapack>
+    <reapack name="bfut_Set time selection to take marker section under mouse.lua" type="script" desc="bfut_Set time selection to take marker section under mouse">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Select take marker section\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Create razor edit area from take marker section under mouse.lua\par}
+{\pard \ql \f0 \sa0 \li360 \fi-360 \bullet \tx360\tab bfut_Set time selection to take marker section under mouse.lua\sa180\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="bfut" time="2026-04-02T22:05:50Z">
+        <source main="main">https://github.com/bfut/ReaScripts/raw/5075161017214dc8a801c648cf7cbdae7364cf99/Items%20Editing/bfut_Set%20time%20selection%20to%20take%20marker%20section%20under%20mouse.lua</source>
       </version>
     </reapack>
     <reapack name="bfut_Split looped item into separate items.lua" type="script" desc="bfut_Split looped item into separate items">
