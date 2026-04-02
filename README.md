@@ -133,6 +133,8 @@ How to use:
 ## other scripts
 bfut_Add marker at each time signature marker.lua<br>
 bfut_Add marker at each time signature marker within time selection.lua<br>
+bfut_Create razor edit area from take marker section under mouse.lua<br>
+bfut_Set time selection to take marker section under mouse.lua<br>
 bfut_Extract loop section under mouse cursor to new item.lua<br>
 bfut_Split looped item into separate items.lua<br>
 bfut_Delete regions of less than 1 sample in length.lua<br>
